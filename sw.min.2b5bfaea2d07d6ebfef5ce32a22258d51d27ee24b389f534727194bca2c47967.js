@@ -1,0 +1,1 @@
+navigator.serviceWorker&&navigator.serviceWorker.register("/2022-Q2-workshop/sw.js",{scope:"/"})

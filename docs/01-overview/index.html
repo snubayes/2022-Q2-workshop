@@ -1,0 +1,194 @@
+<!doctype html><html lang=ko dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="1. 모형 # 1.1. 다변량 정규 모형 # $\mu \in \mathbb{R}^k,~\Sigma \in \mathbb{R}^{k \times k},~\Sigma > 0$에 대해 다음과 같은 모형을 생각하자1.
+$$ \begin{equation} X_1, \cdots, X_n | \mu, \Sigma \stackrel{i.i.d.}{\sim} N(\mu, \Sigma) \end{equation} $$
+정밀도 행렬은 $\Omega = \Sigma^{-1}$로 정의된다.
+여기서 $\mu$와 $\Sigma$를 추정하는 것이 문제이다.
+일반적으로는, 평균의 추정보다 공분산 추정이 어려운데, 이는 &lsquo;양의 정부호 행렬&rsquo;이라는 제약이 있기 때문이다.
+1.2. 가능도 # $$ \begin{equation} \begin{aligned} L(\mu, \Sigma) &= \prod_{i=1}^n N(x_i, \mu, \Sigma) \\ &= \prod_{i=1}^n |2\pi \Sigma|^{-1/2} e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2} tr(\Sigma^{-1} (x_i -\mu) (x_i -\mu)&rsquo;} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{n}{2} tr(\Sigma^{-1} [S_n + (\bar{x} - \mu)(\bar{x} - \mu)&rsquo;])} \end{aligned} \end{equation} $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="공분산 행렬 추정 문제"><meta property="og:description" content="1. 모형 # 1.1. 다변량 정규 모형 # $\mu \in \mathbb{R}^k,~\Sigma \in \mathbb{R}^{k \times k},~\Sigma > 0$에 대해 다음과 같은 모형을 생각하자1.
+$$ \begin{equation} X_1, \cdots, X_n | \mu, \Sigma \stackrel{i.i.d.}{\sim} N(\mu, \Sigma) \end{equation} $$
+정밀도 행렬은 $\Omega = \Sigma^{-1}$로 정의된다.
+여기서 $\mu$와 $\Sigma$를 추정하는 것이 문제이다.
+일반적으로는, 평균의 추정보다 공분산 추정이 어려운데, 이는 &lsquo;양의 정부호 행렬&rsquo;이라는 제약이 있기 때문이다.
+1.2. 가능도 # $$ \begin{equation} \begin{aligned} L(\mu, \Sigma) &= \prod_{i=1}^n N(x_i, \mu, \Sigma) \\ &= \prod_{i=1}^n |2\pi \Sigma|^{-1/2} e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2} tr(\Sigma^{-1} (x_i -\mu) (x_i -\mu)&rsquo;} \\ &\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{n}{2} tr(\Sigma^{-1} [S_n + (\bar{x} - \mu)(\bar{x} - \mu)&rsquo;])} \end{aligned} \end{equation} $$"><meta property="og:type" content="article"><meta property="og:url" content="https://snubyaes.github.io/2022-Q2-workshop/docs/01-overview/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2022-07-25T00:00:00+00:00"><meta property="article:modified_time" content="2022-07-25T18:28:31+09:00"><title>공분산 행렬 추정 문제 | 2022 여름학기 베이즈 워크숍</title><link rel=manifest href=/2022-Q2-workshop/manifest.json><link rel=icon href=/2022-Q2-workshop/favicon.png type=image/x-icon><link rel=stylesheet href=/2022-Q2-workshop/book.min.8ecd06c6a81b8600a324719bbef04a5db4c910b4bd5dee142b5ae2fc90febef2.css integrity="sha256-js0GxqgbhgCjJHGbvvBKXbTJELS9Xe4UK1ri/JD+vvI=" crossorigin=anonymous><script defer src=/2022-Q2-workshop/flexsearch.min.js></script>
+<script defer src=/2022-Q2-workshop/ko.search.min.cf92d1554935d61e6b24541bb199b36d6c4a5d0b92f726b1231418eee2ce3b70.js integrity="sha256-z5LRVUk11h5rJFQbsZmzbWxKXQuS9yaxIxQY7uLOO3A=" crossorigin=anonymous></script>
+<script defer src=/2022-Q2-workshop/sw.min.2b5bfaea2d07d6ebfef5ce32a22258d51d27ee24b389f534727194bca2c47967.js integrity="sha256-K1v66i0H1uv+9c4yoiJY1R0n7iSzifU0cnGUvKLEeWc=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],trust:e=>["\\htmlId","\\href"].includes(e.command),macros:{"\\eqref":"\\href{###1}{(\\text{#2})}","\\ref":"\\href{###1}{(\\text{#2})}","\\label":"\\htmlId{#1}{}"},throwOnError:!1,globalGroup:!0})})</script><style type=text/css>body{counter-reset:theorem,katexEqnNo,mmlEqnNo}.theorem{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.theorem:before{content:"Theorem " counter(theorem)". ";font-weight:700;font-style:normal}.remark{display:block;margin:12px 0;font-style:italic}.remark:before{content:"Remark. ";font-weight:700;font-style:normal}.example{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.example:before{content:"Example " counter(theorem)". ";font-weight:700;font-style:normal}.proposition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.proposition:before{content:"Proposition " counter(theorem)". ";font-weight:700;font-style:normal}.lemma{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.lemma:before{content:"Lemma " counter(theorem)". ";font-weight:700;font-style:normal}.proof{display:block;margin:12px 0;font-style:normal}.proof:before{content:"Proof. ";font-style:italic}.proof:after{content:"\25FC";float:right}.definition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.definition:before{content:"Definition " counter(theorem)". ";font-weight:700;font-style:normal}.katex-display>.katex{max-width:100%}.katex-display>.katex>.katex-html{max-width:100%;overflow-x:auto;overflow-y:hidden;padding-left:2px;padding-right:2px}</style><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/2022-Q2-workshop/><span>2022 여름학기 베이즈 워크숍</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/2022-Q2-workshop/docs/01-overview/ class=active>공분산 행렬 추정 문제</a></li><li><a href=/2022-Q2-workshop/docs/02-sicho/>공분산 행렬의 베이즈 추론</a></li></ul><ul><li><a href=/2022-Q2-workshop/posts/>Board</a></li><li><a href=https://github.com/snubyaes target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/2022-Q2-workshop/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>공분산 행렬 추정 문제</strong>
+<label for=toc-control><img src=/2022-Q2-workshop/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#1-모형>1. 모형</a><ul><li><a href=#11-다변량-정규-모형>1.1. 다변량 정규 모형</a></li><li><a href=#12-가능도>1.2. 가능도</a></li><li><a href=#13-로그-가능도>1.3. 로그 가능도</a></li></ul></li><li><a href=#2-빈도론-추정>2. 빈도론 추정</a><ul><li><a href=#21-최대가능도-추정량>2.1. 최대가능도 추정량</a></li></ul></li><li><a href=#3-베이즈-추정>3. 베이즈 추정</a><ul><li><a href=#31-베이즈-모형>3.1. 베이즈 모형</a><ul><li><a href=#311-켤레-사전분포>3.1.1. 켤레 사전분포</a></li><li><a href=#312-사후분포>3.1.2. 사후분포</a></li></ul></li><li><a href=#32-베이즈-추정량>3.2. 베이즈 추정량</a></li><li><a href=#33-제프리스-사전분포>3.3. 제프리스 사전분포</a><ul><li><a href=#331-사전분포>3.3.1. 사전분포</a></li><li><a href=#332-사후분포>3.3.2. 사후분포</a></li><li><a href=#333-베이즈-추정량>3.3.3. 베이즈 추정량</a></li></ul></li><li><a href=#34-위샤트-분포>3.4. 위샤트 분포</a></li><li><a href=#35-역-위샤트-분포>3.5. 역-위샤트 분포</a></li><li><a href=#36-mu--0인-정규모형의-예>3.6. $\mu = 0$인 정규모형의 예</a></li></ul></li><li><a href=#4-공분산의-사용처>4. 공분산의 사용처</a></li><li><a href=#5-고차원-모형>5. 고차원 모형</a><ul><li><a href=#51-고차원-공분산-추정의-어려움>5.1. 고차원 공분산 추정의 어려움</a></li></ul></li><li><a href=#6-공분산의-분해>6. 공분산의 분해</a><ul><li><a href=#61-촐레스키-분해>6.1. 촐레스키 분해</a></li><li><a href=#62-대각화-정리-주성분-분석>6.2. 대각화 정리 (주성분 분석)</a></li><li><a href=#63-수정된-촐레스키-분해>6.3. 수정된 촐레스키 분해</a><ul><li><a href=#631-동기>6.3.1. 동기</a></li></ul></li></ul></li><li><a href=#7-빈도론-추정>7. 빈도론 추정</a><ul><li><a href=#71-벌점함수-방법들>7.1. 벌점함수 방법들</a></li><li><a href=#72-lam--fan-2009>7.2. Lam & Fan (2009)</a></li><li><a href=#73-성김-가정이-없는-추정-방법들>7.3. 성김 가정이 없는 추정 방법들</a><ul><li><a href=#731-stein-1975>7.3.1. Stein (1975)</a></li><li><a href=#732-ledoit--wolf-2004>7.3.2. Ledoit & Wolf (2004)</a></li></ul></li><li><a href=#74-성김-가정-하에서의-빈도론-추정-방법들>7.4. 성김 가정 하에서의 빈도론 추정 방법들</a></li></ul></li><li><a href=#8-베이즈-방법>8. 베이즈 방법</a><ul><li><a href=#81-그래프-모형>8.1. 그래프 모형</a><ul><li><a href=#811-그래프>8.1.1. 그래프</a></li><li><a href=#812-g-wishart-분포>8.1.2. G-Wishart 분포</a></li><li><a href=#813-그래프-모형>8.1.3. 그래프 모형</a></li><li><a href=#814-g-inverse-wishart-분포>8.1.4. G-inverse-Wishart 분포</a></li><li><a href=#815-성질>8.1.5. 성질</a></li></ul></li><li><a href=#82-축소-사전분포>8.2. 축소 사전분포</a><ul><li><a href=#821-wang-2015>8.2.1. Wang (2015)</a></li></ul></li><li><a href=#83-사후처리-사후분포-이광민>8.3. 사후처리 사후분포 (이광민)</a></li><li><a href=#84-berger-sun--song-2020>8.4. Berger, Sun & Song (2020)</a></li></ul></li></ul></nav></aside></header><div class="flex flex-wrap justify-between" style=margin-bottom:11px><div class="flex align-center"><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>First created at July 25, 2022</span></div></div><article class=markdown><h1 id=1-모형>1. 모형
+<a class=anchor href=#1-%eb%aa%a8%ed%98%95>#</a></h1><h2 id=11-다변량-정규-모형>1.1. 다변량 정규 모형
+<a class=anchor href=#11-%eb%8b%a4%eb%b3%80%eb%9f%89-%ec%a0%95%ea%b7%9c-%eb%aa%a8%ed%98%95>#</a></h2><p>$\mu \in \mathbb{R}^k,~\Sigma \in \mathbb{R}^{k \times k},~\Sigma > 0$에 대해 다음과 같은 모형을 생각하자<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>.</p><p>$$
+\begin{equation}
+X_1, \cdots, X_n | \mu, \Sigma \stackrel{i.i.d.}{\sim} N(\mu, \Sigma)
+\end{equation}
+$$</p><p>정밀도 행렬은 $\Omega = \Sigma^{-1}$로 정의된다.</p><p>여기서 $\mu$와 $\Sigma$를 추정하는 것이 문제이다.</p><p>일반적으로는, 평균의 추정보다 공분산 추정이 어려운데, 이는 &lsquo;양의 정부호 행렬&rsquo;이라는 제약이 있기 때문이다.</p><h2 id=12-가능도>1.2. 가능도
+<a class=anchor href=#12-%ea%b0%80%eb%8a%a5%eb%8f%84>#</a></h2><p>$$
+\begin{equation}
+\begin{aligned}
+L(\mu, \Sigma)
+&= \prod_{i=1}^n N(x_i, \mu, \Sigma) \\
+&= \prod_{i=1}^n |2\pi \Sigma|^{-1/2} e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\
+&\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2}(x_i -\mu)&rsquo; \Sigma^{-1} (x_i -\mu)} \\
+&\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{1}{2} tr(\Sigma^{-1} (x_i -\mu) (x_i -\mu)&rsquo;} \\
+&\propto | \Sigma|^{-n/2} \prod_{i=1}^n e^{-\frac{n}{2} tr(\Sigma^{-1} [S_n + (\bar{x} - \mu)(\bar{x} - \mu)&rsquo;])}
+\end{aligned}
+\end{equation}
+$$</p><p>여기서 $nS_n + n(\bar{x} - \mu)(\bar{x} - \mu)&rsquo; = (x_i -\mu) (x_i -\mu)&rsquo;$이다.</p><h2 id=13-로그-가능도>1.3. 로그 가능도
+<a class=anchor href=#13-%eb%a1%9c%ea%b7%b8-%ea%b0%80%eb%8a%a5%eb%8f%84>#</a></h2><p>$$
+\begin{equation}
+l(\mu, \Sigma) = C - \frac{n}{2} \log |\Sigma| -\frac{n}{2}tr\left(\Sigma^{-1} [S_n + (\bar{x} - \mu)(\bar{x} - \mu)&rsquo;]\right)
+\end{equation}
+$$</p><h1 id=2-빈도론-추정>2. 빈도론 추정
+<a class=anchor href=#2-%eb%b9%88%eb%8f%84%eb%a1%a0-%ec%b6%94%ec%a0%95>#</a></h1><h2 id=21-최대가능도-추정량>2.1. 최대가능도 추정량
+<a class=anchor href=#21-%ec%b5%9c%eb%8c%80%ea%b0%80%eb%8a%a5%eb%8f%84-%ec%b6%94%ec%a0%95%eb%9f%89>#</a></h2><p>빈도론자의 추정량은 다음과 같이 주어진다.</p><p>$$\hat{\mu}^{MLE} = \bar{x},~\hat{\Sigma} = \frac{1}{n} \sum (x_i - \bar{x})(x_i - \bar{x})&rsquo; = S_n$$</p><p>$\mu =0$임이 알려져 있으면, $\hat{\Sigma}^{MLE} = \frac{1}{n} \sum x_i x_i&rsquo;$이다.</p><h1 id=3-베이즈-추정>3. 베이즈 추정
+<a class=anchor href=#3-%eb%b2%a0%ec%9d%b4%ec%a6%88-%ec%b6%94%ec%a0%95>#</a></h1><h2 id=31-베이즈-모형>3.1. 베이즈 모형
+<a class=anchor href=#31-%eb%b2%a0%ec%9d%b4%ec%a6%88-%eb%aa%a8%ed%98%95>#</a></h2><h3 id=311-켤레-사전분포>3.1.1. 켤레 사전분포
+<a class=anchor href=#311-%ec%bc%a4%eb%a0%88-%ec%82%ac%ec%a0%84%eb%b6%84%ed%8f%ac>#</a></h3><p>다음과 같은 켤레사전분포를 생각한다.</p><p>$$
+\begin{equation}
+\begin{gathered}
+\Omega \sim W(\nu_0, B_0^{-1}) \\
+\mu|\Omega \sim N(\mu_0, \Sigma/\kappa_0)
+\end{gathered}
+\end{equation}
+$$</p><p>여기서 $W$는 위사트(Wishart) 분포로 공분산 행렬 $\Sigma$에 대한 사전분포를 고려한다면, 역-위샤트(inverse-Wishart) 사전분포를 고려하면 된다.</p><h3 id=312-사후분포>3.1.2. 사후분포
+<a class=anchor href=#312-%ec%82%ac%ed%9b%84%eb%b6%84%ed%8f%ac>#</a></h3><p>사후분포는</p><p>$\nu_n = \nu_0 + n,~\kappa_n = \kappa_0 + n,~\mu_n = \frac{1}{\kappa_0 +n} (\kappa_0 \mu_0 + n \bar{x}),$
+$$B_n = B_0 + n S_n + \frac{n \kappa_0}{n+\kappa_0} (\mu_0 - \bar{x}) (\mu_0 - \bar{x})&rsquo;$$
+를 모수로 갖는 위샤트 분포로 주어진다.</p><h2 id=32-베이즈-추정량>3.2. 베이즈 추정량
+<a class=anchor href=#32-%eb%b2%a0%ec%9d%b4%ec%a6%88-%ec%b6%94%ec%a0%95%eb%9f%89>#</a></h2><p>위의 사전분포로부터</p><p>$$
+\begin{equation}
+\begin{gathered}
+\hat{\mu}^B = \mu_n \\
+\hat{\Sigma}^B = \frac{1}{\nu_n - k - 1} B_n
+\end{gathered}
+\end{equation}
+$$</p><p>으로 주어진다.</p><h2 id=33-제프리스-사전분포>3.3. 제프리스 사전분포
+<a class=anchor href=#33-%ec%a0%9c%ed%94%84%eb%a6%ac%ec%8a%a4-%ec%82%ac%ec%a0%84%eb%b6%84%ed%8f%ac>#</a></h2><h3 id=331-사전분포>3.3.1. 사전분포
+<a class=anchor href=#331-%ec%82%ac%ec%a0%84%eb%b6%84%ed%8f%ac>#</a></h3><p>$$
+\begin{equation}\pi(\mu, \Sigma) d\mu d\Sigma \propto |\Sigma|^{-\frac{k+1}{2}} d \mu d\Sigma
+\end{equation}$$</p><h3 id=332-사후분포>3.3.2. 사후분포
+<a class=anchor href=#332-%ec%82%ac%ed%9b%84%eb%b6%84%ed%8f%ac>#</a></h3><p>$$\mu|\Sigma, \mathbb{X} \sim N\left(\bar{x},~\frac{1}{n}\Sigma\right)$$
+$$\Sigma|\mathbb{X} \sim IW_k(k + n,~(n-1)S_n)$$</p><h3 id=333-베이즈-추정량>3.3.3. 베이즈 추정량
+<a class=anchor href=#333-%eb%b2%a0%ec%9d%b4%ec%a6%88-%ec%b6%94%ec%a0%95%eb%9f%89>#</a></h3><p>$$\hat{\mu}^B = \bar{x}$$
+$$\hat{\Sigma}^B = \frac{n-1}{n-k-2} S_n$$</p><h2 id=34-위샤트-분포>3.4. 위샤트 분포
+<a class=anchor href=#34-%ec%9c%84%ec%83%a4%ed%8a%b8-%eb%b6%84%ed%8f%ac>#</a></h2><p>$nu > k-1,~B>0$에 대해 양의 정부호 행렬 $W$가 위샤트 분포 $W_k(\nu, B)$를 따른다는 것은, 다음을 의미한다.</p><p>$$f(w)dw = \frac{1}{2^{\nu k / 2} |B| \Gamma_k(\nu/2)} |w|^\frac{\nu - k -1}{2} e^{-\frac{1}{2}tr(B^{-1}w)}$$</p><p>여기서 $dw = \prod_{i \leq j} dw_{ij}$를 의미한다.</p><p>그러면, $\mathbb{E}[W] = \nu B$이다.</p><h2 id=35-역-위샤트-분포>3.5. 역-위샤트 분포
+<a class=anchor href=#35-%ec%97%ad-%ec%9c%84%ec%83%a4%ed%8a%b8-%eb%b6%84%ed%8f%ac>#</a></h2><p>$\Omega \sim IW_k (\nu, A), ~\nu > k-1,~ A >0$이라는 것은 다음을 의미한다.</p><p>$$f(\omega) d\omega = \frac{|A|^\frac{\nu - k -1}{2}}{2^\frac{k(\nu-k-1)}{2} \Gamma_k(\nu/2)} |\omega|^{-\frac{\nu}{2}} e^{-\frac{1}{2} tr(\Omega^{-1} A)}$$</p><p>다음이 성립한다.</p><ul><li>$W \sim W_k(\nu, B) \Longleftrightarrow W^{-1} \sim IW_k(\nu+k+1, B^{-1})$.</li><li>$\Omega \sim IW_k(\nu, A) \Rightarrow \mathbb{E}[\Omega] = \frac{1}{\nu - 2k - 2} A, ~ \nu - 2k -2 > 0$.</li></ul><h2 id=36-mu--0인-정규모형의-예>3.6. $\mu = 0$인 정규모형의 예
+<a class=anchor href=#36-mu--0%ec%9d%b8-%ec%a0%95%ea%b7%9c%eb%aa%a8%ed%98%95%ec%9d%98-%ec%98%88>#</a></h2><p>모형
+$$X_1, \cdots, X_n | \Sigma \stackrel{i.i.d.}{\sim} N_k(0, \Sigma)$$
+$$\Omega \sim W_k(\nu_0, B_0^{-1})$$
+의 사후분포는
+$$
+\begin{equation}
+\begin{gathered}
+\Omega|\mathbb{X} \sim W_k(\nu_0 + n, (B_0 + nS)^{-1}) \\
+\Sigma|\mathbb{X} \sim IW_k(\nu_0 + n, B_0 + nS)
+\end{gathered}
+\end{equation}
+$$</p><p>이 모형은 빈도론자들의 공분산 행렬 추정 모형을 그대로 옮긴 것인데, 베이즈주의자들 사이에서도 논란이 있다.</p><p>고정된 $k$에 대해서는 사후분포, 베이즈 추정량들이 좋은 성질을 가짐이 알려져 있다.</p><p>우리는 $k$가 변하는 경우를 함께 고려해보고자 한다.</p><h1 id=4-공분산의-사용처>4. 공분산의 사용처
+<a class=anchor href=#4-%ea%b3%b5%eb%b6%84%ec%82%b0%ec%9d%98-%ec%82%ac%ec%9a%a9%ec%b2%98>#</a></h1><p>다음과 같은 분야에서 공분산 추론은 중요한 위상을 갖는다.</p><ul><li>주성분 분석(PCA)</li><li>판별 분석</li><li>변수들간의 독립성, 조건부 독립성 검정</li><li>정준상관분석</li></ul><h1 id=5-고차원-모형>5. 고차원 모형
+<a class=anchor href=#5-%ea%b3%a0%ec%b0%a8%ec%9b%90-%eb%aa%a8%ed%98%95>#</a></h1><p>2000년대에 들어서, 고차원 모형에 대한 관심이 급증하였다. 고차원 모형이란, 모수의 차원 $k$가 자료의 크기 $n$과 함께 커지는 경우를 생각한다. 심지어, 다음과 같은 상황을 고려하기도 한다.
+$$ k \stackrel{n \rightarrow \infty}{\longrightarrow} \infty.$$</p><p>과거에는 자료의 크기와 관계 없이 고정된 차원을 갖는 모형들을 고려하였다.</p><p>20세기 후반, 사람들은 &lsquo;데이터 많으니 더 큰 모형을 고려할 수 있지 않을까&rsquo; 하는 생각을 하기 시작했다. 즉, 자료가 커질 때, 모형의 복잡도도 함께 커지는 문제를 고려하였다. 이러한 상황에서는 기존에 알려진 모형의 점근적 성질들이 성립하지 않는 문제들이 발생하였고, 현대의 통계학은 이러한 문제를 해결하는 데 관심을 가지고 있다.</p><h2 id=51-고차원-공분산-추정의-어려움>5.1. 고차원 공분산 추정의 어려움
+<a class=anchor href=#51-%ea%b3%a0%ec%b0%a8%ec%9b%90-%ea%b3%b5%eb%b6%84%ec%82%b0-%ec%b6%94%ec%a0%95%ec%9d%98-%ec%96%b4%eb%a0%a4%ec%9b%80>#</a></h2><p>$n$과 $k$가 동시에 커지면서 다음과 같은 문제가 발생한다.</p><ol><li>$\dfrac{k}n$이 클수록, $\lambda_{\max} (S_n) &#187; \lambda_{\max}(\Sigma)$이고 $\lambda_{\min}(S_n) &#171; \lambda_{\min}(\Sigma)$이다.</li><li>(Johnstone & Lu 2009) $S_n$의 고유벡터는 $\Sigma$의 고유벡터로 수렴하지 않는다.</li></ol><p>1번의 문제는 과거에도 널리 알려져 있었으며, 이를 피하기 위한 다양한 가정들이 시도되었다. 최근에는 성김(sparse)가정을 주로 한다.</p><h1 id=6-공분산의-분해>6. 공분산의 분해
+<a class=anchor href=#6-%ea%b3%b5%eb%b6%84%ec%82%b0%ec%9d%98-%eb%b6%84%ed%95%b4>#</a></h1><p>공분산 행렬의 추정이 어려운 이유는 양의 정부호라는 제약조건 때문이다. 이를 피하기 위해 다음과 같이 공분산을 분해하여 생각하는 방법들이 제안되었다.</p><h2 id=61-촐레스키-분해>6.1. 촐레스키 분해
+<a class=anchor href=#61-%ec%b4%90%eb%a0%88%ec%8a%a4%ed%82%a4-%eb%b6%84%ed%95%b4>#</a></h2><p>촐레스키 분해(Cholesky decomposition)은 공분산 행렬을 다음과 같이 분해한다.</p><p>$$\Sigma = CC&rsquo;,~ C = (c_{ij})$$</p><p>여기서 $C$는 $c_{{ii}} > 0$인 하삼각행렬(lower triangular matrix)이다.</p><p>증명:</p><p>수학적 귀납법을 사용한다. $k=1$일 때는 자명하다.
+$$\Sigma = \begin{bmatrix} \Sigma_{11} & \sigma_{12}&rsquo; \\ \sigma_{12} & \sigma_{22} \end{bmatrix} = \begin{bmatrix} C_1 & 0 \\ x&rsquo; & y \end{bmatrix} \begin{bmatrix} C_1 & x \\ 0&rsquo; & y \end{bmatrix} $$
+을 만족하는 $x,~y$가 존재함을 보이면 된다.</p><p>위의 식을 계산해보면,
+$$\Sigma = \begin{bmatrix} \Sigma_{11} & \sigma_{12}&rsquo; \\ \sigma_{12} & \sigma_{22} \end{bmatrix} = \begin{bmatrix} C_1 C_1&rsquo; & C_1 x \\ x&rsquo; C & x&rsquo;x + y^2 \end{bmatrix}$$
+에서 $x = C_1^{-1} \sigma_{12},~ y = \sqrt{\sigma_{22} - x&rsquo;x}$이다. $\blacksquare$</p><p>촐레스키 분해는 간단하지만 직관적으로 통계적인 의미를 갖지 않아 잘 사용되지 않는다.</p><p>참고: $\Sigma$가 위샤트 분포를 따르면 $C$의 분포는 발렛 분포를 따른다는 것이 알려져 있다.</p><h2 id=62-대각화-정리-주성분-분석>6.2. 대각화 정리 (주성분 분석)
+<a class=anchor href=#62-%eb%8c%80%ea%b0%81%ed%99%94-%ec%a0%95%eb%a6%ac-%ec%a3%bc%ec%84%b1%eb%b6%84-%eb%b6%84%ec%84%9d>#</a></h2><p>$\Sigma = PDP&rsquo;$와 같이 분해한다. 여기서 $P = [u_1, \cdots, u_k]$인 직교행렬, $D= diag(\lambda_1, \cdots, \lambda_k)$인 대각행렬이다.</p><p>이 분해는 다른 문제(주성분 분석 등)에서는 유용하게 사용되나, 공분산 추정의 문제에서는 잘 사용되지 않는다.</p><h2 id=63-수정된-촐레스키-분해>6.3. 수정된 촐레스키 분해
+<a class=anchor href=#63-%ec%88%98%ec%a0%95%eb%90%9c-%ec%b4%90%eb%a0%88%ec%8a%a4%ed%82%a4-%eb%b6%84%ed%95%b4>#</a></h2><p>수정된 촐레스키 분해(modified Cholesky decomposition)는 다음과 같다.</p><h3 id=631-동기>6.3.1. 동기
+<a class=anchor href=#631-%eb%8f%99%ea%b8%b0>#</a></h3><p>모형
+$$
+\begin{equation}
+X = \begin{pmatrix} X_1 \\ \vdots \\ X_k \end{pmatrix} \sim N(0, \Sigma)
+\end{equation}
+$$
+에서, 각 성분의 분포를 다음과 같이 나타낼 수 있다.</p><p>$$
+\begin{equation}
+\begin{aligned}
+X_1 &= \epsilon_1, \\
+X_2 &= a_{21} X_1 + \epsilon_2, \\
+X_3 &= a_{31} X_1 + a_{32} X_2 + \epsilon_3, \\
+&\vdots \\
+X_k &= a_{k1} X_1 + \cdots + a_{k, k-1} X_{k-1} + \epsilon_k
+\end{aligned}
+\end{equation}
+$$</p><p>즉, $X = AX + \epsilon, ~ \epsilon \sim N(0, D)$와 같은 형태로 나타낼 수 있다. 여기서
+$$
+\begin{equation}
+A = \begin{bmatrix} 0 & 0 & \cdots & 0 \\ a_{21} & 0 & \cdots & 0 \\ a_{31} & a_{32} & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ a_{k1} & a_{k2} & \cdots & 0 \end{bmatrix}
+\end{equation}
+$$
+이고, 이러한 $A$를 촐레스키 인자라 부른다.</p><p>그러면,
+$$
+\begin{equation}
+\begin{gathered}
+(I - A) X = \epsilon, \\
+Var((I-A)X) = Var(\epsilon), \\
+(I-A) \Sigma (I-A)&rsquo; = D, \\
+\Sigma = (I-A)^{-1} D (I-A)&rsquo;^{-1}, \\
+\Omega = (I-A) D^{-1} (I-A)&rsquo;
+\end{gathered}
+\end{equation}
+$$</p><p>즉, $\Sigma$를 추정하는 공분산 추정 문제를, $A$와 $D$를 추정하는 선형회귀문제로 바꿀 수 있다.</p><p>수정된 촐레스키 분해는 주로 사용된다.</p><h1 id=7-빈도론-추정>7. 빈도론 추정
+<a class=anchor href=#7-%eb%b9%88%eb%8f%84%eb%a1%a0-%ec%b6%94%ec%a0%95>#</a></h1><h2 id=71-벌점함수-방법들>7.1. 벌점함수 방법들
+<a class=anchor href=#71-%eb%b2%8c%ec%a0%90%ed%95%a8%ec%88%98-%eb%b0%a9%eb%b2%95%eb%93%a4>#</a></h2><p>$$
+\begin{equation}
+\begin{aligned}
+\hat{\Sigma}
+&= \arg\min_{\Sigma} \left[ - l(\Sigma) + \lambda Pen(\Sigma) \right] \\
+&= \arg\min_{\Sigma} \log |\Sigma| + tr(\Sigma^{-1} S_n) + \sum_{i &lt; j} P_\lambda( \sigma_{ij})
+\end{aligned}
+\end{equation}
+$$</p><p>주로 사용하는 벌점함수로는 다음이 있다.</p><ul><li>$P_\lambda(\theta) = \lambda |\theta|$ ($L_1$-penalty, LASSO penalty)</li><li>$P_\lambda(\theta) = \lambda^2 - (|\theta| - \lambda)^2 I(|\theta| &lt; \lambda)$, (hard thresholding)</li><li>$P_\lambda&rsquo;(\theta) \lambda I(|\theta| \leq \lambda) + \dfrac{(a \lambda - \theta)_+}{a - 1} I(|\theta| > \lambda),~ a>2$</li></ul><p>공분산 행렬의 역행렬을 계산하는 것이 비싸기 때문에, 다음과 같은 손실함수를 고려하기도 한다.</p><p>$$
+\begin{equation}
+\sum_{i, j} (s_{ij} - \sigma_{ij})^2 + \sum_{i &lt; j} P_\lambda( \sigma_{ij})
+\end{equation}
+$$</p><p>혹은, 다음과 같이 정밀도 행렬을 추정하는 문제를 고려하기도 한다.</p><p>$$
+\begin{equation}
+\hat{\Omega} = \arg\min_{\Omega} - \log |\Omega| + tr(\Omega S_n) + \sum_{i &lt; j} P_\lambda( \omega_{ij})
+\end{equation}
+$$</p><h2 id=72-lam--fan-2009>7.2. Lam & Fan (2009)
+<a class=anchor href=#72-lam--fan-2009>#</a></h2><p>빈도론의 대표적인 연구 결과를 소개한다.</p><p>Lam & Fan (2009)은 적당한 벌점함수에 대해
+$$|\hat{\Sigma} - \Sigma_0|_F^2 = O_p\left( \frac{(p_n + s_n) \log p_n}{n} \right)$$
+을 보였다. 여기서 $s_n$은 $\Sigma$에서 0이 아닌 비대각원소의 개수, $p_n$은 차원을 의미한다.</p><p>보통, 공분산 행렬의 추정 분제에서는 최적의 수렴속도가 다음과 같이 주어진다.</p><p>$$\frac{\text{0이 아닌 모수의 개수} \times \log(\text{차원})}{n}$$</p><p>빈도론자들은 이러한 $\hat{\Sigma}$를 찾는 구체적인 방법들에 대해 관심을 갖는다.</p><h2 id=73-성김-가정이-없는-추정-방법들>7.3. 성김 가정이 없는 추정 방법들
+<a class=anchor href=#73-%ec%84%b1%ea%b9%80-%ea%b0%80%ec%a0%95%ec%9d%b4-%ec%97%86%eb%8a%94-%ec%b6%94%ec%a0%95-%eb%b0%a9%eb%b2%95%eb%93%a4>#</a></h2><p>최근에는 주로 성김 가정을 하나, 이전에는 어떤 추정 방법들을 제안했나 살펴본다.</p><h3 id=731-stein-1975>7.3.1. Stein (1975)
+<a class=anchor href=#731-stein-1975>#</a></h3><p>$S = PDP&rsquo;$와 같이 나타내자. 적당한 고유치들의 변환 $\Lambda$에 대해 공분산 행렬의 추정량으로 $\hat{\Sigma} = P \Lambda(D) P&rsquo;$로 제안한다.</p><p>Johnstone의 문제에서 알 수 있듯, 고차원 행렬 문제에서는 고유벡터를 찾는 것도 어렵기 때문에 $P$를 제대로 추정하기 어렵다.</p><h3 id=732-ledoit--wolf-2004>7.3.2. Ledoit & Wolf (2004)
+<a class=anchor href=#732-ledoit--wolf-2004>#</a></h3><p>공분산 행렬의 추정량으로 축소 추정량 $\hat{\Sigma} = \rho_1 S + \rho_2 I$를 제안하였다.</p><h2 id=74-성김-가정-하에서의-빈도론-추정-방법들>7.4. 성김 가정 하에서의 빈도론 추정 방법들
+<a class=anchor href=#74-%ec%84%b1%ea%b9%80-%ea%b0%80%ec%a0%95-%ed%95%98%ec%97%90%ec%84%9c%ec%9d%98-%eb%b9%88%eb%8f%84%eb%a1%a0-%ec%b6%94%ec%a0%95-%eb%b0%a9%eb%b2%95%eb%93%a4>#</a></h2><blockquote><p>Bickel & Levina (2008)
+Thresholidng, Tapering, Banding</p></blockquote><ul><li>Thresholding estimator는 다음과 같이 주어진다.</li></ul><p>$$\begin{equation}
+\begin{aligned}
+\hat{\Sigma}
+&= (\hat{\sigma_{ij}}) \\ \hat{\sigma}<em>{ij} \\
+&= \begin{cases} s</em>{ij} I\left(|s_{ij}| > c \sqrt{ \frac{\log p}{n}}\right) & (i \neq j) \\ s_{ij} & (i=j) \end{cases}
+\end{aligned}
+\end{equation}$$</p><ul><li>banding estimator는 공분산 행렬이 대각성분 근처에서만 0이 아닌 성분을 갖는 추정량을 제안한다.</li></ul><p>$$\begin{equation} \hat{\Sigma} = B_k(S) = (s_{ij} I(|i-j| \leq k)) \end{equation}$$</p><ul><li>tapering estimator는 공분산 행렬이 대각성분에서 멀어질수록 0에 가까워지는 추정량을 제안한다.</li></ul><p>\begin{equation}
+\hat{\Sigma} = T_k(S) = ( w_{ij}^{(k)} s_{ij}), \quad w_{ij}^{(k)} = \begin{cases} 1, & |i-j| \leq \frac{k}{2} \\ 2 - \frac{|i-j|}{k/2}, & \frac{k}{2} &lt; |i-j| \leq k \\ 0, & \text{o.w.} \end{cases}
+\end{equation}</p><h1 id=8-베이즈-방법>8. 베이즈 방법
+<a class=anchor href=#8-%eb%b2%a0%ec%9d%b4%ec%a6%88-%eb%b0%a9%eb%b2%95>#</a></h1><p>모수공간에 제약이 있을 때, 사전분포를 부여하는 것이 어렵다.</p><h2 id=81-그래프-모형>8.1. 그래프 모형
+<a class=anchor href=#81-%ea%b7%b8%eb%9e%98%ed%94%84-%eb%aa%a8%ed%98%95>#</a></h2><h3 id=811-그래프>8.1.1. 그래프
+<a class=anchor href=#811-%ea%b7%b8%eb%9e%98%ed%94%84>#</a></h3><p>$G = (V, E)$라 하자. $\Omega = (\omega_{ij})$와 같이 나타낼 때, $V = { 1,2, \cdots, k }$,
+$$E \subset V \times V = { (i, j) : Cov(X_i, X_j) \neq 0 \text{ or } w_{ij} \neq 0 }$$
+으로 정의한다.</p><h3 id=812-g-wishart-분포>8.1.2. G-Wishart 분포
+<a class=anchor href=#812-g-wishart-%eb%b6%84%ed%8f%ac>#</a></h3><p>$\Omega \sim W_G(b, D), b > 2, D > 0$는 다음을 의미한다.</p><p>$$\pi(\Omega | G) = \frac{1}{I_G(b, D)} | \Omega|^{\frac{b-2}{2}} e^{-\frac{1}{2} tr(D \Omega)} I(\Omega \in M_G^+)$$</p><p>여기서 $M_G^+ = { \Omega : \Omega > 0,~ \omega_{ij} \neq 0 \Leftrightarrow (i, j)\in E }$이다.</p><p>사후분포는 $\Omega | \mathbb{X}, G \sim W_G(b+n, D+S)$로 주어진다.</p><p>이 분포는 단순히 위샤트 분포에 제약조건을 추가한 것이라 직관적이나, 정규화 상수 $I_G(b, D)$의 계산이 사실상 불가능하다.</p><p>이러한 문제로 분해가능(decomposible)이라는 가정을 추가한다. 분해가능하지 않을 때는 수치적으로 정규화 상수를 계산하나 차원이 커질 때 계산이 거의 불가능하다.</p><h3 id=813-그래프-모형>8.1.3. 그래프 모형
+<a class=anchor href=#813-%ea%b7%b8%eb%9e%98%ed%94%84-%eb%aa%a8%ed%98%95>#</a></h3><p>이와 같은 모형을 그래프 모형(graphical model)이라 한다.</p><p>그래프 모형에서 $w_{ij} = 0$은 $X_i \perp X_j|X_{~(i,j)}$, 즉, 조건부 독립성을 의미한다.</p><p>참고: $\sigma_{ij} = 0$은 $X_i \perp X_j$, 즉, 주변 독립성을 의미한다.</p><h3 id=814-g-inverse-wishart-분포>8.1.4. G-inverse-Wishart 분포
+<a class=anchor href=#814-g-inverse-wishart-%eb%b6%84%ed%8f%ac>#</a></h3><p>$\Sigma \sim IW_G(\delta, U)$는 다음과 같은 밀도함수를 갖는다.</p><p>$$\pi(\Sigma | G) = \frac{1}{I_G(\delta, U)} | \Sigma|^{-\frac{\delta+2}{2}} e^{-\frac{1}{2} tr(\Sigma^{-1} U)} I(\Sigma \in M_G^+)$$</p><h3 id=815-성질>8.1.5. 성질
+<a class=anchor href=#815-%ec%84%b1%ec%a7%88>#</a></h3><p>그래프 모형은 사전분포와 사후분포가 잘 정의된다는 장점을 갖는다.</p><h2 id=82-축소-사전분포>8.2. 축소 사전분포
+<a class=anchor href=#82-%ec%b6%95%ec%86%8c-%ec%82%ac%ec%a0%84%eb%b6%84%ed%8f%ac>#</a></h2><h3 id=821-wang-2015>8.2.1. Wang (2015)
+<a class=anchor href=#821-wang-2015>#</a></h3><p>공분산 행렬의 각 성분에 다음과 같은 분포를 가정하는 모형도 있다.</p><p>$$
+\begin{equation}
+\begin{aligned}
+\sigma_{ij} &\sim w \delta_0 + (1-w) Normal, \\
+\sigma_{ii} & \sim Exp
+\end{aligned}
+\end{equation}
+$$</p><p>우리가 이번에 볼 논문은 이를 연속형 분포로 확장한 것이다.</p><h2 id=83-사후처리-사후분포-이광민>8.3. 사후처리 사후분포 (이광민)
+<a class=anchor href=#83-%ec%82%ac%ed%9b%84%ec%b2%98%eb%a6%ac-%ec%82%ac%ed%9b%84%eb%b6%84%ed%8f%ac-%ec%9d%b4%ea%b4%91%eb%af%bc>#</a></h2><p>post-processed posterior</p><blockquote><p>사이비 베이즈(?)</p></blockquote><p>전체 모수 공간을 $\Theta^\ast$, 원하는 모수 공간을 $\Theta \subset \Theta^\ast$라 하자.</p><p>사전분포 $\pi^\ast$가 계산이 쉬운 사후분포 $\pi^\ast(\cdot | \mathbb{X})$를 갖는다고 하자.</p><p>사후처리 사후분포는 다음과 같은 요소들로 구성된다.</p><ul><li>사후 처리 함수 $f: \Theta^\ast \rightarrow \Theta$</li><li>사후처리 사후분포 $[f(\theta^\ast)|\theta^\ast \sim \pi^\ast(\cdot | \mathbb{X}_n)] = \pi(\cdot | \mathbf{X})$</li></ul><p>이 방법은 이론적 정당성을 더 확보해야 한다.</p><h2 id=84-berger-sun--song-2020>8.4. Berger, Sun & Song (2020)
+<a class=anchor href=#84-berger-sun--song-2020>#</a></h2><p>다음과 같은 사전분포를 고려한다.</p><p>$$
+\begin{equation}
+\pi(\Sigma|a, b, H) \propto \frac{1}{|\Sigma|^a \left[ \prod_{i &lt; j} (\lambda_i - \lambda_j) \right]^b } e^{-\frac{1}{2} tr(\Sigma^{-1} H)}
+\end{equation}
+$$</p><p>여기서 $\lambda_1 > \lambda_2 > \cdots > \lambda_k$는 $\Sigma$의 고유치이다.</p><p>사후분포의 성질은 아직 규명되지 않았다.</p><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>많은 곳에서는 모수의 차원으로 $p$를 사용하나 여기서는 $k$를 사용한다.&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/commit/3ddbc65c01729283a00527229fa7934512075933 title='Last modified by Kyeongwon Lee | July 25, 2022' target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 25, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/edit/main/content/docs/01-overview/index.md target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style><div><ul class="paging pagination"></ul></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#1-모형>1. 모형</a><ul><li><a href=#11-다변량-정규-모형>1.1. 다변량 정규 모형</a></li><li><a href=#12-가능도>1.2. 가능도</a></li><li><a href=#13-로그-가능도>1.3. 로그 가능도</a></li></ul></li><li><a href=#2-빈도론-추정>2. 빈도론 추정</a><ul><li><a href=#21-최대가능도-추정량>2.1. 최대가능도 추정량</a></li></ul></li><li><a href=#3-베이즈-추정>3. 베이즈 추정</a><ul><li><a href=#31-베이즈-모형>3.1. 베이즈 모형</a><ul><li><a href=#311-켤레-사전분포>3.1.1. 켤레 사전분포</a></li><li><a href=#312-사후분포>3.1.2. 사후분포</a></li></ul></li><li><a href=#32-베이즈-추정량>3.2. 베이즈 추정량</a></li><li><a href=#33-제프리스-사전분포>3.3. 제프리스 사전분포</a><ul><li><a href=#331-사전분포>3.3.1. 사전분포</a></li><li><a href=#332-사후분포>3.3.2. 사후분포</a></li><li><a href=#333-베이즈-추정량>3.3.3. 베이즈 추정량</a></li></ul></li><li><a href=#34-위샤트-분포>3.4. 위샤트 분포</a></li><li><a href=#35-역-위샤트-분포>3.5. 역-위샤트 분포</a></li><li><a href=#36-mu--0인-정규모형의-예>3.6. $\mu = 0$인 정규모형의 예</a></li></ul></li><li><a href=#4-공분산의-사용처>4. 공분산의 사용처</a></li><li><a href=#5-고차원-모형>5. 고차원 모형</a><ul><li><a href=#51-고차원-공분산-추정의-어려움>5.1. 고차원 공분산 추정의 어려움</a></li></ul></li><li><a href=#6-공분산의-분해>6. 공분산의 분해</a><ul><li><a href=#61-촐레스키-분해>6.1. 촐레스키 분해</a></li><li><a href=#62-대각화-정리-주성분-분석>6.2. 대각화 정리 (주성분 분석)</a></li><li><a href=#63-수정된-촐레스키-분해>6.3. 수정된 촐레스키 분해</a><ul><li><a href=#631-동기>6.3.1. 동기</a></li></ul></li></ul></li><li><a href=#7-빈도론-추정>7. 빈도론 추정</a><ul><li><a href=#71-벌점함수-방법들>7.1. 벌점함수 방법들</a></li><li><a href=#72-lam--fan-2009>7.2. Lam & Fan (2009)</a></li><li><a href=#73-성김-가정이-없는-추정-방법들>7.3. 성김 가정이 없는 추정 방법들</a><ul><li><a href=#731-stein-1975>7.3.1. Stein (1975)</a></li><li><a href=#732-ledoit--wolf-2004>7.3.2. Ledoit & Wolf (2004)</a></li></ul></li><li><a href=#74-성김-가정-하에서의-빈도론-추정-방법들>7.4. 성김 가정 하에서의 빈도론 추정 방법들</a></li></ul></li><li><a href=#8-베이즈-방법>8. 베이즈 방법</a><ul><li><a href=#81-그래프-모형>8.1. 그래프 모형</a><ul><li><a href=#811-그래프>8.1.1. 그래프</a></li><li><a href=#812-g-wishart-분포>8.1.2. G-Wishart 분포</a></li><li><a href=#813-그래프-모형>8.1.3. 그래프 모형</a></li><li><a href=#814-g-inverse-wishart-분포>8.1.4. G-inverse-Wishart 분포</a></li><li><a href=#815-성질>8.1.5. 성질</a></li></ul></li><li><a href=#82-축소-사전분포>8.2. 축소 사전분포</a><ul><li><a href=#821-wang-2015>8.2.1. Wang (2015)</a></li></ul></li><li><a href=#83-사후처리-사후분포-이광민>8.3. 사후처리 사후분포 (이광민)</a></li><li><a href=#84-berger-sun--song-2020>8.4. Berger, Sun & Song (2020)</a></li></ul></li></ul></nav></div></aside></main></body></html>
