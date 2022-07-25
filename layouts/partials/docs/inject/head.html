@@ -1,0 +1,133 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" integrity="sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<!-- To automatically render math in text elements, include the auto-render extension: -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js" integrity="sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR" crossorigin="anonymous"
+onload="renderMathInElement(document.body);"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+          // customised options
+          // • auto-render specific keys, e.g.:
+          delimiters: [
+              {left: '$$', right: '$$', display: true},
+              {left: '$', right: '$', display: false},
+              {left: '\\(', right: '\\)', display: false},
+              {left: '\\[', right: '\\]', display: true}
+          ],
+          trust: (context) => ['\\htmlId', '\\href'].includes(context.command),
+          macros: {
+            "\\eqref": "\\href{###1}{(\\text{#2})}",
+            "\\ref": "\\href{###1}{(\\text{#2})}",
+            "\\label": "\\htmlId{#1}{}"
+          },
+          // • rendering keys, e.g.:
+          throwOnError : false,
+          globalGroup: true
+        });
+    });
+</script>
+
+<style type="text/css">
+/* http://jaejunyoo.blogspot.com/2017/01/bloggerblogspot-latex-theorem-like.html */
+body {
+    counter-reset: theorem, katexEqnNo, mmlEqnNo
+}
+.theorem {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    counter-increment: theorem
+}
+.theorem:before {
+    content: "Theorem " counter(theorem) ". ";
+    font-weight: bold;
+    font-style: normal;
+}
+.remark {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+}
+.remark:before {
+    content: "Remark. ";
+    font-weight: bold;
+    font-style: normal;
+}
+.example {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    counter-increment: theorem
+}
+.example:before {
+    content: "Example " counter(theorem) ". ";
+    font-weight: bold;
+    font-style: normal;
+}
+.proposition {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    counter-increment: theorem
+}
+.proposition:before {
+    content: "Proposition " counter(theorem) ". ";
+    font-weight: bold;
+    font-style: normal;
+}
+.lemma {
+    display: block;
+    margin: 12px 0;
+    font-style: italic;
+    counter-increment: theorem;
+}
+.lemma:before {
+    content: "Lemma " counter(theorem) ". ";
+    font-weight: bold;
+    font-style: normal;
+}
+.proof {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+}
+.proof:before {
+    content: "Proof. ";
+    font-style: italic;
+}
+.proof:after {
+    content: "\25FC";
+    float:right;
+}
+.definition {
+    display: block;
+    margin: 12px 0;
+    font-style: normal;
+    counter-increment: theorem
+}
+.definition:before {
+    content: "Definition " counter(theorem) ". ";
+    font-weight: bold;
+    font-style: normal;
+}
+.katex-display > .katex {
+    max-width: 100%;
+}
+.katex-display > .katex > .katex-html {
+    max-width: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding-left: 2px;
+    padding-right: 2px;
+}
+</style>
+
+<style>
+    .paging {
+        list-style-type: none;
+        margin-block-start: 0px;
+        margin-block-end: 0px;
+        padding-inline-start: 0px;
+        margin-top: 11px;
+    }
+</style>

@@ -1,0 +1,19 @@
+{{ $prev := $.Param "prev" }}
+{{ $prevpath := $prev | printf "%s%s" .Site.BaseURL}}
+
+<div class="flex flex-wrap justify-between" style="margin-bottom: 11px;">
+
+{{ if $prev }}
+<div class="flex align-center">
+    이전: <a href="{{ $prevpath }}">{{ with .Site.GetPage ($prev) }}{{ .Title }}{{ end }}</a>
+</div>
+{{ end }}
+
+
+<div class="flex align-center">
+    {{- $date := partial "docs/date" (dict "Date" .Date "Format" .Site.Params.BookDateFormat) -}}
+    <img src="{{ "svg/calendar.svg" | relURL }}" class="book-icon" alt="Calendar" />
+    <span>First created at {{ $date }}</span>
+</div>
+
+</div>

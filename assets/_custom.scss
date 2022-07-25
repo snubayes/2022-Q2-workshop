@@ -1,0 +1,18 @@
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+}
+
+
+.full-width {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	display: table !important;
+}
+
+ul.pagination li:not(:last-child) {
+    margin-right: 10px;
+}
