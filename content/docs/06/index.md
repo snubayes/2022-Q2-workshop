@@ -76,11 +76,11 @@ $k = \lceil c_{np} / 2 \rceil - 1,~ c_{np} = \lceil s_0 / p \rceil$, $\Theta = \
 
 먼저, 임의의 $\zeta_0 >1$과 충분히 큰 $n$에 대해 $\Sigma(\theta) \in B_1$의 가장 큰 고유치가 $\zeta_0$보다 작다는 것은 다음과 같이 보일 수 있다.
 \begin{equation}
-    \lVert \Sigma(\theta) \rVert \leq \lVert \Sigma(\theta) \rVert_1 \leq 1 + 2 k \epsilon_{np} \leq 1 + c_{np} \nu \sqrt{\log p / n} \leq \zeta_0
+    \lambda_{\max}\left(\Sigma(\theta)\right) \leq \lVert \Sigma(\theta) \rVert_1 \leq 1 + 2 k \epsilon_{np} \leq 1 + c_{np} \nu \sqrt{\log p / n} \leq \zeta_0
 \end{equation}
-마지막 부등호는 가정 $s_0^2 (\log p)^3 = O(p^2 n)$에 의해 성립한다.
+두 번째 부등호는 모수공간 $\Lambda$의 마지막 조건으로부터, 마지막 부등호는 가정 $s_0^2 (\log p)^3 = O(p^2 n)$에 의해 성립한다.
 
-다음으로, 임의의 $\zeta_0 >1$과 충분히 큰 $n$에 대해
+마찬가지의 이유로 임의의 $\zeta_0 >1$과 충분히 큰 $n$에 대해
 \begin{equation}
     2k\epsilon_{np} \leq c_{np} \nu \sqrt{\log p / n}\leq \left( 1 + \frac{s_0}{p} \right) \nu \sqrt{\log p / n} \leq 1 - \zeta_0^{-1}
 \end{equation}
