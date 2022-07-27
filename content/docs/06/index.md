@@ -36,6 +36,11 @@ U(s_0, \zeta_0) = \\{ \Sigma \in C_p: s(\Sigma) \leq s_0,~ \zeta_0^{-1} \leq \la
 이 정리는 공분산 추정의 minimax lower bound를 알려준다. 
 
 논문의 Theorem 1에서는 사후수렴속도가 $\dfrac{(p+s_0) \log p}{n}$임을 보였는데, 이는 $3p < s_0 < p^{3/2 - \epsilon/2}$일 때 베이즈 추론이 minimax 이고, 그렇지 않은 경우에도 nearly minimax $(\log p)$ 임을 의미한다.
+</div>
+
+<div class="remark">
+
+이와 관련된 연구로 Cai와 Zhou (2012)[^cai]가 있는데, 이 논문에서는 빈도론 관점에서 성긴 공분산 행렬을 추론하는 문제를 다루었다. 다만, 논문에서는 공분산 행렬의 각 **열의** 0이 아닌 성분에 대한 제약조건을 다루었으나, 본 논문에서는 전체 행렬에서 0이 아닌 성분에 대한 제약조건에 대해 다룬다. 
 
 </div>
 
@@ -212,6 +217,7 @@ $\hat{\theta} := \arg\min d^s(T, \psi(\theta))$라 하면 (유일하지 않다�
 \end{equation}
 
 [^diagdom]: A Hermitian diagonally dominant matrix $A$ with real non-negative diagonal entries is positive semidefinite. From https://en.wikipedia.org/wiki/Diagonally_dominant_matrix#Applications_and_properties 혹은, 더 간단하게 Gershgorin circle theorem에 symmetric matrix가 real eigenvalue를 가진다는 사실로도 보일 수 있다.
+[^cai]: T.T. Cai, H.H. Zhou, Optimal rates of convergence for sparse covariance matrix estimation, Ann. Statist. 40 (5) (2012) 2389–2420.
 
 </div>
 
