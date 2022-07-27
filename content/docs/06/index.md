@@ -92,7 +92,7 @@ s(\Sigma(\theta)) \leq 2 kp \leq s_0
 \end{equation}
 에서 $B_1 \subset \mathcal{U}(s_0, \zeta_0)$를 얻는다. 
 
-이제 <a href="#eqn-13">논문의 식 (13)</a>이 성립함을 보이자. 이를 위해, 다음의 보조정리를 소개한다. 
+이제 <a href="#eqn-13">논문의 식 (13)</a>이 성립함을 보이자. 이를 위해, 다음의 보조정리를 소개한다. 이 보조정리는 모수공간 $\Theta$에서 거리 $d$를 갖는 거리공간으로의 변환 $\psi(\theta)$의 최대 위험의 하한을 알려준다.
 
 <div class="lemma" style="border: solid; padding: 30px; margin: 10px">(Lemma 3 of T. Tony Cai, Harrison H. Zhou (2012))
 
