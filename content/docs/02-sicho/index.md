@@ -139,7 +139,7 @@ $$(\sigma_{12},~\sigma_{22}) \mapsto (u=\sigma_{12},~v=\sigma_{22} - \sigma_{12}
 
 이는 Generalized inverse Gaussian, $GIG(q, a, b)$로, 그 확률밀도함수는 
 \begin{equation}
-    f(x) = \frac{(a/b)^{q/2}}{2K_g (\sqrt{ab})} \lambda^{p-1}e^{-(ax + b/x)/2}
+    f(x) = \frac{(a/b)^{q/2}}{2K_q (\sqrt{ab})} \lambda^{p-1}e^{-(ax + b/x)/2}
 \end{equation}
 로 주어진다. 
 

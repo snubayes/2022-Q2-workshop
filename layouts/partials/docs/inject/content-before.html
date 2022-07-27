@@ -17,3 +17,11 @@
 </div>
 
 </div>
+
+<h1>{{ .Title }}</h1>
+
+{{ if .Params.author }}
+<div align="right">
+    발표자: {{ .Params.author }}
+</div>
+{{ end }}
