@@ -1,6 +1,6 @@
 ---
 title: "Theorem 2 "
-author: "이경원, 정진욱"
+author: "이경원, 정진욱, 김성민"
 date: 2022-07-27
 weight: 6
 ---
@@ -46,10 +46,10 @@ U(s_0, \zeta_0) = \\{ \Sigma \in C_p: s(\Sigma) \leq s_0,~ \zeta_0^{-1} \leq \la
 
 * $3p < s_0 < p^{3/2 - \epsilon/2}$인 경우,
     $$\begin{equation}\label{eqn-13} \inf_{\hat{\Sigma}}\sup_{\Sigma_0 \in B_1} \mathbb{E}_0 \lVert\hat{\Sigma} - \Sigma_0 \rVert_F^2 \gtrsim \frac{s_0 \log p}{n} \end{equation}$$
-    이 성립하는 $B_1 \subset \mathcal{U}(s_0, \zeta_0)$가 존재함을 보인다. 
+    이 성립하는 $B_1 \subset \mathcal{U}(s_0, \zeta_0)$가 존재함을 보인다. (이경원, 정진욱)
 * 나머지 경우,
     $$\begin{equation}\label{eqn-14} \inf_{\hat{\Sigma}}\sup_{\Sigma_0 \in B_2} \mathbb{E}_0 \lVert\hat{\Sigma} - \Sigma_0 \rVert_F^2 \gtrsim \frac{s_0 + p}{n} \end{equation}$$
-    이 성립하는 $B_2 \subset \mathcal{U}(s_0, \zeta_0)$가 존재함을 보인다. 
+    이 성립하는 $B_2 \subset \mathcal{U}(s_0, \zeta_0)$가 존재함을 보인다. (김성민)
 
 먼저 첫 항목을 보이자. $\nu = \sqrt{\epsilon/4}$에 대해 $r = \lfloor p/2 \rfloor,~\epsilon_{np} = \nu \sqrt{\log p / n}$이라 하자. $A_m(u)$를 $m$번째 행과 열이 $u$의 값을 갖고, 나머지에서 모두 0인 대칭행렬이라 하자. 즉, 
 \begin{equation}
@@ -94,7 +94,7 @@ s(\Sigma(\theta)) \leq 2 kp \leq s_0
 
 이제 <a href="#eqn-13">논문의 식 (13)</a>이 성립함을 보이자. 이를 위해, 다음의 보조정리를 소개한다. 이 보조정리는 모수공간 $\Theta$에서 거리 $d$를 갖는 거리공간으로의 변환 $\psi(\theta)$의 최대 위험의 하한을 알려준다.
 
-<div class="lemma" style="border: solid; padding: 30px; margin: 10px">(Lemma 3 of T. Tony Cai, Harrison H. Zhou (2012))
+<div class="lemma" style="border: solid; padding: 30px; margin: 10px">(Lemma 3 of Cai and Zhou (2012))
 
 > OPTIMAL RATES OF CONVERGENCE FOR SPARSE COVARIANCE MATRIX ESTIMATION
 
