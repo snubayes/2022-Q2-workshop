@@ -211,7 +211,7 @@ $\hat{\theta} := \arg\min d^s(T, \psi(\theta))$라 하면 (유일하지 않다�
 \min _ {1 \leq i \leq r} \lVert \overline{\mathbb{P}} _ {i, 0} \wedge \overline{\mathbb{P}} _ {i, 1} \rVert \geq c_1
 \end{equation}
 
-[^diagdom]: A Hermitian diagonally dominant matrix $A$ with real non-negative diagonal entries is positive semidefinite. From https://en.wikipedia.org/wiki/Diagonally_dominant_matrix#Applications_and_properties
+[^diagdom]: A Hermitian diagonally dominant matrix $A$ with real non-negative diagonal entries is positive semidefinite. From https://en.wikipedia.org/wiki/Diagonally_dominant_matrix#Applications_and_properties 혹은, 더 간단하게 Gershgorin circle theorem에 symmetric matrix가 real eigenvalue를 가진다는 사실로도 보일 수 있다.
 
 </div>
 
