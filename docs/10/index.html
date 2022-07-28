@@ -1,0 +1,175 @@
+<!doctype html><html lang=ko dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Reference: Muirhead (1982) - Aspects of Multivariate Analysis.
+앞 부분 추가 필요
+$$I = \int_A f(x_1, \cdots, x_m) dx_1 \cdots dx_m = \int_{A^\prime} f(x(y)) \det \begin{pmatrix} \frac{\partial x_i}{\partial y_i} \end{pmatrix} dy_1 \cdots dy_m$$
+$$ \begin{equation*} \begin{aligned} A^\prime &= y(A) \\ x_1 &= x_1(y_1, \cdots, y_m) \\ x_2 &= x_2(y_1, \cdots, y_m) \\ \vdots & \\ x_m &= x_m(y_1, \cdots, y_m) \\ \end{aligned} \end{equation*} $$
+$x \mapsto y(x)$
+각 $i=1,2, \cdots, m$에 대해 $$dx_i = \frac{\partial x_i}{\partial y_1} dy_1 + \cdots \frac{\partial x_i}{\partial y_m} dy_m$$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="다양체"><meta property="og:description" content="Reference: Muirhead (1982) - Aspects of Multivariate Analysis.
+앞 부분 추가 필요
+$$I = \int_A f(x_1, \cdots, x_m) dx_1 \cdots dx_m = \int_{A^\prime} f(x(y)) \det \begin{pmatrix} \frac{\partial x_i}{\partial y_i} \end{pmatrix} dy_1 \cdots dy_m$$
+$$ \begin{equation*} \begin{aligned} A^\prime &= y(A) \\ x_1 &= x_1(y_1, \cdots, y_m) \\ x_2 &= x_2(y_1, \cdots, y_m) \\ \vdots & \\ x_m &= x_m(y_1, \cdots, y_m) \\ \end{aligned} \end{equation*} $$
+$x \mapsto y(x)$
+각 $i=1,2, \cdots, m$에 대해 $$dx_i = \frac{\partial x_i}{\partial y_1} dy_1 + \cdots \frac{\partial x_i}{\partial y_m} dy_m$$"><meta property="og:type" content="article"><meta property="og:url" content="https://snubyaes.github.io/2022-Q2-workshop/docs/10/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2022-07-27T00:00:00+00:00"><meta property="article:modified_time" content="2022-07-28T17:06:31+09:00"><title>다양체 | 2022 여름학기 베이즈 워크숍</title><link rel=manifest href=/2022-Q2-workshop/manifest.json><link rel=icon href=/2022-Q2-workshop/favicon.png type=image/x-icon><link rel=stylesheet href=/2022-Q2-workshop/book.min.8ecd06c6a81b8600a324719bbef04a5db4c910b4bd5dee142b5ae2fc90febef2.css integrity="sha256-js0GxqgbhgCjJHGbvvBKXbTJELS9Xe4UK1ri/JD+vvI=" crossorigin=anonymous><script defer src=/2022-Q2-workshop/flexsearch.min.js></script>
+<script defer src=/2022-Q2-workshop/ko.search.min.cc30972b4c9633196dabb78b6da490d4ff6e9f2a76575a49142279356ca053f7.js integrity="sha256-zDCXK0yWMxltq7eLbaSQ1P9unyp2V1pJFCJ5NWygU/c=" crossorigin=anonymous></script>
+<script defer src=/2022-Q2-workshop/sw.min.2b5bfaea2d07d6ebfef5ce32a22258d51d27ee24b389f534727194bca2c47967.js integrity="sha256-K1v66i0H1uv+9c4yoiJY1R0n7iSzifU0cnGUvKLEeWc=" crossorigin=anonymous></script>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
+<script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],trust:e=>["\\htmlId","\\href"].includes(e.command),macros:{"\\eqref":"\\href{###1}{(\\text{#2})}","\\ref":"\\href{###1}{(\\text{#2})}","\\label":"\\htmlId{#1}{}"},throwOnError:!1,globalGroup:!0})})</script><style type=text/css>body{counter-reset:theorem,katexEqnNo,mmlEqnNo}.theorem{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.theorem:before{content:"Theorem " counter(theorem)". ";font-weight:700;font-style:normal}.remark{display:block;margin:12px 0;font-style:italic}.remark:before{content:"Remark. ";font-weight:700;font-style:normal}.example{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.example:before{content:"Example " counter(theorem)". ";font-weight:700;font-style:normal}.proposition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.proposition:before{content:"Proposition " counter(theorem)". ";font-weight:700;font-style:normal}.lemma{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.lemma:before{content:"Lemma " counter(theorem)". ";font-weight:700;font-style:normal}.proof{display:block;margin:12px 0;padding:12px;font-style:normal}.proof:before{content:"증명. ";font-style:italic}.proof:after{content:"\25FC";float:right}.definition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.definition:before{content:"Definition " counter(theorem)". ";font-weight:700;font-style:normal}.katex-display>.katex{max-width:100%}.katex-display>.katex>.katex-html{max-width:100%;overflow-x:auto;overflow-y:hidden;padding-left:2px;padding-right:2px}</style><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/2022-Q2-workshop/><span>2022 여름학기 베이즈 워크숍</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/2022-Q2-workshop/docs/01-overview/>공분산 행렬 추정 문제</a></li><li><a href=/2022-Q2-workshop/docs/02-sicho/>공분산 행렬의 베이즈 추론</a></li><li><a href=/2022-Q2-workshop/docs/03/>정리 3 and 보조정리 2</a></li><li><a href=/2022-Q2-workshop/docs/04/>정리 4 and 보조정리 3</a></li><li><a href=/2022-Q2-workshop/docs/05/>보조정리 4 and 정리 5</a></li><li><a href=/2022-Q2-workshop/docs/06/>정리 2</a></li><li><a href=/2022-Q2-workshop/docs/10/ class=active>다양체</a></li></ul><ul><li><a href=/2022-Q2-workshop/posts/>Board</a></li><li><a href=https://github.com/snubyaes target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/2022-Q2-workshop/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>다양체</strong>
+<label for=toc-control><img src=/2022-Q2-workshop/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><ul><li><a href=#m차원-공간에서-n-form의-적분-m-geq-n>$m$차원 공간에서 $n$-form의 적분 $(m \geq n)$</a></li><li><a href=#행렬의-미분-형식>행렬의 미분 형식</a></li></ul></li></ul></nav></aside></header><div class="flex flex-wrap justify-between" style=margin-bottom:11px><div class="flex align-center"><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>First created at July 27, 2022</span></div></div><h1>다양체</h1><div align=right>발표자: 이재용 교수님</div><article class=markdown><blockquote><p>Reference: Muirhead (1982) - Aspects of Multivariate Analysis.</p></blockquote><blockquote><p>앞 부분 추가 필요</p></blockquote><p>$$I = \int_A f(x_1, \cdots, x_m) dx_1 \cdots dx_m = \int_{A^\prime} f(x(y)) \det \begin{pmatrix} \frac{\partial x_i}{\partial y_i} \end{pmatrix} dy_1 \cdots dy_m$$</p><p>$$
+\begin{equation*}
+\begin{aligned}
+A^\prime &= y(A) \\
+x_1 &= x_1(y_1, \cdots, y_m) \\
+x_2 &= x_2(y_1, \cdots, y_m) \\
+\vdots & \\
+x_m &= x_m(y_1, \cdots, y_m) \\
+\end{aligned}
+\end{equation*}
+$$</p><p>$x \mapsto y(x)$</p><p>각 $i=1,2, \cdots, m$에 대해
+$$dx_i = \frac{\partial x_i}{\partial y_1} dy_1 + \cdots \frac{\partial x_i}{\partial y_m} dy_m$$</p><div class=example>[2차원의 예]<p>$$
+\begin{equation*}
+\begin{aligned}
+I &= \int_A f(x_1, x_2) dx_1 dx_2 \\
+&= \int_{A^\prime} f(x(y)) \left( \frac{\partial x_1}{\partial y_1} dy_1 + \frac{\partial x_1}{\partial y_2} dy_2 \right) \left( \frac{\partial x_2}{\partial y_1} dy_1 + \frac{\partial x_2}{\partial y_2} dy_2 \right)
+\end{aligned}
+\end{equation*}
+$$</p><p>이때,
+$$\begin{equation*}
+\begin{aligned}
+&\left( \frac{\partial x_1}{\partial y_1} dy_1 + \frac{\partial x_1}{\partial y_2} dy_2 \right) \left( \frac{\partial x_2}{\partial y_1} dy_1 + \frac{\partial x_2}{\partial y_2} dy_2 \right) \\
+&= \frac{\partial x_1}{\partial y_1} \frac{\partial x_2}{\partial y_1} dy_1 dy_1 + \frac{\partial x_1}{\partial y_1} \frac{\partial x_2}{\partial y_2} dy_1 dy_2 + \frac{\partial x_1}{\partial y_2} \frac{\partial x_2}{\partial y_1} dy_2 dy_1 + \frac{\partial x_1}{\partial y_2} \frac{\partial x_2}{\partial y_2} dy_2 dy_2 \\
+&= \left( \frac{\partial x_1}{\partial y_1} \frac{\partial x_2}{\partial y_2} - \frac{\partial x_1}{\partial y_2} \frac{\partial x_2}{\partial y_1} \right) dy_1 dy_2
+\end{aligned}
+\end{equation*}$$
+가 성립한다.</p><p>이러한 관점에서,</p><p>$$\begin{equation*}
+\begin{aligned}
+dy_1 \wedge dy_2 &= - dy_2 \wedge dy_1 \\
+dy_i \wedge dy_i &= 0
+\end{aligned}
+\end{equation*}$$</p><p>이 되도록 $dy_1 \wedge dy_2$를 정의할 수 있다. (exteerior product)</p></div><div class=definition>[기호]<p>$$
+\begin{equation}
+y = \begin{bmatrix} y_1 \\ \vdots \\ y_m \end{bmatrix}
+\end{equation}
+$$</p><p>$$
+\begin{equation}
+dy = \begin{bmatrix} dy_1 \\ \vdots \\ dy_m \end{bmatrix}
+\end{equation}
+$$</p></div><div class=theorem><p>$dy$가 $m \times 1$, $dx = Bdy$, $B$는 정칙(non-singular)이면 다음이 성립한다.
+\begin{equation}
+\bigwedge_{i=1}^m dx_i = \det B \bigwedge_{i=1}^m dy_i
+\end{equation}</p></div><p>exterior product를 사용하면 복잡한 야코비안의 계산을 곱셈으로 바꿀 수 있다.</p><div class=definition>[미분 형식]<p>다음을 $r$차 미분 형식(differential form of degree $r$)이라 한다.</p><p>$$\sum_{i_1 &lt; \cdots &lt; i_r} h_{i_1 \cdots i_r}(x) dx_{i_1} \wedge \cdots \wedge dx_{i_r}$$</p></div><div class=example>[이차 미분 형식]<blockquote><p>놓쳤음,,,</p></blockquote></div><div class=theorem><p>\begin{equation}
+\begin{aligned}
+x_1 &= r \sin \theta_1 \sin \theta_2 \cdots \sin \theta_{m-2} \sin \theta_{m-1}, \\
+x_2 &= r \sin \theta_1 \sin \theta_2 \cdots \sin \theta_{m-2} \cos \theta_{m-1}, \\
+x_3 &= r \sin \theta_1 \sin \theta_2 \cdots \cos \theta_{m-2}, \\
+& \vdots \\
+x_{m-1} &= r \sin \theta_1 \cos \theta_2, \\
+x_m &= r \cos \theta_1,
+\end{aligned}
+\end{equation}
+$r > 0,~ 0&lt; \theta_i \leq \pi,~i=1,2,\cdots, m-2,~ 0&lt; \theta_{m-1} &lt; 2\pi$
+라 하자.</p><p>그러면, 다음이 성립한다.
+\begin{equation}
+\bigwedge_{i=1}^m dx_i = r^{m-1} \sin^{m-2} \theta_2 \sin^{m-3} \theta_3 \cdots \sin \theta_{m-2} \bigwedge_{i=1}^{m-1} d \theta_i \wedge dr
+\end{equation}</p><div class=proof><p>모든 변수를 제곱하면서 더해나가면
+\begin{equation}
+\begin{aligned}
+x_1^2 &= r^2 \sin^2 \theta_1 \sin \theta_2 \cdots \sin^2 \theta_{m-2} \sin^2 \theta_{m-1}, \\
+x_1^2 + x_2^2 &= r^2 \sin^2 \theta_1 \sin^2 \theta_2 \cdots \sin^2 \theta_{m-2}, \\
+& \vdots \\
+x_1^2 + \cdots + x_{m-1}^2 &= r^2 \sin^2 \theta_1,
+\end{aligned}
+\end{equation}</p><p>모두 더하면
+\begin{equation}
+x_1^2 + \cdots + x_m^2 = r^2
+\end{equation}
+이 된다.</p><p>미분 형식으로부터
+$$
+\begin{equation*}
+\begin{aligned}
+2x_1 dx_1 &= r^2 \sin^2 \theta_1 \cdots \sin^2 \theta_{m-2} ( 2 \sin \theta_{m-1}) \cos \theta_{m-1} d\theta_{m-1}, \\
+2x_1 dx_1 + 2x_2 dx_2 &= r^2 \sin^2 \theta_1 \cdots \sin^2 \theta_{m-3} ( 2 \sin \theta_{m-2}) \cos \theta_{m-2} \cos \theta_{m-1} d\theta_{m-2}, \\
+&\vdots \\
+2 x_1 dx_1 + \cdots + 2x_m dx_m &= 2r dr
+\end{aligned}
+\end{equation*}
+$$</p><p>양 변을 곱하면 좌변은
+$$\begin{equation*}
+2^m x_1 \cdots x_m \bigwedge dx_i
+\end{equation*}$$</p><p>우변은
+$$\begin{equation*}
+2^m r^{2m-1} \sin^{2m-3} \theta_1 \sin^{2m-5} \theta_2 \cdots \sin \theta_{m-1} \cos \theta_1 \cdots \cos \theta_{m-1} \bigwedge{i=1}^{m-1} d\theta_i \wedge dr
+\end{equation*}$$</p><p>정리하면, 원하는 결과를 얻는다.</p></div></div><div class=remark>야코비안을 계산하는 새롭고 유용[^dk]한 방법이라는 의의가 있다.</div><h2 id=m차원-공간에서-n-form의-적분-m-geq-n>$m$차원 공간에서 $n$-form의 적분 $(m \geq n)$
+<a class=anchor href=#m%ec%b0%a8%ec%9b%90-%ea%b3%b5%ea%b0%84%ec%97%90%ec%84%9c-n-form%ec%9d%98-%ec%a0%81%eb%b6%84-m-geq-n>#</a></h2><blockquote><p>다양체(manifold)의 엄밀한 정의는 여기서 다루지 않는다. diffeomorphism<sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup>에 의해 변환된 유클리드 공간의 부분집합을 다양체라 생각한다.</p></blockquote><p>다양체 $M$이 diffeomorphism $\phi: \mathbb{R}^n \rightarrow M$에 의해 정의된다고 하자.</p><p>다양체 $M$위의 미분 형식 $w$는 다음과 같이 정의한다.</p><p>\begin{equation}
+\int_M w = \pm \int_{\mathbb{R}^n} w_{\phi(x_1, \cdots, x_m)} \left( \frac{\partial \phi}{\partial x_1} (x_1 \cdots x_n) \cdots \frac{\partial \phi}{\partial x_n} (x_1 \cdots x_n) \right) dx_1 \cdots dx_n
+\end{equation}</p><blockquote><p>$w$의 의미&mldr;?<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p></blockquote><p>여기서
+$$
+\begin{equation}
+(w_1 \wedge \cdots \wedge w_n )(v_1, \cdots, v_n) =
+\begin{vmatrix}
+w_1(v_1),~ w_2(v_1),~\cdots,~w_n(v_1) \\
+w_1(v_2),~ w_2(v_2),~\cdots,~w_n(v_2) \\
+\vdots \\
+w_1(v_n),~ w_2(v_n),~\cdots,~w_n(v_n)
+\end{vmatrix}
+\end{equation}
+$$</p><div class=example><p>$w = \frac{1}{x} dy \wedge dz - \frac{1}{y} dx \wedge dz$라 하자. $\mathbb{R}^3$ 위의 단위구의 상반구에서 적분을 해보자.</p><p>diffeomorphism $$\phi: R= \{ (s, t): s^2 + t^2 \leq 1 \} \rightarrow M ,~(s, t) \mapsto (s, t, \sqrt{1-s^2-t^2})$$을 생각하면,</p><p>$$\begin{equation*}
+\int_M w = \int_R w_{\phi(s, t)} \left( \frac{\partial \phi}{\partial s},~\frac{\partial \phi}{\partial t} \right) ds \wedge dt
+\end{equation*}$$</p><p>여기서
+$$\begin{equation*}
+\begin{aligned}
+\frac{\partial \phi}{\partial s} &= \left(1,~0,~ - \frac{s}{\sqrt{1-s^2-t^2}} \right) \\
+\frac{\partial \phi}{\partial t} &= \left(0,~1,~ - \frac{t}{\sqrt{1-s^2-t^2}} \right)
+\end{aligned}
+\end{equation*}$$</p><p>이므로
+$$\begin{equation*}
+\begin{aligned}
+\int_M w
+&= \int_M \frac{1}{x} dy \wedge dz - \int_K \frac{1}{y} dx \wedge dz \\
+&= \int_R \frac{1}{s}(dy \wedge dz) \left( \frac{\partial \phi}{\partial s}, \frac{\partial \phi}{\partial t} \right) ds dt - \cdots \\
+&= \int_R \frac{1}{s} \begin{vmatrix} 0 & - \frac{s}{\sqrt{1-s^2-t^2}} \\ 1 & - \frac{t}{\sqrt{1-s^2-t^2}} \end{vmatrix} ds dt - \cdots \\
+&= \int_R \frac{1}{s} \frac{s}{\sqrt{1-s^2-t^2}} ds dt \cdots
+\end{aligned}
+\end{equation*}$$</p></div><blockquote><p>그래서 미분 형식이 뭐냐? 그냥 measure다&mldr;
+integrator다,, 혹은,, signed measure다,,<sup id=fnref1:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p></blockquote><h2 id=행렬의-미분-형식>행렬의 미분 형식
+<a class=anchor href=#%ed%96%89%eb%a0%ac%ec%9d%98-%eb%af%b8%eb%b6%84-%ed%98%95%ec%8b%9d>#</a></h2><div calss=definition>$n \times m$ 행렬 $X = [x_{ij}]$를 생각하자. 행렬 $X$의 미분형식은 다음과 같이 정의된다.<p>$$
+\begin{equation*}
+\begin{aligned}
+dX &= [dx_{ij}] \\
+(dX) &= \bigwedge_{i=1}^n \bigwedge_{i=1}^m dx_{ij}
+\end{aligned}
+\end{equation*}
+$$</p><p>$X$에 제약이 있으면 자유로운 성분들에 대해서만 미분형식 성분을 생각한다.</p><p>가령, 만일 $X$가 $m \times m$ 대칭행렬이면
+$$\begin{equation*}
+(dX) = \bigwedge_{1 \leq i \leq j \leq m} dx_{ij}
+\end{equation*}$$</p><p>$X$가 상삼각행렬이어도
+$$\begin{equation*}
+(dX) = \bigwedge_{1 \leq i \leq j \leq m} dx_{ij}
+\end{equation*}$$</p></div><div class=theorem><p>$X \in \mathbb{R}^{n \times m},~B \in \mathbb{R}^{n \times n},~ Y \in \mathbb{R}^{n \times m}$에 대해 $B$가 정칙행렬이고
+$X = BY$라 하자.</p><p>그러면, 다음이 성립한다
+\begin{equation}
+(dX) = (\det B)^{m} (dY)
+\end{equation}</p><div class=proof><p>$$\begin{equation*}
+\begin{aligned}
+dx
+&= [dx_1 \cdots dx_m] \\
+&= B dY \\
+&= B [dy_1 \cdots dy_m], \\
+d\underline{x_i} &= B d\underline{y_i},~ i=1,2,\cdots, m, \\
+(d\underline{x_i}) &= (\det B) (d\underline{y_i}),~ i=1,2,\cdots, m, \\
+(dX) &= \bigwedge_{i=1}^m (d \underline{x_i}) = \bigwedge_{i=1}^m (\det B) (d \underline{y_i}) = (\det B)^m (dY).
+\end{aligned}
+\end{equation*}$$</p></div></div><div class=theorem>$n \geq m$에 대해 $n \times m$ 행렬 $Z$에서 $rank(Z) = m$이라 하자.<p>$$Z = H_1 T, \quad H_1^\prime H_1 = I_m$$
+인 $n \times m$ 행렬 $H_1$와 $m \times m$ 상삼각행렬 $T$로 분해할 수 있다. (QR 분해)</p><p>$$H = [H_1; H_2] = [h_1 \cdots h_n] \in \mathbb{R}^{n \times n}$$
+과 같이 나타낸다고 하자.</p><p>그러면 다음이 성립한다.
+$$\begin{equation*}
+(dZ) = \prod_{i=1}^m t_{ii}^{n-i} (dT) (H_1^\prime dH_1)
+\end{equation*}$$
+여기서 $$(H_1 dH_1) = \bigwedge_{i=1}^m \bigwedge_{j=i+1}^n h_j^\prime dh_i$$
+이다.</p></div><div class=theorem><p>$A = Z Z^\prime$일때,,, 놓쳤음,,</p></div><div class=definition>[Stiefel manifold]<p>다음과 같이 정의되는 공간을 Stiefel 다양체라 한다.</p><p>$$V_{m, n}:= \{ H_1 \in \mathbb{R}^{n \times m} : H_1 ^\prime H_1 = I_m \}$$</p></div><div class=remark><p>Stiefel 다양체 $V_{n,m}$는 다음과 같이 생각할 수도 있다.</p><ul><li>$nm - \frac{m (m+1)}{2}$ 차원의 유클리드 공간</li><li>혹은, $R^{n m}$의 반지름이 $\sqrt{m}$인 구의 부분집합</li></ul></div><div class=remark><p>$m=n$인 경우,
+$$V_{n,m} = O(m) = \left \{ H \in \mathbb{R}^{m \times m} : H^\prime H = I_m \right \}$$
+은 행렬곱에 대한 군을 이룬다.</p></div><div class=remark>[$O(m)$ 상의 미분 형식]<p>$H^\prime dH$: skew-symmetric</p><p>$(H^\prime dH)$는 군 변환 중 좌변환, 우변환에 불변이다.<sup id=fnref2:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup></p><p>좌변환, 우변환에 불변인 측도는 유일하다.<sup id=fnref3:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup><sup id=fnref:3><a href=#fn:3 class=footnote-ref role=doc-noteref>3</a></sup></p><p>$$M(D) = \int_D (H^\prime dH)$$</p></div><p>재미있는<sup id=fnref4:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> 정리를 하나 소개한다.</p><div class=theorem><p>$$\int_{V_{m, n}} (H_1^\prime d H_1) = \frac{2^m \pi^{mn/2}}{\Gamma_m(n/2)}$$</p><div class=proof>[증명의 스케치]<p>$Z = (z_{ij}) \in \mathbb{R}^{n \times m}$에서 $z_{ij} \stackrel{i.i.d.}{\sim} N(0, 1)$이라 하자.</p><p>$$\int e^{-\frac{1}{2} tr(Z^\prime Z)} (dZ) = (2 \pi)^{\frac{nm}{2}}$$</p><p>을 이용하면 된다.</p></div></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p>미분 가능하고 1-1, 역함수도 미분 가능한 함수&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p>사실 여기도 이해 못했음&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref1:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref2:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref3:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a>&#160;<a href=#fnref4:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:3><p>알았다&mldr; 나는 오늘 이해한 것이 없구나&mldr;&#160;<a href=#fnref:3 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/commit/9c2bd8fff4e9651bab17ec3a4049a008466a8cc3 title='Last modified by Kyeongwon Lee | July 28, 2022' target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>July 28, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/edit/main/content/docs/10/index.md target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style><div><ul class="paging pagination"></ul></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><ul><li><a href=#m차원-공간에서-n-form의-적분-m-geq-n>$m$차원 공간에서 $n$-form의 적분 $(m \geq n)$</a></li><li><a href=#행렬의-미분-형식>행렬의 미분 형식</a></li></ul></li></ul></nav></div></aside></main></body></html>
