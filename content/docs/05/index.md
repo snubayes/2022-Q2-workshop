@@ -1,5 +1,5 @@
 ---
-title: "Lemma 4 and Theorem 5"
+title: "보조정리 4 and 정리 5"
 author: "장태영"
 date: 2022-07-27
 weight: 5
