@@ -16,7 +16,12 @@ BookToC: false
 * 사전등록 기간 : 2022.07.11. ~ 2022.07.19. (사전등록 링크 : https://forms.gle/hWjuNGnEAKuwXDPB8)
 * 참가비 : 없음 (참가자 전원에 숙박, 식사, 다과 제공. 단, 현장등록자의 경우 식사 및 다과만 제공)
 
-## 일정표 
+## 일정
+
+* 강의 일정 - 공분산 추론, 다양체
+* 논문 증명 - "Beta-Mixture Shrinkage Prior and Sparse Covariance"
+
+### 일정표
 
 {{< figure src="resources/table.png" >}}
 
