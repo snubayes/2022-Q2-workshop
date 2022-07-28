@@ -67,7 +67,7 @@ U(s_0, \zeta_0) = \\{ \Sigma \in C_p: s(\Sigma) \leq s_0,~ \zeta_0^{-1} \leq \la
     B_1 := \left\\{ \Sigma(\theta) : \Sigma(\theta) = I_p + \epsilon_{np} \sum_{m=1}^r \gamma_m A_m(\lambda_m),~\theta = (\gamma, \lambda) \in \Theta \right\\}
 \end{equation}
 
-여기서 $\gamma = (\gamma_1,\cdots, \gamma_r) \in \Gamma = [0, 1]^r$, $\lambda = (\lambda_1, \cdots, \lambda_r)^T \in \Lambda \subset \mathbb{R}^{r \times p}$,
+여기서 $\gamma = (\gamma_1,\cdots, \gamma_r) \in \Gamma = \\{0, 1\\}^r$, $\lambda = (\lambda_1, \cdots, \lambda_r)^T \in \Lambda \subset \mathbb{R}^{r \times p}$,
 \begin{equation}
 \begin{aligned}
 \Lambda= \bigg\\{ \lambda = (\lambda_{ij}) : &\lambda_{mi} \in \\{0, 1\\},~ \lVert \lambda_m \rVert_0 = k,~\sum_{i=1}^{p-r} \lambda_{mi} = 0, \\\\
