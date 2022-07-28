@@ -169,7 +169,9 @@ $$\begin{equation*}
 </div>
 
 <div class="remark">
+
 야코비안을 계산하는 새롭고 유용[^dk]한 방법이라는 의의가 있다.
+
 </div>
 
 ## $m$차원 공간에서 $n$-form의 적분 $(m \geq n)$
@@ -373,3 +375,5 @@ $$\int e^{-\frac{1}{2} tr(Z^\prime Z)} (dZ) = (2 \pi)^{\frac{nm}{2}}$$
 </div>
 
 </div>
+
+> 이 공간이 중요한 이유,, PCA,, 공분산 추정,, 머시기,, 잘 모르겠음,,[^dk][^dk-2]
