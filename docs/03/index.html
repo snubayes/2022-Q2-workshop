@@ -1,12 +1,218 @@
-<!doctype html><html lang=ko dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="TBA"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="정리 3 and 보조정리 2"><meta property="og:description" content="TBA"><meta property="og:type" content="article"><meta property="og:url" content="https://snubyaes.github.io/2022-Q2-workshop/docs/03/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2022-07-26T00:00:00+00:00"><meta property="article:modified_time" content="2022-07-28T17:06:31+09:00"><title>정리 3 and 보조정리 2 | 2022 여름학기 베이즈 워크숍</title><link rel=manifest href=/2022-Q2-workshop/manifest.json><link rel=icon href=/2022-Q2-workshop/favicon.png type=image/x-icon><link rel=stylesheet href=/2022-Q2-workshop/book.min.8ecd06c6a81b8600a324719bbef04a5db4c910b4bd5dee142b5ae2fc90febef2.css integrity="sha256-js0GxqgbhgCjJHGbvvBKXbTJELS9Xe4UK1ri/JD+vvI=" crossorigin=anonymous><script defer src=/2022-Q2-workshop/flexsearch.min.js></script>
-<script defer src=/2022-Q2-workshop/ko.search.min.73d9d04cef07d440ea53e94e939cb8cae7536f753f94cfa05be6d0af94ae174d.js integrity="sha256-c9nQTO8H1EDqU+lOk5y4yudTb3U/lM+gW+bQr5SuF00=" crossorigin=anonymous></script>
+<!doctype html><html lang=ko dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="정리 3 # The upper bound of the packing number If ${\zeta}^4 \leq p, \ p \asymp n^{\beta} \ for\ some\ 0 \leq \beta \leq 1,\ s _ n = c _ 1n \epsilon _ n^2/lnp,\ L _ n = c _ 2n \epsilon _ n^2\ \ and\ \delta _ n=\epsilon _ n/\zeta^3\ for\ some\ constants\ c _ 1>1\ and c _ 2>0, we\ have$
+$$ \begin{align*} lnD(\epsilon _ n,P _ n,d) \ \leq \ (12+1/\beta)c _ 1n\epsilon _ n^2 \end{align*} $$"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content="정리 3 and 보조정리 2"><meta property="og:description" content="정리 3 # The upper bound of the packing number If ${\zeta}^4 \leq p, \ p \asymp n^{\beta} \ for\ some\ 0 \leq \beta \leq 1,\ s _ n = c _ 1n \epsilon _ n^2/lnp,\ L _ n = c _ 2n \epsilon _ n^2\ \ and\ \delta _ n=\epsilon _ n/\zeta^3\ for\ some\ constants\ c _ 1>1\ and c _ 2>0, we\ have$
+$$ \begin{align*} lnD(\epsilon _ n,P _ n,d) \ \leq \ (12+1/\beta)c _ 1n\epsilon _ n^2 \end{align*} $$"><meta property="og:type" content="article"><meta property="og:url" content="https://snubyaes.github.io/2022-Q2-workshop/docs/03/"><meta property="article:section" content="docs"><meta property="article:published_time" content="2022-07-26T00:00:00+00:00"><meta property="article:modified_time" content="2022-10-07T14:41:03+09:00"><title>정리 3 and 보조정리 2 | 2022 여름학기 베이즈 워크숍</title><link rel=manifest href=/2022-Q2-workshop/manifest.json><link rel=icon href=/2022-Q2-workshop/favicon.png type=image/x-icon><link rel=stylesheet href=/2022-Q2-workshop/book.min.ba9354a60706f56bf52d9d00bf496f09fdbb1eaa941c243f7a102702b28b523d.css integrity="sha256-upNUpgcG9Wv1LZ0Av0lvCf27HqqUHCQ/ehAnArKLUj0=" crossorigin=anonymous><script defer src=/2022-Q2-workshop/flexsearch.min.js></script>
+<script defer src=/2022-Q2-workshop/ko.search.min.63de3b2cc39a8030c6ab8708dfa0d84e34b4ce2c64182239fdc822ebf1e5a409.js integrity="sha256-Y947LMOagDDGq4cI36DYTjS0zixkGCI5/cgi6/HlpAk=" crossorigin=anonymous></script>
 <script defer src=/2022-Q2-workshop/sw.min.2b5bfaea2d07d6ebfef5ce32a22258d51d27ee24b389f534727194bca2c47967.js integrity="sha256-K1v66i0H1uv+9c4yoiJY1R0n7iSzifU0cnGUvKLEeWc=" crossorigin=anonymous></script>
 <link rel=stylesheet href=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css integrity=sha384-R4558gYOUz8mP9YWpZJjofhk+zx0AS11p36HnD2ZKj/6JR5z27gSSULCNHIRReVs crossorigin=anonymous><script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js integrity=sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx crossorigin=anonymous></script>
 <script defer src=https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/contrib/auto-render.min.js integrity=sha384-+XBljXPPiv+OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR crossorigin=anonymous onload=renderMathInElement(document.body)></script>
-<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],trust:e=>["\\htmlId","\\href"].includes(e.command),macros:{"\\eqref":"\\href{###1}{(\\text{#2})}","\\ref":"\\href{###1}{(\\text{#2})}","\\label":"\\htmlId{#1}{}"},throwOnError:!1,globalGroup:!0})})</script><style type=text/css>body{counter-reset:theorem,katexEqnNo,mmlEqnNo}.theorem{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.theorem:before{content:"Theorem " counter(theorem)". ";font-weight:700;font-style:normal}.remark{display:block;margin:12px 0;font-style:italic}.remark:before{content:"Remark. ";font-weight:700;font-style:normal}.example{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.example:before{content:"Example " counter(theorem)". ";font-weight:700;font-style:normal}.proposition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.proposition:before{content:"Proposition " counter(theorem)". ";font-weight:700;font-style:normal}.lemma{display:block;margin:12px 0;font-style:italic;counter-increment:theorem}.lemma:before{content:"Lemma " counter(theorem)". ";font-weight:700;font-style:normal}.proof{display:block;margin:12px 0;padding:12px;font-style:normal}.proof:before{content:"증명. ";font-style:italic}.proof:after{content:"\25FC";float:right}.definition{display:block;margin:12px 0;font-style:normal;counter-increment:theorem}.definition:before{content:"Definition " counter(theorem)". ";font-weight:700;font-style:normal}.katex-display>.katex{max-width:100%}.katex-display>.katex>.katex-html{max-width:100%;overflow-x:auto;overflow-y:hidden;padding-left:2px;padding-right:2px}</style><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<script>document.addEventListener("DOMContentLoaded",function(){renderMathInElement(document.body,{delimiters:[{left:"$$",right:"$$",display:!0},{left:"$",right:"$",display:!1},{left:"\\(",right:"\\)",display:!1},{left:"\\[",right:"\\]",display:!0}],trust:e=>["\\htmlId","\\href"].includes(e.command),macros:{"\\eqref":"\\href{###1}{(\\text{#2})}","\\ref":"\\href{###1}{(\\text{#2})}","\\label":"\\htmlId{#1}{}"},throwOnError:!1,globalGroup:!0})})</script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/2022-Q2-workshop/><span>2022 여름학기 베이즈 워크숍</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><a href=/2022-Q2-workshop/docs/01-overview/>공분산 행렬 추정 문제</a></li><li><a href=/2022-Q2-workshop/docs/02-sicho/>공분산 행렬의 베이즈 추론</a></li><li><a href=/2022-Q2-workshop/docs/03/ class=active>정리 3 and 보조정리 2</a></li><li><a href=/2022-Q2-workshop/docs/04/>정리 4 and 보조정리 3</a></li><li><a href=/2022-Q2-workshop/docs/05/>보조정리 4 and 정리 5</a></li><li><a href=/2022-Q2-workshop/docs/06/>정리 2</a></li><li><a href=/2022-Q2-workshop/docs/10/>다양체</a></li></ul><ul><li><a href=/2022-Q2-workshop/posts/>Board</a></li><li><a href=https://github.com/snubyaes target=_blank rel=noopener>Github</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/2022-Q2-workshop/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>정리 3 and 보조정리 2</strong>
-<label for=toc-control><img src=/2022-Q2-workshop/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents></nav></aside></header><div class="flex flex-wrap justify-between" style=margin-bottom:11px><div class="flex align-center"><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
-<span>First created at July 26, 2022</span></div></div><h1>정리 3 and 보조정리 2</h1><div align=right>발표자: 신창수</div><article class=markdown><p>TBA</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/commit/9c2bd8fff4e9651bab17ec3a4049a008466a8cc3 title='Last modified by Kyeongwon Lee | July 28, 2022' target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
-<span>July 28, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/edit/main/content/docs/03/index.md target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/edit.svg class=book-icon alt=Edit>
-<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style><div><ul class="paging pagination"></ul></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents></nav></div></aside></main></body></html>
+<label for=toc-control><img src=/2022-Q2-workshop/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#정리-3>정리 3</a></li><li><a href=#보조정리-2>보조정리 2</a></li></ul></nav></aside></header><div class="flex flex-wrap justify-between" style=margin-bottom:11px><div class="flex align-center"><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>First created at July 26, 2022</span></div></div><h1>정리 3 and 보조정리 2</h1><div align=right>발표자: 신창수</div><article class=markdown><h1 id=정리-3>정리 3
+<a class=anchor href=#%ec%a0%95%eb%a6%ac-3>#</a></h1><div class=theorem>The upper bound of the packing number<p>If ${\zeta}^4 \leq p, \ p \asymp n^{\beta} \ for\ some\ 0 \leq \beta \leq 1,\ s _ n = c _ 1n \epsilon _ n^2/lnp,\ L _ n = c _ 2n \epsilon _ n^2\ \ and\ \delta _ n=\epsilon _ n/\zeta^3\ for\ some\ constants\ c _ 1>1\ and c _ 2>0, we\ have$</p><p>$$
+\begin{align*}
+lnD(\epsilon _ n,P _ n,d) \ \leq \ (12+1/\beta)c _ 1n\epsilon _ n^2
+\end{align*}
+$$</p></div><p>$\newcommand{\defeq}{\overset{\text{\tiny def}}{=}}$</p><div class=proof><p>이 정리는 Lemma1의 세 가지 조건 중 첫 번째 조건이 성립함을 보이는 정리이다. 증명에 앞서 각각의 용어들에 대해 정의하자. $D(\epsilon _ n,P _ n,d)$ 은 $P _ n$ 안에서, 각각의 쌍이 이루는 거리들의 거리가 $\epsilon _ n$보다 크거나 같은 점들의 최대 개수로 정의한다. 또한,
+$$P _ n=\{f _ \Sigma \ :\ |s(\Sigma,\delta _ n)|\leq s _ n, \ \zeta^{-1} \leq \lambda _ {min}(\Sigma) \leq \lambda _ {max}(\Sigma) \leq \zeta,||\Sigma|| _ {max} \leq L _ n \}$$</p><p>$$\mathcal{U}(\delta _ n,s _ n,L _ n,\zeta)=\{\Sigma \in \mathcal{c} _ p : |s(\Sigma,\delta _ n)|\leq s _ n,\zeta^{-1} \leq \lambda _ {min}(\Sigma) \leq \lambda _ {max} (\Sigma) \leq \zeta,||\Sigma|| _ {max} \leq L _ n \}$$</p><p>$s _ 0$ : 공분산 행렬의 비대각 원소 중 0이 아닌 원소들의 상한
+$$\epsilon _ n \defeq \{\dfrac{(p+s _ 0)lnp}{n}\}^{\dfrac{1}{2}}$$</p><p>라고 정의하자. 최종적으로는, $lnD(\epsilon _ n,\mathcal{P} _ n,d)\ \leq \ (12+1/\beta)c _ 1n\epsilon _ n^2$ 임을 보일 건데, 그 전에 먼저 lemma3 소개하자.</p><div class=lemma style=border:solid;padding:30px;margin:10px>[Lemma3](Lemma A.1 in [6])<p>If $P _ {\Omega _ {k}}$ is the density of $N _ p(0,\Omega _ {k}^{-1})$, k=1,2, then for all $\Omega _ k \in \mu _ {0}^+$, k=1,2, and $d _ i$, i=1,2,…,p, eigenvalues of $A=\Sigma _ 1^{-1/2}\Sigma _ 2\Sigma _ 1^{-1/2}$, we have that for some $\delta > 0$ and constant $c _ o>0$,</p><ol><li>$c _ 0^{-1}||\Sigma _ 1-\Sigma _ 2|| _ 2^2\leq \sum _ {i=1}^{p}|d _ i-1|^2\leq c _ o||\Sigma _ 1-\Sigma _ 2|| _ 2^2$</li><li>$h(p _ {\Omega _ {1}},p _ {\Omega _ {2}})&lt;\delta$ implies $\max\limits _ i|d _ i-1|&lt;1$ and $||\Omega _ 1-\Omega _ 2|| _ 2 \leq c _ oh^2(p _ {\Omega _ {1}},p _ {\Omega _ {2}})$</li><li>$h^2(p _ {\Omega _ {1}},p _ {\Omega _ {2}}) \leq c _ o||\Omega _ 1-\Omega _ 2|| _ 2^2$</li></ol><p>여기서, $h()$는 hellinger distance 로, 우리 논문에서 $d()$와 같음</p></div><p>따라서, lemma3-(3)에 의해,
+$d(f _ {\Sigma _ 1},f _ {\Sigma _ 2}) \leq c\zeta||\Omega _ 1-\Omega _ 2|| _ F$ 임을 알 수 있고, 여기서 $\Omega$는 $\Sigma^{-1}$ 이다.</p><p>위 lemma3-(3)과 우리 논문의 lemma5를 통해, $\Omega _ 1=\Sigma _ 1^{-1}\Sigma _ 1\Sigma _ 1^{-1}$ 임을 이용하면,
+$d(f _ {\Sigma _ 1},f _ {\Sigma _ 2}) \leq C\zeta^3||\Sigma _ 1-\Sigma _ 2|| _ F$ (1) 식을 얻을 수 있다.</p><p>$\epsilon$-packing의 정의에 의해, $d(f _ {\Sigma _ {i}},f _ {\Sigma _ {j}})\geq \epsilon _ n$ 으로부터, (1) 식과 결합하여, $||\Sigma _ 1-\Sigma _ 2|| _ F \geq \dfrac{\epsilon _ n}{C\zeta^3}$ 의 결과를 얻을 수 있다. 따라서, 집합을 $\mathcal{P} _ n$ 에서, $\mathcal{U}(\delta _ n,s _ n,L _ n,\zeta)$ 으로 바꾸고, 거리를 Frobenius norm 으로 바꾸어서 위의 결과를 적용하자. 여기서 격자 개념을 생각해보면, 격자의 대각선 부분들까지 고려해주어야 한다. 따라서,
+$$lnD(\epsilon _ n,P _ n,d) \leq lnD(\dfrac{\epsilon _ n}{C\zeta^3},\mathcal{U}(\delta _ n,s _ n,L _ n,\zeta),||\cdot|| _ F)
+\leq ln\left\{\left(\dfrac{L _ n\sqrt{p+j}}{\dfrac{\epsilon _ n}{C\zeta^3}}\right)^p \displaystyle \sum\limits _ {j=1}^{s _ n}\left(\dfrac{\sqrt{p+j}\dfrac{1}{\sqrt{2}}L _ n}{\dfrac{\epsilon _ n}{C\zeta^3}}\right)^{j}{\dfrac{p}{2} \displaystyle \choose j} \right\}$$
+여기서, $\sqrt{p+j}$는 격자의 대각선을 고려해준 항이고, $\dfrac{1}{\sqrt{2}}$는 Frobenius norm에서, symmetric term들의 중복을 고려해 준 값이다.
+한편, $\left(\dfrac{L _ n\sqrt{p+j}}{\dfrac{\epsilon _ n}{C\zeta^3}}\right)$에서 $j\leq s _ n \leq p^2$임을 통해, j를 p에 대한 부등식으로 적절히 바꾸어주면,
+$\dfrac{L _ n\sqrt{p+j}}{\dfrac{\epsilon _ n}{C\zeta^3}}\leq \dfrac{2p\zeta^3L _ n}{\epsilon _ n}$ 을 얻을 수 있다.
+따라서,
+$$
+\begin{equation*}
+\begin{gathered}
+ln\left\{\left(\dfrac{L _ n\sqrt{p+j}}{\dfrac{\epsilon _ n}{C\zeta^3}}\right)^p \displaystyle \sum\limits _ {j=1}^{s _ n}\left(\dfrac{\sqrt{p+j}\dfrac{1}{\sqrt{2}}L _ n}{\dfrac{\epsilon _ n}{C\zeta^3}}\right)^{j}{\dfrac{p}{2} \choose j} \right \} \\
+=ln\left\{\left(\dfrac{2pC\zeta^3L _ n}{\epsilon _ n}\right)^p \displaystyle \sum\limits _ {j=1}^{s _ n}\left(\dfrac{\sqrt{2}C\zeta^3L _ np}{\epsilon _ n}\right)^j{\dfrac{p}{2} \choose j}\right\} \\
+= ln\left[((2p)^p(\sqrt{2}p)^{s _ n})\left(\dfrac{C\zeta^3L _ n}{\epsilon _ n}\right)^p \displaystyle \sum\limits _ {j=1}^{s _ n} \left(\dfrac{C\zeta^3L _ n}{\epsilon _ n}\right)^j{\dfrac{p}{2} \choose j}\right] \\
+= pln2+plnp+s _ n(\dfrac{1}{2}ln2+lnp)+pln\left(\dfrac{CL _ n\zeta^3}{\epsilon _ n}\right)+ln\left( \displaystyle \sum\limits _ {j=1}^{s _ {n}}\left(\dfrac{2CL _ n\zeta^3}{\epsilon _ n}\right)(\dfrac{p^2}{2})^j\right) \\
+\leq pln2+plnp+s _ n(\dfrac{1}{2}ln2+lnp)+pln\left(\dfrac{CL _ n\zeta^3}{\epsilon _ n}\right)+s _ {n}ln\left(\dfrac{2CL _ n\zeta^3p^2}{\epsilon _ n}\right) \\
+\leq pln2+plnp+\dfrac{1}{2}s _ nln2+s _ nlnp+(p+s _ n)ln(2CL _ n)+(p+s _ n)ln\zeta^3+(p+s _ n)ln\dfrac{1}{\epsilon _ n}+2s _ nlnp
+\end{gathered}
+\end{equation*}
+$$
+에서 적절한 상수를 곱해주면,
+$$\leq 2(p+s _ n)lnp+(p+s _ n)ln(2CL _ n)+(p+s _ n)ln\zeta^3+(p+s _ n)ln\dfrac{1}{\epsilon _ n}+2s _ nlnp $$
+이다. 먼저, $(p+s _ n)ln(2CL _ n)\leq 6s _ nlnp$ 임을 보일건데,
+위에서 정의한 $s _ n,\epsilon _ n,L _ n$을 통해, $s _ n=c _ 1(p+s _ 0)$ 이므로, $p+s _ n=(1+c _ 1)p+c _ 1s _ 0$임을 알 수 있다. 또한, $2CL _ n=2c _ 2n\epsilon _ n^2$ 이다.
+이를 좌변에 대입하면,
+$$
+\begin{equation}
+\begin{gathered}
+(p+s _ n)ln(2CL _ n)=((c _ 1+1)+c _ 1s _ 0)ln2c _ 2n\epsilon _ n^2 \\
+=((c _ 1+1)p+c _ 1s _ 0)ln2c _ 2(p+s _ 0)lnp
+\end{gathered}
+\end{equation}
+$$
+이다. $c _ 1 > 1$ 가정에 의해,
+$$((c _ 1+1)+c _ 1s _ 0)ln2c _ 2n\epsilon _ n^2\leq 2c _ 1(p+s _ 0)ln(2c _ 2(p+s _ 0)lnp)$$
+이다. 한편, $s _ 0$는 비대각 원소 중 0이 아닌 것들의 개수의 상한이므로 $s _ o\leq p^2$ 임을 알 수 있다.
+따라서, 적절한 차수 $p^3$을 통해 $2c _ 2(p+s _ 0)lnp&lt;p^3$ 을 얻을 수 있다. 이를 통해,
+$$(p+s _ n)ln(2CL _ n)\leq 2c _ 1(p+s _ 0)lnp^3=6s _ nlnp$$
+부등식을 얻을 수 있다.
+이를 정리하면,
+$$
+\begin{equation}
+\begin{gathered}
+2(p+s _ n)lnp+(p+s _ n)ln(2CL _ n)+(p+s _ n)ln\zeta^3+(p+s _ n)ln\dfrac{1}{\epsilon _ n}+2s _ nlnp \\
+\leq 2(p+s _ n)lnp+6s _ nlnp+(p+s _ 0)ln\zeta^3+(p+s _ n)ln(\dfrac{1}{\epsilon _ n})+2s _ nlnp
+\end{gathered}
+\end{equation}
+$$
+이다. 이제 $(p+s _ 0)ln\zeta^3\leq \dfrac{3}{4}(p+s _ n)lnp$ 임을 보이자.
+$$(p+s _ n)ln\zeta^3=\dfrac{3}{4}(p+s _ n)ln\zeta^4$$
+인데, 가정에 의해, $\zeta^4\leq p$이므로,
+$$(p+s _ n)ln\zeta^3\leq \dfrac{3}{4}(p+s _ n)lnp$$
+임을 알 수 있다. 이를 대입하여 정리하면,
+$$
+\begin{equation}
+\begin{gathered}
+\leq 2(p+s _ n)lnp+6s _ nlnp+(p+s _ 0)ln\zeta^3+(p+s _ n)ln(\dfrac{1}{\epsilon _ n})+2s _ nlnp \\
+\leq 2(p+s _ n)lnp+6s _ nlnp+\dfrac{3}{4}(p+s _ n)lnp+(p+s _ n)ln(\dfrac{1}{\epsilon _ n})+2s _ nlnp
+\end{gathered}
+\end{equation}
+$$
+이다.
+세번째 항에, 앞에서 정의한 $\epsilon _ n$을 대입하여 정리하면,
+$$(p+s _ n)ln(\dfrac{1}{\epsilon _ n})=\dfrac{1}{2}(p+s _ n)ln\dfrac{n}{(p+s _ o)lnp}$$
+임을 알 수 있고,
+우변
+$$
+\begin{equation}
+\begin{gathered}
+= \dfrac{1}{2\beta}(p+s _ n)ln\left(\dfrac{n}{(p+s _ o)lnp}\right)^\beta \\
+=\dfrac{1}{2\beta}(p+s _ n)lnn^\beta-\dfrac{1}{2}(p+s _ n)ln(p+s _ 0)lnp \\
+\leq \dfrac{1}{2\beta}(p+s _ n)lnn^\beta=\dfrac{1}{2\beta}(p+s _ n)lnp
+\end{gathered}
+\end{equation}
+$$
+이다.($\because p\asymp n^\beta$)
+이를 다시 처음 부등식에서 정리하면,
+$$\leq 2(p+s _ n)lnp+6s _ nlnp+\dfrac{3}{4}(p+s _ n)lnp+\dfrac{1}{2\beta}(p+s _ n)lnp+2s _ nlnp $$이다.
+이 부등식에 적절한 상수배를 해주면,
+$$
+\begin{equation}
+\begin{gathered}
+\leq 6s _ nlnp+\dfrac{11}{4}(p+s _ n)lnp+\dfrac{1}{2\beta}(p+s _ n)lnp+2s _ nlnp \\
+(6+\dfrac{1}{2\beta})(\dfrac{s _ n}{c _ 1}+s _ n)lnp&lt; \dfrac{1}{2}(12+\dfrac{1}{\beta})(c _ 1+c _ 1)n\epsilon _ n^2 \quad (\because c _ 1>1) \\
+=(12+\dfrac{1}{2\beta})c _ 1n\epsilon _ n^2
+\end{gathered}
+\end{equation}
+$$
+이다. 따라서,
+$$lnD(\epsilon _ n,P _ n,d)\leq(12+\dfrac{1}{\beta})c _ 1n\epsilon _ n^2$$이 성립해서,
+이를 통해 Lemma1의 첫 번째 조건이 성립함을 알 수 있다.</p></div><h1 id=보조정리-2>보조정리 2
+<a class=anchor href=#%eb%b3%b4%ec%a1%b0%ec%a0%95%eb%a6%ac-2>#</a></h1><div class=lemma><p>If $a=b=\dfrac{1}{2},\tau=O(\dfrac{1}{p^2}\sqrt{\dfrac{s _ 0lnp}{n}}),\ s _ 0lnp=O(n)\ and\ \zeta >3, we\ have, for\ some\ constant\ C>0,$</p><p>$$
+\begin{equation*}
+\pi^u(\Sigma \in \mathcal{U}(\zeta))>\left\{\dfrac{\lambda \zeta}{8}exp(-\dfrac{\lambda \zeta}{4}-C) \right\}^p
+\end{equation*}
+$$</p></div><div class=proof>이 Lemma는 논문의 Theorem4 의 증명에서 활용되는 Lemma이다.<p>Gershgorin circle Thm에 의해, covariance matrix의 eigenvalue 들은 적어도 $[\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|,\sigma _ {jj}+\sum\limits _ {k\neq j}|\sigma _ {kj}|], j \in \{1,2,\cdots,p\}$ 안에 있다는 것을 알 수 있다. 따라서,
+$$
+\begin{equation}
+\begin{gathered}
+\pi^u(\Sigma \in \mathcal{U}(\zeta)) \\
+\geq \pi^u(min _ j(\sigma _ {jj}-\sum _ {k\neq j}|\sigma _ {kj}|)>0,\zeta^{-1} \leq \lambda _ {min}(\Sigma)\leq \lambda _ {max}(\Sigma)\leq \zeta)
+\end{gathered}
+\end{equation}
+$$
+임을 보이면 된다. 먼저 $\min\limits _ {j}(\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|)>0$을 살펴보면, 1-norm의 정의에 의해,
+$||\Sigma|| _ 1 = \max\limits _ {1\leq j\leq n} \sum\limits _ {i=1}^{m}|a _ {ij}|$\ 이므로,
+$$\lambda _ {max}(\Sigma) \leq ||\Sigma|| _ 1 = \max\limits _ {j}(\sigma _ {jj}+\sum\limits _ {k\neq j}|\sigma _ {kj}|)\leq \max\limits _ {j}2\sigma _ {jj}$$
+로 표현할 수 있다. 또한, G.C Thm에 의해,
+$$\lambda _ {min}(\Sigma)\geq \min\limits _ {j}(\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|)$$
+로 표현할 수 있다. 따라서,
+이를 위의 식 $\zeta^{-1} \leq \lambda _ {min}(\Sigma)\leq \lambda _ {max}(\Sigma)\leq \zeta$에 적용해서 다시 표현하면,
+$$\pi^u(\Sigma \in \mathcal{U}(\zeta)) \geq \pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|)\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta)$$
+이고, $P(A)\geq P(A \cap B)=P(A|B)P(B)$ 성질을 이용하면,
+$$
+\begin{equation}
+\begin{gathered}
+\pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|)\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta) \\
+\geq \pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\sum\limits _ {k\neq j}|\sigma _ {kj}|)\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta \ | \max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1} )\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})
+\end{gathered}
+\end{equation}
+$$
+인데, 조건부에 의해 다음 부등식이 되고,
+$$\geq \pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\zeta^{-1})\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta \ | \max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1} )\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})$$
+에서, $\sigma _ {jj}$ 항과 $\sigma _ {ij}$는 독립이므로 조건부 항을 없앨 수 있다. 따라서,
+$$=\pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\zeta^{-1})\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta)\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})$$
+이다.
+다시 정리해보면, 다음과 같은 부등식을 얻을 수 있다.
+$$\pi^u(\Sigma \in \mathcal{U}(\zeta)) \geq \underline{\pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\zeta^{-1})\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta)} \ * \ \underline{\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})}$$
+먼저 첫 번째 밑줄 확률을 계산해보면,
+$$
+\begin{equation}
+\begin{gathered}
+\pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\zeta^{-1})\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta) \\
+\geq \pi^u(2\zeta^{-1} \leq \sigma _ {jj} \leq \dfrac{\zeta}{2}, \forall j) \\
+\geq \prod\limits _ {j=1}^p \pi^u(2\zeta^{-1}\leq \sigma _ {jj} \leq \dfrac{\zeta}{2})
+\end{gathered}
+\end{equation}
+$$
+에서 $\sigma _ {jj}$가 $\Gamma(1,\dfrac{\lambda}{2})$를 따른다는 가정에 의해, $f(\sigma _ {jj})=\dfrac{\lambda}{2}exp(-\dfrac{\lambda}{2}\sigma _ {jj})$의 pdf 를 갖고, 가로 길이가 $\left(\dfrac{2}{\zeta},\dfrac{\zeta}{2}\right)$이고 세로 길이가 $\left(0,f\left(\dfrac{2}{\zeta}\right)\right)$ 인 직사각형을 생각하면,
+이는 pdf 의 전체 넓이 보다는 작으므로, 이를 통해
+$$
+\begin{equation}
+\begin{gathered}
+\prod\limits _ {j=1}^p\pi^u(2\zeta^{-1}\leq \sigma _ {jj} \leq \dfrac{\zeta}{2}) \\
+=\left\{\left(\dfrac{\zeta}{2}-\dfrac{2}{\zeta}\right)\dfrac{\lambda}{2}exp(-\dfrac{\lambda \zeta}{4})\right\}^p \geq \left\{ \dfrac{\lambda \zeta}{8} exp(-\dfrac{\lambda \zeta}{4})\right\}^p
+\end{gathered}
+\end{equation}
+$$
+임을 알 수 있다. 이제 두 번째 밑줄 확률인 $\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})$를 계산할 건데, 먼저 이를 위한 lemma 하나를 소개하자.</p><div class=lemma style=border:solid;padding:30px;margin:10px>[lemma 1 in [12]]<p>The univariate horseshoe density $p(\theta)$ satisfies the following:
+$$
+\begin{align*}
+&(a) \lim\limits _ {\theta \rightarrow 0}p(\theta) = \infty\
+&(b) \ For\ \theta \neq 0, \dfrac{K}{2}log\left(1+\dfrac{4}{\theta^2}\right)&lt;p(\theta)&lt;Klog\left(1+\dfrac{2}{\theta^2}\right), \ where\ K=\dfrac{1}{\sqrt{2\pi^3}}
+\end{align*}
+$$</p></div><p>따라서, 위의 lemma\ (b) 를 통해, $\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})$의 계산을 위한 부등식인
+$$\pi^u(\sigma _ {kj})\leq \dfrac{1}{\tau \sqrt{2\pi^3}}ln\left(1+\dfrac{2\tau^2}{\sigma _ {kj}^2}\right)$$
+를 알 수 있다. 한편, $|\sigma _ {kj}|$ 는 이대일 변환이므로, 2가 곱해져서,
+$$\pi^u(|\sigma _ {kj}|\geq(\zeta p)^{-1})\leq \dfrac{1}{\zeta}\sqrt{\dfrac{2}{\pi^3}} \displaystyle \int _ {(\zeta p)^{-1}}^{\infty}ln\left(1+\dfrac{2\tau^2}{x^2}\right) dx$$
+가 되고,
+$$
+\begin{equation}
+\begin{gathered}
+\leq \sqrt{\dfrac{2}{\pi^3}} \displaystyle \int _ {(\zeta p)^{-1}}^{\infty}\dfrac{2\tau^2}{x^2} dx \quad ( \because ln(1+x) \leq x, \ when\ x\geq 0) \\
+= \sqrt{\dfrac{2}{\pi^3}} \displaystyle \int _ {(\zeta p)^{-1}}^{\infty}\dfrac{2\tau}{x^2} dx \\
+=\dfrac{2\sqrt{2}}{\sqrt{\pi^3}}\tau\zeta p \\
+\end{gathered}
+\end{equation}
+$$
+임을 알 수 있다. 이를 통해 이제 $\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1})$ 를 계산해보면,
+$$
+\begin{equation}\label{eqn-1}
+\begin{gathered}
+\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1}) = \prod\limits _ {k\neq j} \left\{ 1-\pi^u(|\sigma _ {kj}|\geq (\zeta p)^{-1}) \right\} \\
+= \left(1-\dfrac{2\sqrt{2}}{\sqrt{\pi^3}}\tau\zeta p\right)^{p(p-1)} \\
+\geq \left(1-\dfrac{2\sqrt{2}}{\sqrt{\pi^3}}\tau\zeta p\right)^{p^2} \quad (\because \text{괄호안의 값은확률로 1보다 작으므로}) \\
+\geq exp\left(-\dfrac{4\sqrt{2}}{\sqrt{\pi^3}}\tau \zeta p^3\right) \ (\because log(1-x) \geq -2x,\ when\ x\leq \dfrac{1}{2})
+\end{gathered}
+\end{equation}
+$$
+이다. 한편, 주어진 조건에서 $\tau=O\left(\dfrac{1}{p^2}\sqrt{\dfrac{s _ 0lnp}{n}}\right), s _ 0lnp=O(n)$ 이라 했으므로,
+$$\dfrac{\tau}{\dfrac{1}{p^2}\sqrt{\dfrac{s _ olnp}{n}}}\leq c _ 1, \dfrac{s _ olnp}{n}\leq c _ 2,\ c _ 1,c _ 2>0$$
+임을 알 수 있다. 이들을 조합하면
+$$\Rightarrow \ \tau p^2 \leq \sqrt{c _ 2}c _ 1 \defeq c _ 3 \ \Rightarrow \tau p^3 \leq c _ 3p\ \Rightarrow \ -\tau p^3 \geq -c _ 3p$$
+이다. 이를 <a href=#eqn-1>위 식</a>에서 활용하면,
+$$exp\left(-\dfrac{4\sqrt{2}}{\sqrt{\pi^3}}\tau \zeta p^3\right) \geq exp\left(-c _ 3 \dfrac{4\sqrt{2}}{\sqrt{\pi^3}} \zeta p\right)=exp(-Cp)$$
+이다. 따라서, 두번째 밑줄 확률의 부등식을 다음과 같이 구할 수 있다.
+$$\pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1}) \geq exp(-Cp)$$
+이제 첫 번째 밑줄 식과 두 번째 밑줄 식의 결과를 종합하면,
+$$
+\begin{equation}
+\begin{gathered}
+\pi^u(\Sigma \in \mathcal{U}(\zeta)) \geq \pi^u(\zeta^{-1}\leq\min\limits _ {j}(\sigma _ {jj}-\zeta^{-1})\leq 2\max\limits _ {j}\sigma _ {jj}\leq\zeta) \ * \ \pi^u(\max\limits _ {k \neq j}|\sigma _ {kj}|&lt; (\zeta p)^{-1}) \\
+\geq \left\{ \dfrac{\lambda \zeta}{8} exp(-\dfrac{\lambda \zeta}{4})\right\}^p exp(-Cp)=\left\{ \dfrac{\lambda \zeta}{8} exp(-\dfrac{\lambda \zeta}{4}-C)\right\}^p
+\end{gathered}
+\end{equation}
+$$
+임을 알 수 있다.</p></div></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/commit/d0d40c91b684f8edffe87abfa92769c7a896ac6f title='Last modified by Kyeongwon Lee | October 7, 2022' target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/calendar.svg class=book-icon alt=Calendar>
+<span>October 7, 2022</span></a></div><div><a class="flex align-center" href=https://github.com/snubyaes/2022-Q2-workshop/edit/main/content/docs/03/index.md target=_blank rel=noopener><img src=/2022-Q2-workshop/svg/edit.svg class=book-icon alt=Edit>
+<span>Edit this page</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){if(window.getSelection().toString())return;e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script><style>.paging{list-style-type:none;margin-block-start:0;margin-block-end:0;padding-inline-start:0;margin-top:11px}</style><div><ul class="paging pagination"></ul></div></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#정리-3>정리 3</a></li><li><a href=#보조정리-2>보조정리 2</a></li></ul></nav></div></aside></main></body></html>
