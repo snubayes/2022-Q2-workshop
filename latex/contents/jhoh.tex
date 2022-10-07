@@ -1,0 +1,208 @@
+본 절에서는 \cite{lee2022beta} 의 사후 수렴속도에 관한 증명인 \textbf{Lemma 1} 을 보이기 위하여 필요한 두번째 조건 \textbf{Theorem 4} 를 증명하고, \textbf{Lemma 4} 의 증명에 필요한 \textbf{Lemma 3} 를 증명한다.
+
+\setcounter{theorem}{4}
+
+\begin{theorem}[The Upper Bound of the Packing Number] If $\zeta^4 \leq p, \; p \asymp n^{\beta}$ for some $0 < \beta < 1, \; s_n = c_1 n \epsilon_n^{2} / \ln{p}, \; L_n = c_2 n \epsilon_n^2$ and $\delta_n = \epsilon_n / \zeta^3$ for some constants $c_1 > 1$ and $c_2 > 0,$ we have
+    \begin{equation*}
+        \ln{ D(\epsilon_n, \mathcal{P}_n, d) } \leq (12 + 1/\beta) c_1 n \epsilon_n^2.
+    \end{equation*}
+\end{theorem}
+
+\begin{proof}
+    정의 $\mathcal{P}_n = \{ f_{\Sigma} : |s(\Sigma, \delta_n)| \leq s_n, \; \zeta^{-1} \leq \lambda_{min}(\Sigma) \leq \lambda_{max}(\Sigma) \leq \zeta, \; || \Sigma ||_{max} \leq L_n \}$로부터, 가산반가법성에 의해 다음이 성립한다.
+    \begin{equation}
+      \pi(\mathcal{P}_n^c) \leq \pi(|s(\Sigma, \delta_n)| > s_n) + \pi(||\Sigma||_{max} > L_n)  
+    \end{equation}
+    부등식 (1)의 첫번째 항의 상계를 구해보자. 앞선 \textbf{Lemma 2}의 증명의 결과를 따라가는데, 모형 $\sigma_{kj} | \lambda \sim \mathcal{N}(0, \lambda^2), \; \lambda \sim C^{+}(0, \tau)$ 에 \cite{carvalho2010horseshoe} 의 \textbf{Theorem 1} 의 부등식을 적용하면
+    \begin{equation}
+      \pi^u(\sigma_{kj}) \leq \frac{1}{\tau \sqrt{2 \pi^3}} \ln{ \left( 1 + \frac{2 \tau^2}{\sigma_{kj}^2} \right)}, \quad 1 \leq k \neq j \leq p
+    \end{equation}
+    가 성립하므로,
+    \begin{equation}
+      \pi^u(|\sigma_{kj}| > \delta_n) \leq \frac{2}{\tau \sqrt{2 \pi^3}} \int_{\delta_n}^{\infty} \ln{ \left( 1 + \frac{2 \tau^2}{x^2} \right)} dx \leq \frac{\sqrt{2}}{\tau \sqrt{\pi^3}} \int_{\delta_n}^{\infty} \frac{2\tau^2}{x^2} dx = \frac{2 \sqrt{2}}{\sqrt{\pi^3}} \tau \delta_n^{-1}.
+    \end{equation}
+    를 얻는다. 두번째 부등식에서는 $\ln{(1 + x)} \leq x$ 를 이용하였다. 이제 (3)으로부터, 다음의 사실을 관찰할 수 있다. \\
+    적당한 상수 $C > 0$에 대해,
+    \begin{equation}
+      \nu_n \equiv \pi^u (|\sigma_{kj}| > \delta_n) \leq \frac{2 \sqrt{2}}{\sqrt{\pi^3}} \tau \delta_n^{-1} = \frac{2\sqrt{2}}{\sqrt{\pi^3}} \tau \frac{\sqrt{n} \zeta^3}{\sqrt{(p+s_0)\ln{p}}} \leq \frac{C}{p^2} \sqrt{\frac{s_0 \ln{p}}{n}} \frac{\sqrt{n} \zeta^3}{\sqrt{(p+s_0)\ln{p}}} \lesssim \frac{1}{p^2}
+    \end{equation}
+    이 충분히 큰 모든 $n$에 대해 성립한다.  \\
+    두번째 등식은 가정 $\delta_n = \epsilon_n/\zeta^3$을 대입하였고, 세번째 부등식은 $\tau = O(\frac{1}{p^2} \sqrt{\frac{s_0 \ln{p}}{n}})$ 을 사용하였다.
+    이제까지의 결과를 정리하면, 우리는
+    \begin{equation}
+      \nu_n = \pi^u ( |\sigma_{kj}| > \delta_n ) \lesssim \frac{1}{p^2}
+    \end{equation}
+    의 사실을 얻었다. 이제 위에서 정의된 것들을 살펴보자. $\nu_n$이 0이 아닌 비대각 원소 $\sigma_{kj}$들의 비율이고, $|s(\Sigma, \delta_n)|$이 0이 아닌 $\sigma_{kj}$의 개수라는 해석이 자연스럽다. 따라서 $|s(\Sigma, \delta_n)| \sim Bin( {p \choose 2}, \nu_n)$을 따른다. 여기에 \cite{song2017nearly} 의 \textbf{Lemma A.3} 의 결과를 이용하면,
+    \begin{eqnarray}
+      \pi^u(|s(\Sigma, \delta_n)| > s_n) = \mathbb{P} \left( Bin({p \choose 2}, \nu_n) > s_n \right) &\leq& 1 - \Phi \left( sign(s_n - {p \choose 2} \nu_n) \sqrt{2 {p \choose 2} H( \nu_n, s_n / {p \choose 2})} \right) \nonumber \\
+      & = & 1 - \Phi \left( \sqrt{2 {p \choose 2} H( \nu_n, s_n / {p \choose 2})} \right)
+    \end{eqnarray}
+    를 얻는다. (6)의 마지막 등식에서는 최대값이 평균보다 크다는 사실, $s_n \geq {p \choose 2} \nu_n$ 을 사용하였다. $\Phi$는 표준정규분포의 cdf이고, $H$는 다음과 같이 정의된 함수이다.
+    \[
+    H(\nu, \frac{k}{n}) := \frac{k}{n} \ln{ \left( \frac{k}{n \nu} \right) } + \left( 1 - \frac{k}{n} \right) \ln{\left( \frac{1 - \frac{k}{n}}{1 - \nu} \right)}
+    \]
+    이제 표준정규분포의 cdf에 관한 부등식 $1 - \Phi (t) \leq \frac{1}{\sqrt{2\pi}} \frac{1}{t} e^{-\frac{t^2}{2}}$ 을 사용하면,
+    \begin{equation}
+      1 - \Phi \left( \sqrt{2 {p \choose 2} H ( \nu_n, s_n / {p \choose 2})} \right) \leq \frac{e^{- {p \choose 2}H(\nu_n, s_n/{p \choose 2})}}{\sqrt{2\pi}\sqrt{2{p \choose 2}H(\nu_n, s_n/{p \choose 2})}}
+    \end{equation}
+    의 상계를 얻는다. (7)의 점근적 성질을 확인해보기 위해, 항 ${p \choose 2} H(\nu_n, s_n/{p \choose 2})$을 전개해보자.
+    \begin{equation}
+      {p \choose 2} H (\nu_n, s_n/{p \choose 2}) = s_n \ln{\left( \frac{s_n}{{p \choose 2} \nu_n} \right)} + \left( {p \choose 2} - s_n \right) \ln{\left( \frac{{p \choose 2} - s_n}{{p \choose 2} - {p \choose 2}\nu_n} \right)}
+    \end{equation}
+    (8)의 첫번째 항을 먼저 보면, 적당한 상수 $C > 0$이 존재하여
+    \begin{eqnarray}
+      s_n \ln{\left( \frac{s_n}{{p \choose 2} \nu_n} \right)} = s_n \ln{\left( \frac{c_1(p + s_0)}{{p \choose 2}\nu_n} \right)} \geq s_n \ln{\left( c_1 C (p + s_0) \right)} \geq s_n \ln{\left( \sqrt{p + s_0} \right)} &\geq& \frac{s_n}{2} \ln{p}  \\
+      &=& \frac{c_1 n \epsilon_n^2}{2}
+    \end{eqnarray}
+    이 충분히 큰 모든 $n$에 대하여 성립함을 알 수 있다. (9)의 첫번째 등식은 $s_n = c_1 n \epsilon_n^2 / \ln{p} = c_1(p + s_0)$를 이용하였고, 두번째 부등식에서는 (5)의 결과 $\nu_n \lesssim \frac{1}{p^2}$를 사용하였다. 다음으로 (8)의 두번째 항을 살펴보면
+    \begin{eqnarray}
+      \left( {p \choose 2} - s_n \right) \ln{\left( \frac{{p \choose 2} - s_n}{{p \choose 2} - {p \choose 2}\nu_n} \right)} &=& \left( {p \choose 2} - s_n \right) \ln{\left( 1 - \frac{s_n - {p \choose 2} \nu_n}{{p \choose 2}(1 - \nu_n)} \right)} \\
+      &\geq& -2 \left( {p \choose 2} - s_n \right) \frac{s_n - {p \choose 2} \nu_n}{{p \choose 2}(1 - \nu_n)} \\
+      &=& -2 \left( 1 - s_n / {p \choose 2} \right) \frac{s_n - {p \choose 2} \nu_n }{(1 - \nu_n)}  \\
+      &\geq& -2 \left( 1 - s_n / {p \choose 2} \right) \frac{s_n }{(1 - \nu_n)} \\
+      &=& -s_n \left( 1 - s_n / {p \choose 2} \right) \frac{2}{(1 - \nu_n)} \\
+      &\gtrsim& -s_n \left( 1 - \frac{c_1(p + s_0)}{p^2} \right)  \\
+      &\gtrsim& -s_n = \frac{- c_1 n \epsilon_n^2}{\ln{p}}
+    \end{eqnarray}
+    이 충분히 큰 모든 $n$에 대해 성립한다. 부등식 (12)는 $\ln{(1-x)} \geq -2x, \; \forall x \in (0, 1/2)$과 $\nu_n \lesssim 1/p^2$로부터 $\frac{s_n - {p \choose 2}\nu_n}{{p \choose 2}(1 - \nu_n)} =  O(\frac{p + s_0}{p^2}) \searrow 0, \; n \rightarrow \infty$임을 이용하였다. 부등식 (16)은 $s_n/{p \choose 2} = c_1(p + s_0) / {p \choose 2} = O(\frac{c_1(p + s_0)}{p^2})$인 사실과 $\nu_n \lesssim 1/p^2$로부터 충분히 큰 모든 n에 대해 $\frac{2}{1-\nu_n}$이 상수로 무시가능한 것으로 인해 성립하고, (17)번 부등식은 $1 - \frac{c_1(p + s_0)}{p^2} \rightarrow 1$ 때문에 성립한다. \\
+    (10)과 (17)의 결과를 가지고 (8)로 되돌아가면 다음을 관찰할수 있다.
+    \begin{align}
+      {p \choose 2} H (\nu_n, s_n/{p \choose 2}) \gtrsim \frac{c_1 n \epsilon_n^2}{2} - \frac{c_1 n \epsilon_n^2}{\ln{p}} = O(\frac{c_1 n \epsilon_n^2}{2})
+    \end{align}
+    즉 ${p \choose 2} H (\nu_n, s_n/{p \choose 2})$ 은 무한으로 발산하므로, 충분히 큰 모든 $n$에 대하여 (7) 우변의 분모를 생략할 수 있다. 그리고 적당히 큰 $n$에 대해,
+    \begin{align}
+      {p \choose 2} H (\nu_n, s_n/{p \choose 2}) \gtrsim \left( \frac{1}{2} - \frac{1}{\ln{p}} \right) c_1 n \epsilon_n^2 \sim \frac{1}{3} c_1 n \epsilon_n^2
+    \end{align}
+    역시 성립하므로 (18)과 (19)의 결과들을 (6), (7)과 결합하면, 충분히 큰 모든 $n$에 대하여
+    \begin{align}
+      \pi^u(|s(\Sigma, \delta_n)| > s_n) \leq \exp \left( - \frac{c_1 n \epsilon_n^2}{3} \right)
+    \end{align}
+    이 성립함을 알 수 있다. 여태까지의 모든 결과를 종합하면 (1)에서 제시된 첫번째 항의 상계를 다음과 같이 구할 수 있다.
+    \begin{eqnarray}
+      \pi(|s(\Sigma, \delta_n)| > s_n) &\leq& \frac{\pi^u(|s(\Sigma, \delta_n)| > s_n)}{\pi^u(\Sigma \in \mathcal{U}(\zeta))} \leq \frac{\exp \left( -c_1 n \epsilon_n^2 /3 \right)}{\pi^u(\Sigma \in \mathcal{U}(\zeta))}  \\
+      &\leq& \left\{ \frac{8}{\lambda \zeta} \exp( \frac{\lambda \zeta}{4} + C) \right\}^p \exp(-c_1 n \epsilon_n^2 /3) \\
+      &=& \exp \left( p \ln{8} - p \ln{(\lambda \zeta)} + p \frac{\lambda \zeta}{4} + Cp - \frac{c_1 n \epsilon_n^2}{3} \right) \\
+      &\lesssim& \exp \left( p \ln{p} - \frac{c_1 n \epsilon_n^2}{3} \right)  \\
+      &\sim& \exp \left( - \frac{(c_1 - 1) n \epsilon_n^2}{3} \right)
+    \end{eqnarray}
+    이 충분히 큰 모든 $n$에 대해 성립한다. (21)의 두번째 부등식에서는 (20)의 결과를, 부등식 (22)에서는 \cite{lee2022beta}의 \textbf{Lemma 2}를, (24)에서는 $\lambda \zeta \leq \ln{p}$의 가정을 사용하였다. \\
+    마지막으로 (1)의 두번째 항인 $\pi ( ||\Sigma||_{max} > L_n)$의 상계를 구하여보자. 먼저 $||\Sigma||_{max} \leq \lambda_{max}(\Sigma)$ 가 성립하는데, 이는 다음으로부터 알 수 있다. 실수인 행렬 $A$가 양의 준정부호 혹은 정부호 행렬일때,
+    \begin{eqnarray}
+      \lambda_{max}(A) = \max_{||\vectorbold{u}||=1} \vectorbold{u}^\top A \vectorbold{u} \geq \vectorbold{e}_i^\top A \vectorbold{e}_i, \quad \forall i=1,\cdots,p
+    \end{eqnarray}
+    가 성립. $\{ \vectorbold{e}_1, \cdots, \vectorbold{e}_p \}$는 $\mathbb{R}^p$의 표준기저이다. 그런데 $A$가 대칭이며 양의 준정부호이면 $A$의 최대원소는 반드시 대각원소중에 있으므로 $||\Sigma||_{max} \leq \lambda_{max}(\Sigma).$ 그리고 $\pi(\Sigma : \lambda_{max}(\Sigma) \leq \zeta) = 1$으로부터, 충분히 큰 모든 $n$에 대하여 $L_n > \zeta$이면,
+    \begin{equation}
+      0 = \pi(\lambda_{max}(\Sigma) > L_n) \geq \pi(||\Sigma||_{max} > L_n)
+    \end{equation}
+    이 성립한다. 그러므로 (25)와 (27)에 의해 (1)은
+    \begin{eqnarray}
+    \pi(\mathcal{P}_n^c) &\leq& \pi(|s(\Sigma,\delta_n)| > s_n) + \pi(||\Sigma||_{max} > L_n) \\
+    &\leq& \exp \left( - \frac{(c_1 - 1) n \epsilon_n^2}{3} \right)
+  \end{eqnarray}
+  가 충분히 큰 모든 $n$에 대해 성립한다. 이로써 증명이 끝났다.
+  \end{proof}
+
+
+  % \setcounter{lemma}{2}
+  \begin{lemma} If $\Sigma_0 \in \mathcal{U}(s_0, \zeta_0)$ and $\Sigma \in \mathcal{U}(\zeta)$, we have
+    \begin{enumerate}[(i)]
+      \item $K(f_{\Sigma_0}, f_\Sigma) \leq c_0 \zeta^4 \zeta_0^2 || \Sigma - \Sigma_0 ||_F^2$ \; \text{for some } $c_0 > 0$
+      \item $V(f_{\Sigma_0}, f_\Sigma) \leq \frac{3}{2} \zeta^4 \zeta_0^2 || \Sigma - \Sigma_0 ||_F^2 \; $ for sufficiently small $|| \Sigma - \Sigma||_F^2 \leq \frac{1}{c_0^2 \zeta^4 \zeta_0^2}.$
+    \end{enumerate}    
+  \end{lemma}
+
+  \begin{proof}
+  \textbf{Lemma 3}의 증명은 \cite{banerjee2015bayesian}의 계산을 따라간다. 먼저 다음을 확인하자. $A = \Sigma_0^{\frac{1}{2}} \Sigma^{-1} \Sigma_0^{\frac{1}{2}}$라 놓고, $d_i$를 $A$의 고유값이라 하자. $d_i = \lambda_i(A), \; i=1,\cdots,p.$ 또, $D = diag(d_i, \; i=1,\cdots,p)$라 놓는다. 그러면
+  \begin{align*}
+    ||I - A||_F^2 = tr \left[ (I - A)^2 \right] = tr \left[ U(I - D)^2 U^\top \right] = tr \left[ (I - D)^2 \right] = \sum_{i=1}^{p} (1 - d_i)^2, \quad UU^\top = U^\top U = I_p
+  \end{align*}
+  이다. 첫번째 등식은 $|| B ||_F^2 = tr \left( B^\top B \right) = tr \left( B B^\top \right)$임을, 두번째 등식은 A의 고유치 분해를 사용하였다. 이로써
+  \begin{eqnarray}
+      \sum_{i=1}^n (1 - d_i)^2 &=&|| I - A ||_F^2  \\
+      &=& || \Sigma_0^{\frac{1}{2}} ( \Sigma_0^{-1} - \Sigma^{-1} ) \Sigma_0^{\frac{1}{2}} ||_F^2 \\
+      &\leq& || \Sigma_0^{\frac{1}{2}} ||^2 \; || \Sigma_0^{\frac{1}{2}} ||^2 \; || \Sigma_0^{-1} - \Sigma^{-1} ||_F^2  \\
+      &=& \lambda_{max}(\Sigma_0) \cdot \lambda_{max}(\Sigma_0) \cdot || \Sigma_0^{-1} - \Sigma^{-1} ||_F^2 \\
+      &\leq& \zeta_0^2 \cdot || \Sigma_0^{-1} - \Sigma^{-1} ||_F^2  \\
+      &\leq& \zeta^2 \cdot || \Sigma_0^{-1} - \Sigma^{-1} ||_F^2
+    \end{eqnarray}
+    가 성립함을 알 수 있다. (31) 부등식은 아래의 \textbf{Lemma 5}의 결과를 이용하였고, 부등식 (35)는 \cite{lee2022beta} p.5의 가정 \textbf{A3.} $\zeta > \max{(3, \zeta_0)}$로부터 성립한다.
+    위와 비슷한 방식으로, 
+    \begin{align}
+      || \Sigma_0^{-1} - \Sigma^{-1} ||_F \leq || \Sigma^{-1} || \; || \Sigma_0^{-1} || \; || \Sigma - \Sigma_0 ||_F \leq \zeta \zeta_0 || \Sigma - \Sigma ||_F
+    \end{align}
+    가 성립한다. 먼저 (i)의 쿨벡 라이블러 발산을 계산한다. $\mathbb{E}_0$를 밀도함수 $f_{\Sigma_0}$에 대한 기대값이라 하자.
+    \begin{eqnarray}
+      K(f_{\Sigma_0}, f_\Sigma) &=& \mathbb{E}_0 \left[ -\frac{1}{2} \ln{\frac{|\Sigma_0|}{|\Sigma|}} - \frac{1}{2} x^\top (\Sigma_0^{-1} - \Sigma^{-1}) x \right], \quad x \sim \mathcal{N}(0, \Sigma_0) \\
+      &=& - \frac{1}{2} \ln{\frac{|\Sigma_0|}{|\Sigma|}} - \frac{1}{2} tr \left[ (\Sigma_0^{-1} - \Sigma^{-1}) \Sigma_0 \right] \\
+      &=& - \frac{1}{2} \ln{(|\Sigma_0^{\frac{1}{2}}| |\Sigma|^{-1} |\Sigma_0^{\frac{1}{2}}|)} - \frac{1}{2} tr(I - \Sigma^{-1}\Sigma_0)  \\
+      &=& - \frac{1}{2} \ln{|A|} - \frac{1}{2} tr \left[ \Sigma_0^{\frac{1}{2}} (I - A) \Sigma_0^{-\frac{1}{2}} \right] \\
+      &=& - \frac{1}{2} \ln{|A|} - \frac{1}{2} tr(I -A) \\
+      &=& - \frac{1}{2} \sum_{i=1}^{p} \ln{d_i} - \frac{1}{2} \sum_{i=1}^{p} (1 - d_i)
+    \end{eqnarray}
+    등식 (38)에서는 다변량 정규분포의 이차형식의 기대값에 관한 공식을 사용하였다.
+    다음으로 (ii)의 쿨벡 라이블러 분산을 계산해보면
+    \begin{eqnarray}
+      V(f_{\Sigma_0}, f_\Sigma) &=& \mathbb{E}_0 \left[ \frac{1}{4} \left\{ \ln{\frac{|\Sigma_0|}{|\Sigma|}} + x^\top (\Sigma_0^{-1} - \Sigma^{-1}) x \right\}^2 \right], \quad z \stackrel{let}{=} x^\top (\Sigma_0^{-1} - \Sigma^{-1}) x  \\
+      &=& \frac{1}{4} \; \mathbb{E}_0 \left[ \left\{ \ln{\frac{|\Sigma_0|}{|\Sigma|}} + \mathbb{E}_0 (z) + z - \mathbb{E}_0 (z) \right\}^2 \right] \\
+      &=& \frac{1}{4} \; \bigg[ 4 \big\{ K (f_{\Sigma_0}, f_\Sigma) \big\}^2 + Var(z) \bigg]  \\
+      &=& K^2 (f_{\Sigma_0}, f_\Sigma) + \frac{1}{2} tr \bigg[ (\Sigma_0^{-1} - \Sigma^{-1}) \Sigma_0 (\Sigma_0^{-1} - \Sigma^{-1}) \Sigma_0 \bigg] \\
+      &=& K^2 (f_{\Sigma_0}, f_\Sigma) + \frac{1}{2} tr \left[ \Sigma_0^{\frac{1}{2}} (\Sigma_0^{-1} - \Sigma^{-1}) \Sigma_0^{\frac{1}{2}} \Sigma_0^{\frac{1}{2}} (\Sigma_0^{-1} - \Sigma^{-1}) \Sigma_0^{\frac{1}{2}} \right]  \\
+      &=& K^2 (f_{\Sigma_0}, f_\Sigma) + \frac{1}{2} tr \big[ (I - A)^2 \big] \\
+      &=& K^2 (f_{\Sigma_0}, f_\Sigma) + \frac{1}{2} \sum_{i=1}^{p} (1 - d_i)^2
+    \end{eqnarray}
+    등식 (45)에서는 등식 (37)과 다변량 정규분포의 이차형식의 분산에 관한 공식을 사용하였다. 이제 부등식 (i)을 보인다.
+    \begin{eqnarray}
+      K(f_{\Sigma_0}, f_\Sigma) &=& - \frac{1}{2} \sum_{i=1}^{p} \ln{d_i} - \frac{1}{2} \sum_{i=1}^{p} (1 - d_i)  \\
+      &\leq& c_0 \sum_{i=1}^{p} (1 - d_i)^2 \quad \text{for some } c_0 > 0  \\
+      &\leq& c_0 \zeta^2 || \Sigma_0^{-1} - \Sigma^{-1} ||_F^2  \\
+      &\leq& c_0 \zeta^4 \zeta_0^2 || \Sigma_0 - \Sigma ||_F^2
+    \end{eqnarray}
+    부등식 (51)은 아래의 \textbf{참고 1}을 보라. 부등식 (52)는 (35), 부등식 (53)은 (36)의 결과를 이용하였다.
+    \begin{remark}
+    먼저, 다음과 같은 부등식이 성립함을 알 수 있는데,
+    \[
+      -\frac{1}{2} \ln{x} -\frac{1}{2}(1 - x) \leq (1 - x)^2, \; \forall x \in [\eta_0, 1] \; \text{ for small } \eta_0 > 0.
+    \]
+    여기서 좌변과 우변의 두 함수는 각각 $\eta_0$과 $1$에서 만남을 확인가능하다. 또, A의 고유값 $d_i$에 대하여
+    \[
+    d_i = \lambda_i(A) = \lambda_i(\Sigma^{-1} \Sigma_0) \geq \lambda_{min}(\Sigma_0) \lambda_{min}(\Sigma^{-1}) \geq \zeta_0^{-1} \zeta^{-1}
+    \]
+    이 성립함을 알 수 있는데, 다음 등식을 만족하는 $c_0$를 잡아오는 것을 생각해보자. $x \neq 1$이면
+    \[
+    c_0 (1 - x)^2 = -\frac{1}{2} \ln{x} - \frac{1}{2} (1 - x) \iff c_0 = - \frac{\ln{x} + 1 - x}{2(1 - x)^2} > 0
+    \]
+    위에서 $d_i \geq \zeta_0^{-1} \zeta^{-1}$을 알고 있으므로
+    \[
+    c_0 = - \frac{\ln{\zeta_0^{-1}\zeta^{-1}} + 1 - \zeta_0^{-1}\zeta^{-1}}{2(1 - \zeta_0^{-1}\zeta^{-1})^2}  > 0
+    \]
+    과 같이 잡으면, (51)이 성립한다.
+    \end{remark}
+    마지막으로, 부등식 (ii)를 보인다. 위에서 보인 결과들을 종합하면
+    \begin{eqnarray}
+      V(f_{\Sigma_0}, f_\Sigma) &=& \frac{1}{2} \sum_{i=1}^{p} (1 - d_i)^2 + K^2 (f_{\Sigma_0}, f_\Sigma) \\
+      &\leq& \frac{1}{2} \sum_{i=1}^{p} (1 - d_i)^2 + \zeta^4 \zeta_0^2 || \Sigma - \Sigma_0 ||_F^2 \\
+      &\leq& \frac{3}{2} \zeta^4 \zeta_0^2 || \Sigma - \Sigma_0 ||_F^2
+    \end{eqnarray}
+    가 충분히 작은 $|| \Sigma - \Sigma_0 ||_F^2 \leq 1/(c_0^2 \zeta^4 \zeta_0^2)$에 대해 성립한다.  \\
+    부등식 (55)는 위에서 보인 결과 (i)로부터 $|| \Sigma - \Sigma_0 ||_F^2 \leq 1/(c_0^2 \zeta^4 \zeta_0^2)$로 충분히 작으면, $K^2(f_{\Sigma_0}, f_{\Sigma}) \leq c_0^2 \zeta^8 \zeta_0^4 || \Sigma - \Sigma_0 ||_F^4 \leq \zeta^4 \zeta_0^2 || \Sigma - \Sigma_0 ||_F^2$인 것을 사용하였고, 부등식 (56)은 부등식 (35)와 (36)의 결과에 의해 성립한다. 이로써 \textbf{Lemma 3}가 증명되었다.
+    
+  \end{proof}
+
+  % \setcounter{lemma}{4}
+
+  \begin{lemma}[\cite{lee2022beta}]
+  For any $p \times p$ matrices $A$ and $B$, we have
+  \[
+  ||AB||_F^2 \leq ||A|| \; ||B||_F, \quad ||AB||_F^2 \leq ||A||_F \; ||B||
+  \]
+  \end{lemma}
+  \begin{proof}
+    $\vectorbold{b}_j$가 행렬 $B$의 $j$번째 열이라고 하자. 그러면
+    \begin{align*}
+      ||AB||_F^2 = ||(A\vectorbold{b}_1, \cdots, A\vectorbold{b}_p)||_F^2 = \sum_{j=1}^{p} ||A\vectorbold{b}_j||_2^2 \leq ||A||^2 \sum_{j=1}^{p}||\vectorbold{b}_j||_2^2 = ||A||^2 \; ||B||_F^2
+    \end{align*}
+    마찬가지로 $\vectorbold{a}_i^\top$가 행렬 $A$ 의 $i$번째 행이라고 하면
+    \begin{align*}
+      ||AB||_F^2 = ||(\vectorbold{a}_1^\top B, \cdots, \vectorbold{a}_p^\top B)||_F^2 = \sum_{i=1}^{p} ||\vectorbold{a}_i^\top B||_2^2 \leq ||B||^2 \sum_{i=1}^{p}||\vectorbold{a}_i||_2^2 = ||B||^2 \; ||A||_F^2
+    \end{align*}
+  \end{proof}

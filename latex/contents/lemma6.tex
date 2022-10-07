@@ -1,0 +1,545 @@
+
+
+\textbf{Lemma6}
+    
+    \vspace{5mm}
+    
+    
+    \noindent If 
+    $  s_0^2(\log{p})^3 = O(p^2n)$ 
+    and 
+    $s_0^2 = O(p^{3-\epsilon})$ for some $\epsilon>0,$ 
+    then
+    $${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}}
+    = -2\log(1-J\epsilon^{2}_{np}) +  R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'},$$
+    where ${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}} = -\log \det(I_p-\Sigma^{-2}(\Sigma_0-\Sigma_1)(\Sigma_0-\Sigma_2))$
+    and $R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}$ 
+    satisfies
+    $$\bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp({\cfrac{n}{2}} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}})\right)}\right]
+    \leq {\cfrac{3}{2}}$$
+    
+
+\vspace{5mm}
+
+\begin{proof}
+
+\begin{itemize}
+    \item 먼저 용어에 대한 정의를 한다.
+    
+    
+\begin{itemize}
+    \item $r=\left\lfloor{\cfrac{p}{2}} \right\rfloor,~ \epsilon_{np} = \nu{\sqrt{\cfrac{\log{p}}{n}}},~  \nu = \sqrt{\cfrac{\epsilon}{4}}$
+    
+    \item Define parameter space   :
+    $$B_1  :=   \left\{
+    \Sigma(\theta):\Sigma(\theta)  =I_{p} + 
+    \epsilon_{np}\displaystyle\sum_{m=0}^{r}{{\gamma_m}{A_{m}(\lambda_m)},   \theta = (\gamma , \lambda)\in \btheta}\right\}$$
+    
+    %$$\left(  \left\{ \dfrac{1}{2} \right\} \right)$$
+    
+    \item 
+    
+    $\Lambda :=\Big\{ \lambda=(\lambda_1,\ldots,\lambda_r)^{\top}:\lambda_{m}
+    =(\lambda_{mi})\in \{0,1\}^{p}  ,   \Vert {\lambda_m}\Vert_{0}=k 
+      ,   \displaystyle\sum\limits_{i=1}^{p-r}{\lambda_{mi}}=0, m\in{\{1,\ldots,r\}},
+    ~~~\text{satisfying}~~~
+    \max\limits_{1\leq{i}\leq{p}}\displaystyle\sum_{m=1}^{r}
+    \lambda_{mi} \leq {2k}, k=\lceil{c_{np}/2}\rceil -1,
+    c_{np} = \lceil{s_{0}/p}\rceil \Big\}$
+\end{itemize}
+
+\end{itemize}
+
+
+
+
+
+%\newpage
+
+\vspace{5mm}
+
+%이제 ${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}}$을 건드려보려고 한다.
+
+\begin{itemize}
+    \item Consider ${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}}$, then
+    
+    
+    
+
+    \begin{itemize}
+    \item 먼저 A를 정의한다  :  \\
+    $$A=[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}
+    (\Sigma_{0}^{-2} - I)(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$$
+    
+    \item ${R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}} \overset{\underset{\mathrm{def}}{}}{=} -\log\det(I-A)$
+    
+    \item ${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}} \overset{\underset{\mathrm{def}}{}}{=}
+    -\log\det[I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)-(\Sigma_{0}^{-2}-I)(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]$
+    
+
+    
+    \end{itemize}
+
+\end{itemize}
+
+    \vspace{15mm}
+
+\begin{itemize}
+    \item 이제 ${R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}}$에 대해서 다시 살펴보게 되면
+    
+    
+\begin{itemize}
+    
+    \item Note that
+    $$\begin{aligned}
+    {R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}} 
+    & = -\log\det[I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)-(\Sigma_{0}^{-2}-I)(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]\\
+    & = -\log\det[\{I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)\}\{(I-A)\}]\\
+    & = -\log\det[I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]-\log\det[I-A]\\
+    & = -\log\det[I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]+{R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}
+    \end{aligned}$$
+    
+    
+    
+    
+    \item Note that $$(I-A)=I-[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}$$
+    위 식의 양변에 $[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]$ 를 곱한 다음 양변에 $-\log\det$ 를 취해주게되면
+    $$\begin{aligned}
+        \Rightarrow -\log & \det ([I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})](I-A))\\
+        &=-\log\det(I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})-(\Sigma_{0}^{-2} - I)(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2))
+    \end{aligned}$$
+    
+    
+    
+    
+\end{itemize}
+
+    
+\end{itemize}
+
+
+
+
+%$$\begin{aligned}
+%\text{이제}  -\log\det(I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2}) = -2\log(1-J\epsilon_{np}^{2}) \text{임을 보이면 된다.}
+%\text{그러기에 앞서} \Sigma_{0} , \Sigma_{1}, \Sigma_{2} \text{에 대한 설명을 하고자 한다.}
+%\end{aligned}$$
+
+
+\vspace{20mm}
+
+\begin{itemize}
+    
+    \item 이제 다음과 같은 사실을 보이려고 한다.
+    $$- \log \det ( I - (\Sigma_0 - \Sigma_1 ))  (\Sigma_0 - \Sigma_2) = - 2 \log (1 - J \epsilon_{np}^2) $$
+
+\begin{itemize}
+    
+    \item 이때 $\Sigma_{0},\Sigma_{1},\Sigma_{2}$ 의 정의에 관해 설명하고자 한다.
+    
+
+   
+   \begin{itemize}
+    \item[(1)]
+$$\Sigma_{0} =     
+\begin{pmatrix} 
+1 & \textbf{0}_{1\times(p-1)} \\
+\textbf{0}_{(p-1)\times1} & \textbf{S}_{(p-1)\times(p-1)}
+\end{pmatrix}$$
+
+\vspace{5mm}
+
+\item[(2)]
+$$\Sigma_{1} =     
+\begin{pmatrix} 
+1 & \textbf{v}_{1\times(p-1)} \\
+\textbf{v}_{(p-1)\times1} & \textbf{S}_{(p-1)\times(p-1)}
+\end{pmatrix}$$
+
+\vspace{5mm}
+
+\item[(3)]
+$$\Sigma_{2} =     
+\begin{pmatrix} 
+1 & {\textbf{v}}^*_{1\times(p-1)} \\
+{\textbf{v}}^*_{(p-1)\times1} & \textbf{S}_{(p-1)\times(p-1)}
+\end{pmatrix}$$
+
+
+\newpage
+
+    \item[(4)]
+$$\Sigma_{1} - \Sigma_{0} =     
+\begin{pmatrix} 
+0 & \textbf{v}_{1\times(p-1)} \\
+\textbf{v}_{(p-1)\times1} & \textbf{0}_{(p-1)\times(p-1)}
+\end{pmatrix}$$
+
+\vspace{5mm}
+
+\item[(5)]
+$$\Sigma_{2} - \Sigma_{0} =     
+\begin{pmatrix} 
+0 & {\textbf{v}}^*_{1\times(p-1)} \\
+{\textbf{v}}^*_{(p-1)\times1} & \textbf{0}_{(p-1)\times(p-1)}
+\end{pmatrix}$$
+
+\vspace{5mm}
+
+\item[(6)]
+$$\textbf{v}_{1\times(p-1)}=(v_j)_{2\leq{j}\leq{p}}= \begin{cases} 0 & (~{2\leq{j}\leq{p-r}}) \\ 0~or~\epsilon_{np} & (~ {{p-r+1}\leq{j}\leq{p}}) \end{cases} with~~ \|\textbf{v}\|_0 = k$$
+
+\vspace{5mm}
+
+\item[(7)]
+$${\textbf{v}}^*_{1\times(p-1)}=({v}^*_j)_{2\leq{j}\leq{p}}= \begin{cases} 0 & (~{2\leq{j}\leq{p-r}}) \\ 0~or~\epsilon_{np} & (~ {{p-r+1}\leq{j}\leq{p}}) \end{cases} with~~ \|{\textbf{v}}^*\|_0 = k$$
+
+\vspace{5mm}
+
+\item[(8)]
+$$(v_j)= \begin{cases} \epsilon_{np} & (~{p-r+1\leq{j}\leq{p-r+k}}) \\ 0 & (~ {o.w.}) \end{cases}$$
+
+\vspace{5mm}
+
+\item[(9)]
+$$(v_j)^*= \begin{cases} \epsilon_{np} & (~{p-r+k-J+1\leq{j}\leq{p-r+2k-J}}) \\ 0 & (~ {o.w.}) \end{cases}$$
+
+
+\vspace{5mm}
+
+\item[(10)]
+$$\textbf{S}_{(p-1)\times(p-1)}=({s}_{ij})_{2\leq{i,j}\leq{p}}~\text{is~uniquely~determined~by~}(\gamma_{-1},\lambda_{-1}),$$
+
+ $$\text{where~}(\gamma_{-1},\lambda_{-1})=((\gamma_2,\ldots,\gamma_r),(\lambda_2,\ldots,\lambda_r)),\text{and}~({s}_{ij})=\begin{cases} 1 & (~i=j) \\ \epsilon_{np} & (~\gamma_{i}={\lambda_i}(j)=1) \\ 0 & (~o.w.) \end{cases}$$
+ 
+\vspace{5mm}
+
+\end{itemize}
+    
+\newpage
+
+    \item 위의 정의를 바탕으로 $I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$ 의 특징과 그 성질을 알아보고자 한다.
+    \vspace{5mm}
+    \item Define J to be # of overlapping $\epsilon_{np}$'s between $\Sigma_1$ and $\Sigma_2$ on the 1st row, $Q \triangleq (q_{ij})_{1\leq{i,j}\leq{p}} = (\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$
+    \vspace{5mm}
+    \item Let index subset $I_r$ and $I_c$ in ${2,\ldots,p}$ with $\text{Card}(I_r)=\text{Card}(I_c)=k$ , and  $\text{Card}(I_r\cap{I_c})=J$, s.t. $(q_{ij})=\begin{cases} J{\epsilon^2_{np}} & (~i=j=1) \\ {\epsilon^2_{np}} & (~i\in I_r \And j\in I_c) \\ 0 & (~o.w.) \end{cases}$
+    \vspace{5mm}
+    \item $Q$가 어떤 원리로 구성되는지 살펴보기 위해 간단한 예시를 들어보고자 한다.
+     $$(\Sigma_0 -\Sigma_1)=(\Sigma_0 -\Sigma_2)=
+     \begin{pmatrix} 
+0 & 0 & \epsilon_{np} & \epsilon_{np} & 0\\
+0 & 0 & 0 & 0 & 0\\
+\epsilon_{np} & 0 & 0 & 0 & 0\\
+\epsilon_{np} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0
+\end{pmatrix}$$
+    \item 이때 $(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$ 은
+    $$(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)=
+         \begin{pmatrix} 
+2{\epsilon^2_{np}} & 0 & 0 & 0 & 0\\
+0 & 0 & 0 & 0 & 0\\
+0 & 0 & {\epsilon^2_{np}} & {\epsilon^2_{np}} & 0\\
+0 & 0 & {\epsilon^2_{np}} & {\epsilon^2_{np}} & 0\\
+0 & 0 & 0 & 0 & 0
+\end{pmatrix}$$
+와 같이 구성되는데 이때 $(1,1)$성분에서 $2$가 의미하는 것은 위에서 정의한 $J$와 같음을 알 수 있다. 즉 $Q$의 대각성분중 0이 아닌 것의
+갯수와 일치하는 것이다. 또한 모든 가능한 $(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$에 대하여 linearly independent vector는 단 2개밖에
+존재하지 않으므로 $rank[(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]=2$ 임을 알 수 있다.
+    \vspace{5mm}
+       \item 이러한 사실들을 토대로 $I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$ 의 characteristic polynomial을 구해보고자 한다. 즉
+    $det[\lambda{I}-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]$을 구하는 것인데 일반적인 경우의 값을 구하기 쉽지않아 특수한 경우에 한해서
+    구해보려고 한다. 즉 $J=k$인 경우만을 고려해보고자 한다. 이러한 경우
+    
+    
+$$
+    \det[\lambda{I}-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]
+    & = \det\left[\begin{pmatrix} 
+{\lambda I_{p-k} -     
+\begin{pmatrix} 
+J{\epsilon^2_{np}} & \textbf{0} \\
+\textbf{0}^{\top} & \textbf{O}
+\end{pmatrix}} & \textbf{0}_{(p-k)\times(k)} \\
+\textbf{0}_{(k)\times(p-k)} & \lambda I_k -{\epsilon^2_{np}}{\textbf{1}_k}{\textbf{1}^{\top}_k}
+\end{pmatrix} \right]
+$$
+
+
+$$=\det \left[{\lambda I_{p-k} -     
+\begin{pmatrix} 
+J{\epsilon^2_{np}} & \textbf{0} \\
+\textbf{0}^{\top} & \textbf{O}
+\end{pmatrix}} \right] \det \left[\lambda I_k -{\epsilon^2_{np}}{\textbf{1}_k}{\textbf{1}^{\top}_k} \right]$$
+    \vspace{5mm}$$
+
+\newpage
+$$
+=(\lambda - J{\epsilon^2_{np}})\lambda ^{p-k-1} \det \left[\lambda I_k -{\epsilon^2_{np}}{\textbf{1}_k}{\textbf{1}^{\top}_k} \right]
+$$
+
+$$
+=(\lambda - J{\epsilon^2_{np}})\lambda ^{p-k-1} \det \left(1 -{\epsilon^2_{np}}{\textbf{1}^{\top}_k}(\lambda I_k)^{-1}{\textbf{1}_k} \right) \det \left(\lambda I_k)\right)
+$$   
+
+$$
+=(\lambda - J{\epsilon^2_{np}})\lambda ^{p-k-1} \left(1 -  \cfrac{J}{\lambda}{\epsilon^2_{np}} \right)\lambda^k
+$$  
+
+$$
+=(\lambda - J{\epsilon^2_{np}})^{2}\lambda ^{p-2}
+$$ 
+    
+\end{itemize}
+
+\begin{itemize}
+    
+    \item Note that
+    $$\begin{aligned}
+    {R^{\gamma_{-1},\lambda_{-1}}_{\lambda_1,\lambda_1^'}} 
+    & = -\log\det[I-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]+{R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}\\
+    & = -\log\left(1-J{\epsilon^2_{np}} \right)^2 +{R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}} \\
+    & = -2\log\left(1-J{\epsilon_{np}} \right) +{R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}} \\
+    \end{aligned}$$
+    
+    
+    
+    
+    \item Note that $$ \det[\lambda{I}-(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)]
+    \overset{\lambda = 1}{=}\left(1-J{\epsilon^2_{np}} \right)^2$$
+    
+    
+    
+\end{itemize}
+
+
+
+\end{itemize}
+
+\newpage
+\begin{itemize}
+    
+    \item 이제 다음과 같은 사실을 보이려고 한다.
+        $$\bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp({\cfrac{n}{2}} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}})\right)}\right]
+    \leq {\cfrac{3}{2}}$$
+    \begin{itemize}
+    
+    \item Recall :
+    $A=[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}
+    (\Sigma_{0}^{-2} - I)(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)$
+    \vspace{5mm}
+        \item It is important to observe that $rank(A)\leq2$ due to the structure of 
+        $(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})$. Let $\varrho$ be an eigenvalue of $A$. It is easy to see that $|{\varrho}|\leq\norm{A}$.
+        \vspace{5mm}
+    \item We wish to find the upper bound for$\norm{A}$. To proceed, first we can see that
+    $$
+    \norm{A}\leq\norm{[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}}\norm{\Sigma_{0}^{-2} - I}\norm{(\Sigma_0 -\Sigma_1)(\Sigma_0 -\Sigma_2)}.
+    $$
+    \vspace{5mm}
+    \item From Tony Cai's "Optimal rates of convergence for sparse covariance matrix estimation" (22), we can see that
+    $$
+    \norm{\Sigma_{1}-\Sigma_{0}}\leq{\norm{\Sigma_{1}-\Sigma_{0}}}_1 = k\epsilon_{np}\leq 2k\epsilon_{np}\leq c_{np}{\epsilon}^{1-q}_{np}\leq Mv^{1-q}<\dfrac{1}{3}
+    $$
+    Similarly, we can see that for $\norm{I-\Sigma_0}$ and $\norm{(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})}$,
+    $$
+    \norm{I-\Sigma_0} \leq {\norm{I-\Sigma_0}}_1 = k\epsilon_{np} < \dfrac{1}{3},~
+    \norm{(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})}\leq \dfrac{1}{3}\times \dfrac{1}{3} < 1. 
+    $$
+    \vspace{5mm}
+    \item Note that : $|\log(1-x)|\leq2|x|,~\text{for}~|x|<\dfrac{1}{6}$,~~ ${R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}} \overset{\underset{\mathrm{def}}{}}{=} -\log\det(I-A)$
+    
+    
+    $$\begin{aligned}
+    \Rightarrow {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}
+    & = -\log\det(I-A) \leq -2(1-\det(I-A))\\
+    & \leq |-2(1-\det(I-A))| \leq |-2(\det(I)-\det(I-A))\\
+    & \leq 2|\det(I)-\det(I-A)| = 2m\norm{I-(I-A)}\\
+    & = 2m\norm{A},~~ \text{for~some}~m>0.
+    \end{aligned}$$
+    
+    $$
+    \Rightarrow {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}
+    & \leq 4\norm{A},~~\text{for}~m=2.
+    $$
+    \vspace{5mm}
+    \item Note that : $\exp\left(\dfrac{n}{2} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}  \right) \leq \exp\left(2n\norm{A}\right)$,~~
+    \vspace{5mm}    
+    \item Note that : for any square matrix $B$, following statement is true :
+    $$\left(\displaystyle\sum_{m=1}^{\infty}{B^m}\right)^2 = \left(B + B^2 + \ldots\right)\left(B + B^2 + \ldots\right) = B^2 + 2B^3 + 3B^4 + \ldots = \displaystyle\sum_{m=0}^{\infty}{mB^{m+1}}$$
+    \vspace{5mm}    
+    \item From above statement, we can write the following :
+    $$\begin{aligned}
+    \Sigma^{-2}_0 - I
+    & = \left(I-\left(I-\Sigma_0\right)\right)^{-2} - I = \left(I + \displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m}\right)^2 - I\\
+    & = I + 2\displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m} + \left(\displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m}\right)^2 - I\\
+    & = 2\displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m} + \left(\displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m}\right)^2\\
+    & = 2\displaystyle\sum_{m=0}^{\infty}{{(I-\Sigma_0)}^{m+1}} + \left(\displaystyle\sum_{m=1}^{\infty}{{(I-\Sigma_0)}^m}\right)^2\\
+    & = 2\displaystyle\sum_{m=0}^{\infty}{{(I-\Sigma_0)}^{m+1}} + \displaystyle\sum_{m=0}^{\infty}{m{(I-\Sigma_0)}^{m+1}}\\
+    & = \left[\displaystyle\sum_{m=0}^{\infty}{(m+2){(I-\Sigma_0)}^m}\right]\left(I-\Sigma_0\right).
+    \end{aligned}$$
+    \vspace{5mm}
+    \item We can see that
+    $$
+    \norm{\displaystyle\sum_{m=0}^{\infty}{(m+2){(I-\Sigma_0)}^m}} = \displaystyle\sum_{m=0}^{\infty}{(m+2)\norm{I-\Sigma_0}^m} < \displaystyle\sum_{m=0}^{\infty}{(m+2)\left(\dfrac{1}{3}\right)^m}=\dfrac{13}{4}<4.
+    $$
+    \vspace{5mm}    
+    \item Define $A_*=(I-\Sigma_0)(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})$. Then
+    $$\begin{aligned}
+    \norm{A}
+    & \leq \norm{[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}} \norm{\left[\displaystyle\sum_{m=0}^{\infty}{(m+2){(I-\Sigma_0)}^m}\right]A_*}\\
+    & \leq \norm{[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}}\norm{\displaystyle\sum_{m=0}^{\infty}{(m+2){(I-\Sigma_0)}^m}}\norm{A_*}\\
+    & < \norm{[I-(\Sigma_{0}-\Sigma_{1})(\Sigma_{0}-\Sigma_{2})]^{-1}}\cdot 4 \cdot \norm{A_*}\\
+    & < 4 \cdot \cfrac{1}{1-{\cfrac{1}{3}}\cdot{\cfrac{1}{3}}}\cdot \norm{A_*} = \dfrac{9}{2}\norm{A_*} \leq \dfrac{9}{2}\max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\},
+    \end{aligned}$$
+    where $A_* = (a^*_{ij})_{1\leq{i,j}\leq{p}}$, and $\begin{cases} \norm{A_*}_1 = \max\limits_{1\leq{m}\leq{p}}\displaystyle\sum_{j=1}^{p}|a^*_{mj}|\\ \norm{A_*}_{\infty} = \max\limits_{1\leq{m}\leq{p}}\displaystyle\sum_{i=1}^{p}|a^*_{im}|\end{cases}$
+    \vspace{5mm}    
+    \item Summing up above results, we obtain following :
+    $$
+    \exp\left(\dfrac{n}{2} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}}  \right) \leq \exp\left(2n\norm{A}\right) = \exp\left(9n\max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\}\right)
+    $$
+    which implies
+    $$
+    \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp({\cfrac{n}{2}} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}})\right)}\right]$$
+    
+    $$\leq  \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp(9n\max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\})\right)}\right]
+    $$
+    
+    
+\newpage
+    \vspace{5mm}    
+    \item But infact, :
+    $$
+    \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left( I \left\{ \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np} \right\}  \right)}\right]
+    $$
+    
+    $$
+    = \bbP\left( \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np} \right)
+    $$
+
+    \vspace{5mm}    
+    \item So we wish to show that
+    $$
+    \bbP\left(\displaystyle\sum_{j=1}^{p}{|a^*_{mj}|} \geq 2tk\epsilon^3_{np} \right) \leq \left(\dfrac{k^2}{p/8 -1 -k}  \right)^t
+    $$
+    which implies that
+    $$
+    \bbP( \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np}) \leq 2p\left(\dfrac{k^2}{p/8 -1 -k}  \right)^t
+    $$
+    \vspace{5mm}    
+    \item For each row $m$, define $E_m = \{1,2,\ldots,r\} \backslash \{1,m\}.$ Note that for each column of $\lambda_{E_m}$, if the column sum of $\lambda_{E_m}$ is less than or equal to $2k-2$, then the other two rows can still freely take values 0 or 1 in this column, because the total sum will still not exceed $2k$. Let $n_{\lambda_{E_m}}$ be the number of columns of $\lambda_{E_m}$ with column sum at least $2k-1$, and define $p_\lambda_{E_m} = r - n_{\lambda_{E_m}}$. Without loss of generality we assume that $k\geq 3$. Since $n_{\lambda_{E_m}}\cdot(2k-2)\geq r\cdot k$, the total number of 1's in the upper triangular matrix by the construction of the parameter setm we thus have $n_{\lambda_{E_m}} \geq r \cdot \dfrac{3}{4}$, which immediately implies $p_{\lambda_{E_m}} = r -  n_{\lambda_{E_m}} \geq \dfrac{r}{4} \geq \dfrac{p}{8} - 1$. Recall that the distribution of $(\gamma_{-1},\lambda_{-1})|(\lambda_1,{\lambda^{'}_{1}})$ is uniform over $\Theta^{-1}(\lambda_1,{\lambda^{'}_{1}})$.
+
+    \vspace{5mm}    
+    \item Recall that $J$ is the overlapping nonzero entries between the 1st rows of $\Sigma_1$ and $\Sigma_2$, i.e. $J=\lambda^{\top}_{1} \lambda^{'}_{1}$. Then we can obtain the following results : 
+    $$
+    \bbE_J [ I_{(J=t)} | \lambda_{E_m} ] = \cfrac{{k \choose t}{{p_{\lambda_{E_m}} -k} \choose {k-t}}}{{{p_{\lambda_{E_m}} } \choose {k}}}
+    = \left[ \dfrac{k!}{(k-t)!} \right]^2 \cdot \dfrac{[(p_{\lambda_{E_m}} -k)!]^2}{p_{\lambda_{E_m}}! (p_{\lambda_{E_m}} -2k +t)!}\cdot \dfrac{1}{t!}\leq \left(\dfrac{k^2}{p_{\lambda_{E_m}}-k}\right)^j
+    $$
+    
+    
+    $$
+    \Rightarrow~~
+    \bbE_J [ I_{(J=t)} ] = \bbE_{\lambda_{E_m}} \left[   \bbE_J \right( I_{(J=t)} | \lambda_{E_m} \left)  \right]
+    \leq \bbE_{\lambda_{E_m}} \left[\left(\dfrac{k^2}{p_{\lambda_{E_m}}-k} \right)^t \right] \leq \left( \dfrac{k^2}{p/8 -1 -k} \right)^t
+    $$
+    Then we can obtain the following :
+    $$
+    \Rightarrow~~
+    \bbP\left(\displaystyle\sum_{j=1}^{p}{|a^*_{mj}|} \geq 2tk\epsilon^3_{np}~ \big\vert~ {\lambda_{E_m}} \right) \leq \left(\dfrac{k^2}{p/8 -1 -k}  \right)^t    
+    $$
+    which implies for every $t>2$,
+    $$
+    \Rightarrow~~
+    \bbP\left(\displaystyle\sum_{j=1}^{p}{|a^*_{mj}|} \geq 2tk\epsilon^3_{np} {\lambda_{E_m}} \right) \leq \left(\dfrac{k^2}{p/8 -1 -k}  \right)^{t-1}   
+    $$
+
+\newpage
+    This implies : $    \bbP( \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np}) \leq 2p\left(\dfrac{k^2}{p/8 -1 -k}  \right)^{t-1}$ for every $t>2$.~ so~ $    \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left( I \left\{ \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np} \right\}  \right)}\right]   
+    = \bbP\left( \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np} \right) \leq 2p\left(\dfrac{k^2}{p/8 -1 -k}  \right)^{t-1}$for every $t>2$.
+    
+    \vspace{5mm}    
+    \item Recall that
+    $$
+    \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp({\cfrac{n}{2}} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}})\right)}\right]$$
+    
+    $$\leq  \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp(9n\max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\})\right)}\right].
+    $$
+
+    \vspace{5mm}    
+    \item Note that for any r.v. $X\geq0 \And $ constant $a\geq 0$, it is known that
+    $$\begin{aligned}
+    \bbE[X]
+    & = \int_{x\geq0}^{} P(X>x)~ dx = \int_{x\leq a}^{} P(X>x)~ dx + \int_{x>a}^{} P(X>x)~ dx\\
+    & = \int_{x\leq a}^{} (1-F(x))~ dx + \int_{x>a}^{} P(X>x)~ dx\\
+    & = \Big[(1-F(x)) \Big]_{0}^{a} + \int_{0}^{a} {xf(x)}~ dx + \int_{x>a}^{} P(X>x)~ dx \\
+    & = a(1-F(a)) + \int_{0}^{a} {xf(x)}~ dx + \int_{x>a}^{} P(X>x)~ dx \\
+    & \leq a +  \int_{x>a}^{} P(X>x)~ dx
+    \end{aligned}$$
+    
+    \vspace{5mm}    
+    \item we can apply this fact to our objective, in other words, put 
+    $a= \exp\left\{2Cnk{\epsilon^3_{np}}\dfrac{1+2\epsilon}{\epsilon} \right\},$ since $k=\lceil{c_{np}/2}\rceil -1,
+    c_{np} = \lceil{s_{0}/p}\rceil, \epsilon_{np} = \nu\sqrt{\log p /n}, \nu = \sqrt{\epsilon / 4}$. Then we could achieve the upper bound for $a$ with the condition $  s_0^2(\log{p})^3 = O(p^2n)$ as following : (Here, we put $9=C,~ C>0,$ for convenience, which doesn't affect the upper bound we are looking for.) 
+   
+    $$\begin{aligned}
+    a
+    & = \exp\left\{2Cnk{\epsilon^3_{np}}\dfrac{1+2\epsilon}{\epsilon} \right\}\\
+    & = \exp\left(2Cn\left\{ \left\lceil{\cfrac{\lceil{s_{0}/p}\rceil}{2}}\right\rceil -1 \right\}    \right)  \left( \cfrac{\epsilon}{4} \right) \left( \cfrac{\log p}{n}   \right)^{3/2}  \left( \cfrac{1+2\epsilon}{\epsilon} \right) \sqrt{\cfrac{\epsilon}{4}}\\
+    & \leq \exp\left( Cn\left\{ \cfrac{s_o}{2p} + \cfrac{1}{2}  \right\}\left( \cfrac{\log p}{n}   \right)^{3/2} \left(\cfrac{1+2\epsilon}{4} \right)\sqrt{\epsilon} \right)\\
+    & = \exp \left(\cfrac{1}{2}~C\left(\cfrac{1+2\epsilon}{4} \right)\sqrt{\epsilon} \left[  \left(\cfrac{s_o}{p} +1 \right)^{2} \cfrac{(\log p)^3}{n}  \right]^{1/2} \right)\\
+    & \asymp \exp\left(\cfrac{1}{2}~C\left(\cfrac{1+2\epsilon}{4} \right)\sqrt{\epsilon}\right) \asymp e^{0} = 1\\
+    & < \cfrac{3}{2}, ~~\text{for sufficiently small}~~ \epsilon > 0.
+    \end{aligned}$$
+
+\newpage
+    \item Now, from our finding,
+    $$\begin{aligned}
+    \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp(Cn\max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\})\right)}\right]
+    \end{aligned}$$
+
+    $$\begin{aligned}   
+    \leq a + \int_{x>a}^{} \bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left( I \left\{ \max\left\{\norm{A_*}_1,\norm{A_*}_{\infty}\right\} \geq 2tk\epsilon^3_{np} \right\}  \right)}\right]~ dx
+    \end{aligned}$$
+    
+    $$\begin{aligned}    
+    & \leq \cfrac{3}{2} + \int_{t\geq{(1+2\epsilon)/\epsilon}}^{} 2Cnk{\epsilon^3_{np}}\exp\left(2Ctnk{\epsilon^3_{np}}\right)2p\left(\dfrac{k^2}{p/8 -1 -k}  \right)^{t-1}~ dt
+    \end{aligned}$$
+    
+    $$\begin{aligned}    
+    & \leq \cfrac{3}{2} + \int_{t\geq{(1+2\epsilon)/\epsilon}}^{} \exp\left\{ \log(2p)-(t-1)\log\left(\cfrac{p/8 -1 -k}{k^2}\right) +2C(t+1)nk{\epsilon^3_{np}} \right\}~ dt.
+    \end{aligned}$$    
+    Thus, we complete the proof if we show that the second term of last inequality is of order $o(1)$. Note that :
+
+    $$\begin{aligned}    
+    (t-1)\log\left(\cfrac{p/8 -1 -k}{k^2}\right)
+    & \geq \left(1+ \cfrac{1}{\epsilon} \right)\log\left(\cfrac{p/8 -1 -k}{k^2}\right)\\
+    & = \left(1+ \cfrac{1}{\epsilon} \right)\log\left(\cfrac{p/8 -1 -(s_0/{2p} +1/2)}{(s_0/{2p} +1/2)^2}\right)\\
+    & \geq \left(1+ \cfrac{1}{\epsilon} \right)\log\left(\cfrac{p/8 -1 -(s_0/{p})}{(s_0/{p})^2}\right)+C^{'}\\
+    & = \left(1+ \cfrac{1}{\epsilon} \right)\log\left(\cfrac{p^3/8 -p^3 -ps_0}{s^2_{0}}\right)+C^{'}\\
+    & = \left(1+ \cfrac{1}{\epsilon} \right)\log\left(\cfrac{{p^{\epsilon}}{p^{3-\epsilon}}}{s^2_{0}}  \left(\cfrac{1}{8}-\cfrac{1}{p}-\cfrac{s_0}{p^2} \right)\right)+C^{'}\\
+    & \geq \left(1+ \cfrac{1}{\epsilon} \right)\log(p^{\epsilon}) + C^{''}\\
+    & = (1+\epsilon)\log(p) +C^{''},
+    \end{aligned}$$   
+    for any $t>(1+2\epsilon)/\epsilon$ and some constants $C^' > 0 $ and $C^{''} > 0$. The third inequality follows from the assumption $s^2_{0}=O(p^{3-\epsilon})$. Therefore, it implies that the second term of last inequality is of order $o(1)$, which gives the desired result:
+    
+        $$\bbE_{{(\lambda_{1},\lambda_1^{'})}\vert J}\left[\bbE_{(\gamma_{-1},\lambda_{-1}) \vert (\lambda_1,\lambda_1^{'})} {\left(\exp({\cfrac{n}{2}} {R^{\gamma_{-1},\lambda_{-1}}_{1,\lambda_1,\lambda_1^'}})\right)}\right]
+    \leq {\cfrac{3}{2}}$$
+
+
+    \end{itemize}
+
+
+
+
+
+
+
+
+
+    
+    
+\end{itemize}
+
+
+
+
+
+
+\end{proof}

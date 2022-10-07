@@ -1,0 +1,357 @@
+\documentclass[11pt]{article}
+\usepackage{subcaption}
+\usepackage{arydshln}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{kotex}
+\usepackage{physics}
+\usepackage{bibentry}
+%\usepackage{mathtools}
+\usepackage[english]{babel}
+\usepackage{amsthm}
+\usepackage{amssymb}
+% \usepackage{enumitem}
+\usepackage{enumerate}
+\usepackage{hyperref}
+\newcommand{\subscript}[2]{$#1_#2$}
+
+\bibliographystyle{apalike}
+\usepackage[sort&compress]{natbib}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem*{theorem*}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{definition}{Definition}[section]
+\newtheorem{remark}{Remark}[section]
+
+ % Top and bottom rules for table
+
+
+% There are many different themes available for Beamer. A comprehensive
+% list with examples is given here:
+% http://deic.uab.es/~iblanes/beamer_gallery/index_by_theme.html
+% You can uncomment the themes below if you would like to use a different
+% one:
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+%\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{boxes}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{default}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+%\usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+%\usecolortheme{rose}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%         문자에 액센트
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% arg
+\DeclareMathOperator*{\argmax}{arg  max}
+\DeclareMathOperator*{\argmin}{arg  min}
+\newcommand{\defeq}{\mathrel{\mathop:}=}
+
+% true
+\newcommand{\thetat}{{\theta^t}}
+\newcommand{\pt}{{p^t}}
+\newcommand{\Et}{{\mathbb{E}^t}}
+\newcommand{\Vt}{{\mathbb{V}ar^t}}
+
+
+% hat
+\newcommand{\dhat}{\hat{d}}
+\newcommand{\fhat}{\hat{f}}
+\newcommand{\ghat}{\hat{g}}
+\newcommand{\hhat}{\hat{h}}
+\newcommand{\mhat}{\hat{m}}
+\newcommand{\phat}{\hat{p}}
+\newcommand{\uhat}{\hat{u}}
+\newcommand{\vhat}{\hat{v}}
+\newcommand{\xhat}{\hat{x}}
+\newcommand{\yhat}{\hat{y}}
+\newcommand{\Fhat}{\hat{F}}
+\newcommand{\Ghat}{\hat{G}}
+\newcommand{\Hhat}{\hat{H}}
+\newcommand{\Ihat}{\hat{I}}
+\newcommand{\Vhat}{\hat{V}}
+\newcommand{\Xhat}{\hat{X}}
+\newcommand{\Yhat}{\hat{Y}}
+\newcommand{\alphahat}{{\hat{\alpha}}}
+\newcommand{\betahat}{{\hat{\beta}}}
+\newcommand{\gammahat}{{\hat{\gamma}}}
+\newcommand{\etahat}{{\hat{\eta}}}
+\newcommand{\muhat}{{\hat{\mu}}}
+\newcommand{\pihat}{{\hat{\pi}}}
+\newcommand{\phihat}{{\hat{\phi}}}
+\newcommand{\psihat}{{\hat{\psi}}}
+\newcommand{\sigmahat}{{\hat{\sigma}}}
+\newcommand{\thetahat}{{\hat{\theta}}}
+\newcommand{\Sigmahat}{{\hat{\Sigma}}}
+
+% bar
+\newcommand{\pbar}{\bar{p}}
+\newcommand{\xbar}{\bar{x}}
+\newcommand{\ybar}{\bar{y}}
+\newcommand{\zbar}{\bar{z}}
+\newcommand{\Dbar}{\bar{D}}
+\newcommand{\Tbar}{\bar{X}}
+\newcommand{\Xbar}{\bar{X}}
+\newcommand{\Ybar}{\bar{Y}}
+\newcommand{\Zbar}{\bar{Z}}
+\newcommand{\thetabar}{\bar{\theta}}
+\newcommand{\etabar}{\bar{\eta}}
+
+% tilde
+\newcommand{\ptilde}{ \tilde{p}}
+\newcommand{\Rtilde}{ \tilde{R}}
+\newcommand{\Vtilde}{ \tilde{V}}
+\newcommand{\Xtilde}{ \tilde{X}}
+\newcommand{\Ytilde}{ \tilde{Y}}
+\newcommand{\betatilde}{ \tilde{\beta}}
+\newcommand{\mutilde}{ \tilde{\mu}}
+\newcommand{\xitilde}{ \tilde{\xi}}
+\newcommand{\thetatilde}{ \tilde{\theta}}
+\newcommand{\sigmatilde}{ \tilde{\sigma}}
+\newcommand{\Sigmatilde}{ \tilde{\Sigma}}
+\newcommand{\Vartilde}{ \tilde{Var}}
+
+
+% dot
+\newcommand{\Edot}{ \dot{E}}
+\newcommand{\Idot}{ \dot{I}}
+\newcommand{\Rdot}{ \dot{R}}
+\newcommand{\Sdot}{ \dot{S}}
+\newcommand{\fdot}{ \dot{f}}
+\newcommand{\xdot}{ \dot{x}}
+
+
+% bold
+\newcommand{\bfc}{\mathbf{c}}
+\newcommand{\bff}{ \mathbf{f}}
+\newcommand{\bfm}{ \mathbf{m}}
+\newcommand{\bfn}{ \mathbf{n}}
+\newcommand{\bfr}{ \mathbf{r}}
+\newcommand{\bfs}{ \mathbf{s}}
+\newcommand{\bft}{ \mathbf{t}}
+\newcommand{\bfu}{ \mathbf{u}}
+\newcommand{\bfw}{ \mathbf{w}}
+\newcommand{\bfx}{ \mathbf{x}}
+\newcommand{\bfy}{ \mathbf{y}}
+\newcommand{\bfz}{ \mathbf{z}}
+\newcommand{\bfE}{ \mathbf{E}}
+\newcommand{\bfF}{ \mathbf{F}}
+\newcommand{\bfO}{ \mathbf{O}}
+\newcommand{\bfX}{ \mathbf{X}}
+\newcommand{\bfY}{ \mathbf{Y}}
+\newcommand{\bfZ}{\mathbf{Z}}
+\newcommand{\bfzero}{{\bf 0}}
+\newcommand{\bfone}{{\bf 1}}
+
+
+% blackboard bold
+\newcommand{\bbC}{{ \mathbb{C}}}
+\newcommand{\bbE}{{ \mathbb{E}}}
+\newcommand{\bbN}{ \mathbb{N}}
+\newcommand{\bbP}{ \mathbb{P}}
+\newcommand{\bbR}{ \mathbb{R}}
+\newcommand{\bbX}{ \mathbb{X}}
+\newcommand{\bbY}{ \mathbb{Y}}
+\newcommand{\bbZ}{ \mathbb{Z}}
+
+% calligraphy
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calX}{ \mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+
+% bold symbol
+\newcommand{\balpha}{ \boldsymbol{\alpha}}
+\newcommand{\bbeta}{ \boldsymbol{\beta}}
+\newcommand{\bepsilon}{ \boldsymbol{\epsilon}}
+\newcommand{\blambda}{ \boldsymbol{\lambda}}
+\newcommand{\bmu}{ \boldsymbol{\mu}}
+\newcommand{\bnu}{ \boldsymbol{\nu}}
+\newcommand{\bpi}{ \boldsymbol{\pi}}
+\newcommand{\bphi}{ \boldsymbol{\phi}}
+\newcommand{\bpsi}{ \boldsymbol{\psi}}
+\newcommand{\btheta}{ \boldsymbol{\theta}}
+\newcommand{\bomega}{ \boldsymbol{\omega}}
+\newcommand{\bxi}{ \boldsymbol{\xi}}
+
+\newcommand{\indep}{\perp \!\!\! \perp}
+
+\newcommand{\bed}{\begin{itemize}}
+   \newcommand{\eed}{\end{itemize}}
+\newcommand{\vs}{\vspace}
+
+
+\newcommand{\jsum}{\sum_{j=1}^{p}}
+
+
+%\newcommand{\bfc}{\mathbf{c}}
+%\newcommand{\bff}{ \mathbf{f}}
+\newcommand{\bfg}{ \mathbf{g}}
+%\newcommand{\bfm}{ \mathbf{m}}
+%\newcommand{\bfn}{ \mathbf{n}}
+\newcommand{\bfp}{ \mathbf{p}}
+%\newcommand{\bfr}{ \mathbf{r}}
+%\newcommand{\bfs}{ \mathbf{s}}
+%\newcommand{\bft}{ \mathbf{t}}
+%\newcommand{\bfu}{ \mathbf{u}}
+\newcommand{\bfv}{ \mathbf{v}}
+%\newcommand{\bfw}{ \mathbf{w}}
+%\newcommand{\bfx}{ \mathbf{x}}
+%\newcommand{\bfy}{ \mathbf{y}}
+%\newcommand{\bfz}{ \mathbf{z}}
+%\newcommand{\bfN}{ \mathbf{N}}
+\newcommand{\bfI}{ \mathbf{I}}
+\newcommand{\bfJ}{ \mathbf{J}}
+%\newcommand{\bfE}{ \mathbf{E}}
+%\newcommand{\bfF}{ \mathbf{F}}
+%\newcommand{\bfO}{ \mathbf{O}}
+%\newcommand{\bfS}{ \mathbf{S}}
+\newcommand{\bfV}{ \mathbf{V}}
+%\newcommand{\bfX}{ \mathbf{X}}
+%\newcommand{\bfY}{ \mathbf{Y}}
+%\newcommand{\bfZ}{\mathbf{Z}}
+%\newcommand{\bfzero}{{\bf 0}}
+%\newcommand{\bfone}{{\bf 1}}
+%\newcommand{\balpha}{ \boldsymbol{\alpha}}
+%\newcommand{\bbeta}{ \boldsymbol{\beta}}
+%\newcommand{\bepsilon}{ \boldsymbol{\epsilon}}
+\newcommand{\bvarepsilon}{ \boldsymbol{\varepsilon}}
+%\newcommand{\blambda}{ \boldsymbol{\lambda}}
+%\newcommand{\bmu}{ \boldsymbol{\mu}}
+%\newcommand{\bnu}{ \boldsymbol{\nu}}
+%\newcommand{\bpi}{ \boldsymbol{\pi}}
+%\newcommand{\bphi}{ \boldsymbol{\phi}}
+%\newcommand{\bpsi}{ \boldsymbol{\psi}}
+%\newcommand{\btheta}{ \boldsymbol{\theta}}
+%\newcommand{\bomega}{ \boldsymbol{\omega}}
+%\newcommand{\bxi}{ \boldsymbol{\xi}}
+\newcommand{\bfeta}{ \boldsymbol{\eta}}
+\newcommand{\bsigma}{ \boldsymbol{\sigma}}
+\newcommand{\bzero}{\boldsymbol{0}}
+\newcommand{\bone}{\boldsymbol{1}}
+
+%\usepackage{geometry}
+% \geometry{
+% a4paper,
+% total={170mm,257mm},
+% left=20mm,
+% right=20mm,
+% top=20mm,
+% bottom = 33mm
+% }
+
+
+%\setlist[itemize,2]{label=$\triangleright$}
+%\setlist[itemize,3]{label=$\centerdot$}
+
+\usepackage[left=3cm,right=3cm,top=2cm,bottom=2cm,a4paper]{geometry} % 페이지 여백 옵션
+
+%---------------------------------------------------------------------%
+
+% Let's get started
+
+% theorem, proof, lemma, definition
+
+
+\begin{document}
+
+\author{신창수, 오정훈, 장태영, 이경원, 정진욱, 김성민, 백승찬}
+\date{\today}
+
+\title{The beta - mixture shrinkage prior for sparse covariances with
+near-minimax posterior convergence}
+
+\maketitle
+
+\section*{To Do List}
+
+\begin{itemize}
+    \item 소개 작성
+    \item 스타일 통일
+    \item 기호 통일 ($R$, $\mathbb{R}$)
+    \item 백승찬 - Lemma 6 수정
+    \item theorem, lemma 등 한글화 
+    \item equation numbering
+\end{itemize}
+
+\section*{소개}
+
+추가 예정
+
+\section{신창수 - Theorem 3 and Lemma 2}
+
+\subsection{Theorem 3}
+
+\input{contents/theorem3.tex}
+
+\subsection{Lemma 2}
+
+\input{contents/lemma2.tex}
+
+\section{오정훈 - Theorem 4 and Lemma 2}
+
+\input{contents/jhoh.tex}
+
+\section{장태영 - Lemma 4 and Theorem 5}
+
+\input{contents/tyjang.tex}
+
+\section{이경원, 정진욱, 김성민 - Theorem 2}
+
+% 이경원
+\input{contents/theorem2-kwlee.tex}
+
+% 정진욱
+\input{contents/theorem2-jwjung.tex}
+
+% 김성민
+
+\section{백승찬 - Lemma 6}
+
+% 컴파일 에러 - 수정 필요
+% \input{contents/lemma6.tex}
+
+\section*{참고문헌}
+
+\bibliography{refs}
+
+\end{document}

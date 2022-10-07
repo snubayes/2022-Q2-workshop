@@ -1,0 +1,125 @@
+(The upper bound of the packing number).\\
+If ${\zeta}^4 \leq p, \ p \asymp n^{\beta} \ for\ some\ 0 \leq \beta \leq 1,\ s_n = c_1n \epsilon_n^2/lnp,\ L_n = c_2n \epsilon_n^2\ \ and\ \delta_n=\epsilon_n/\zeta^3\ for\ some\ constants\ c_1>1\ and c_2>0, we\ have$
+\begin{align*}
+    lnD(\epsilon_n,P_n,d) \ \leq \ (12+1/\beta)c_1n\epsilon_n^2
+\end{align*}
+\begin{proof}
+이 정리는 Lemma1의 세 가지 조건 중 첫 번째 조건이 성립함을 보이는 정리이다. 증명에 앞서 각각의 용어들에 대해 정의하자.\\
+\\
+$D(\epsilon_n,P_n,d)$ 은 $P_n$ 안에서, 각각의 쌍이 이루는 거리들의 거리가 $\epsilon_n$보다 크거나 같은 점들의 최대 개수로 정의한다. 또한,\\
+\\
+$P_n=\{f_\Sigma \ :\ |s(\Sigma,\delta_n)|\leq s_n, \ \zeta^{-1} \leq \lambda_{min}(\Sigma) \leq \lambda_{max}(\Sigma) \leq \zeta,||\Sigma||_{max} \leq L_n  \}$\\
+\\
+$\mathcal{U}(\delta_n,s_n,L_n,\zeta)=\{\Sigma \in \mathcal{c}_p : |s(\Sigma,\delta_n)|\leq s_n,\zeta^{-1} \leq \lambda_{min}(\Sigma) \leq \lambda_{max}(\Sigma) \leq \zeta,||\Sigma||_{max} \leq L_n \} $\\ 
+\\
+$s_0$ : 공분산 행렬의 비대각 원소 중 0이 아닌 원소들의 상한\\
+\\
+$\epsilon_n \defeq \{\dfrac{(p+s_0)lnp}{n}\}^{\dfrac{1}{2}}$
+\noindent
+라고 정의하자.\\
+\\
+최종적으로는, $lnD(\epsilon_n,\mathcal{P}_n,d)\ \leq \ (12+1/\beta)c_1n\epsilon_n^2$ 임을 보일 건데, 그 전에 먼저 lemma3 소개하자.\\
+\\
+\noindent
+[Lemma3](Lemma A.1 in [6])
+\\
+If  $P_{\Omega_{k}}$ is the density of $N_p(0,\Omega_{k}^{-1})$, k=1,2, then for all $\Omega_k \in \mu_{0}^+$, k=1,2, and $d_i$, i=1,2,…,p, eigenvalues of $A=\Sigma_1^{-1/2}\Sigma_2\Sigma_1^{-1/2}$, we have that for some $\delta > 0$ and constant $c_o>0$,\\
+\\
+(1)$c_0^{-1}||\Sigma_1-\Sigma_2||_2^2\leq \sum_{i=1}^{p}|d_i-1|^2\leq c_o||\Sigma_1-\Sigma_2||_2^2$\\
+\\
+(2)$h(p_{\Omega_{1}},p_{\Omega_{2}})<\delta$ implies $\max\limits_i|d_i-1|<1$ and $||\Omega_1-\Omega_2||_2 \leq c_oh^2(p_{\Omega_{1}},p_{\Omega_{2}})$\\
+\\
+(3) $h^2(p_{\Omega_{1}},p_{\Omega_{2}}) \leq c_o||\Omega_1-\Omega_2||_2^2$
+
+\noindent
+* 여기서, $h()$는 hellinger distance 로, 우리 논문에서 $d()$와 같음\\
+\\
+따라서, lemma3-(3)에 의해,
+$d(f_{\Sigma_1},f_{\Sigma_2}) \leq c\zeta||\Omega_1-\Omega_2||_F$ 임을 알 수 있고, 여기서 $\Omega$는 $\Sigma^{-1}$ 이다.\\
+\\
+위 lemma3-(3)과 우리 논문의 lemma5를 통해, $\Omega_1=\Sigma_1^{-1}\Sigma_1\Sigma_1^{-1}$ 임을 이용\\
+\\
+하면,
+$d(f_{\Sigma_1},f_{\Sigma_2}) \leq C\zeta^3||\Sigma_1-\Sigma_2||_F$ \ (1) 식을 얻을 수 있다.
+\noindent
+$\epsilon$-packing의\\
+\\
+정의에 의해, $d(f_{\Sigma_{i}},f_{\Sigma_{j}})\geq \epsilon_n$ 으로부터, (1) 식과 결합하여, $||\Sigma_1-\Sigma_2||_F \geq \dfrac{\epsilon_n}{C\zeta^3}$ 의\\
+결과를 얻을 수 있다. 따라서, 집합을 $\mathcal{P}_n$ 에서, $\mathcal{U}(\delta_n,s_n,L_n,\zeta)$ 으로 바꾸고,\\
+\\
+거리를 Frobenius norm 으로 바꾸어서 위의 결과를 적용하자. 여기서 격자\\
+\\
+개념을 생각해보면, 격자의 대각선 부분들까지 고려해주어야 한다. 따라서,\\
+\\
+$lnD(\epsilon_n,P_n,d) \leq lnD(\dfrac{\epsilon_n}{C\zeta^3},\mathcal{U}(\delta_n,s_n,L_n,\zeta),||\cdot||_F)\\
+\\
+\leq ln\left\{\left(\dfrac{L_n\sqrt{p+j}}{\dfrac{\epsilon_n}{C\zeta^3}}\right)^p \displaystyle \sum\limits_{j=1}^{s_n}\left(\dfrac{\sqrt{p+j}\dfrac{1}{\sqrt{2}}L_n}{\dfrac{\epsilon_n}{C\zeta^3}}\right)^{j}{\dfrac{p}{2} \displaystyle \choose j} \right\}$\\
+여기서, $\sqrt{p+j}$는 격자의 대각선을 고려해준 항이고, $\dfrac{1}{\sqrt{2}}$는 Frobenius norm에서, symmetric term들의 중복을 고려해 준 값이다.\\
+\\
+한편, $\left(\dfrac{L_n\sqrt{p+j}}{\dfrac{\epsilon_n}{C\zeta^3}}\right)$에서 $j\leq s_n \leq p^2$임을 통해, j를 p에 대한 부등식으로 적절히 바꾸어주면,
+$\dfrac{L_n\sqrt{p+j}}{\dfrac{\epsilon_n}{C\zeta^3}}\leq \dfrac{2p\zeta^3L_n}{\epsilon_n}$ 을 얻을 수 있다.\\
+\\ 
+따라서, $ln\left\{\left(\dfrac{L_n\sqrt{p+j}}{\dfrac{\epsilon_n}{C\zeta^3}}\right)^p \displaystyle \sum\limits_{j=1}^{s_n}\left(\dfrac{\sqrt{p+j}\dfrac{1}{\sqrt{2}}L_n}{\dfrac{\epsilon_n}{C\zeta^3}}\right)^{j}{\dfrac{p}{2} \choose j} \right \}$\\
+\\
+$=ln\left\{\left(\dfrac{2pC\zeta^3L_n}{\epsilon_n}\right)^p \displaystyle \sum\limits_{j=1}^{s_n}\left(\dfrac{\sqrt{2}C\zeta^3L_np}{\epsilon_n}\right)^j{\dfrac{p}{2} \choose j}\right\}$\\
+$= ln\left[((2p)^p(\sqrt{2}p)^{s_n})\left(\dfrac{C\zeta^3L_n}{\epsilon_n}\right)^p \displaystyle \sum\limits_{j=1}^{s_n} \left(\dfrac{C\zeta^3L_n}{\epsilon_n}\right)^j{\dfrac{p}{2} \choose j}\right]$\\
+$=pln2+plnp+s_n(\dfrac{1}{2}ln2+lnp)+pln\left(\dfrac{CL_n\zeta^3}{\epsilon_n}\right)+ln\left( \displaystyle \sum\limits_{j=1}^{s_{n}}\left(\dfrac{2CL_n\zeta^3}{\epsilon_n}\right)(\dfrac{p^2}{2})^j\right)$\\
+$\leq pln2+plnp+s_n(\dfrac{1}{2}ln2+lnp)+pln\left(\dfrac{CL_n\zeta^3}{\epsilon_n}\right)+s_{n}ln\left(\dfrac{2CL_n\zeta^3p^2}{\epsilon_n}\right)$\\
+$\leq pln2+plnp+\dfrac{1}{2}s_nln2+s_nlnp+(p+s_n)ln(2CL_n)+(p+s_n)ln\zeta^3+(p+s_n)ln\dfrac{1}{\epsilon_n}+2s_nlnp $ 에서 적절한 상수를 곱해주면,\\
+$\leq 2(p+s_n)lnp+(p+s_n)ln(2CL_n)+(p+s_n)ln\zeta^3+(p+s_n)ln\dfrac{1}{\epsilon_n}+2s_nlnp $\\
+\\
+이다. 먼저, $(p+s_n)ln(2CL_n)\leq 6s_nlnp$ 임을 보일건데,\\
+\\
+위에서 정의한 $s_n,\epsilon_n,L_n$을 통해, $s_n=c_1(p+s_0)$ 이므로,\\
+\\
+$p+s_n=(1+c_1)p+c_1s_0$임을 알 수 있다. 또한, $2CL_n=2c_2n\epsilon_n^2$ 이다.\\
+\\
+이를 좌변에 대입하면,$(p+s_n)ln(2CL_n)=((c_1+1)+c_1s_0)ln2c_2n\epsilon_n^2$\\
+\\
+$=((c_1+1)p+c_1s_0)ln2c_2(p+s_0)lnp$이다. $c_1 > 1$ 가정에 의해,\\
+\\
+$((c_1+1)+c_1s_0)ln2c_2n\epsilon_n^2\leq 2c_1(p+s_0)ln(2c_2(p+s_0)lnp)$이다. 한편, $s_0$는\\
+\\
+비대각 원소 중 0이 아닌 것들의 개수의 상한이므로 $s_o\leq p^2$ 임을 알 수 있다. \\
+\\
+따라서, 적절한 차수 $p^3$을 통해 $2c_2(p+s_0)lnp<p^3$ 을 얻을 수 있다. 이를 통해,\\
+\\
+$(p+s_n)ln(2CL_n)\leq 2c_1(p+s_0)lnp^3=6s_nlnp$ 부등식을 얻을 수 있다.\\
+\\
+이를 정리하면,\\
+$2(p+s_n)lnp+(p+s_n)ln(2CL_n)+(p+s_n)ln\zeta^3+(p+s_n)ln\dfrac{1}{\epsilon_n}+2s_nlnp $\\
+$\leq 2(p+s_n)lnp+6s_nlnp+(p+s_0)ln\zeta^3+(p+s_n)ln(\dfrac{1}{\epsilon_n})+2s_nlnp $이다.\\
+이제 $(p+s_0)ln\zeta^3\leq \dfrac{3}{4}(p+s_n)lnp$ 임을 보이자.\\
+$(p+s_n)ln\zeta^3=\dfrac{3}{4}(p+s_n)ln\zeta^4$인데, 가정에 의해, $\zeta^4\leq p$이므로,\\
+\\
+$(p+s_n)ln\zeta^3\leq \dfrac{3}{4}(p+s_n)lnp$임을 알 수 있다. 이를 대입하여 정리하면,\\
+$\leq 2(p+s_n)lnp+6s_nlnp+(p+s_0)ln\zeta^3+(p+s_n)ln(\dfrac{1}{\epsilon_n})+2s_nlnp $\\
+$\leq 2(p+s_n)lnp+6s_nlnp+\dfrac{3}{4}(p+s_n)lnp+(p+s_n)ln(\dfrac{1}{\epsilon_n})+2s_nlnp $이다.\\
+\\
+\noindent
+세번째 항에, 앞에서 정의한\ $\epsilon_n$을 대입하여 정리하면,\\
+\\
+$(p+s_n)ln(\dfrac{1}{\epsilon_n})=\dfrac{1}{2}(p+s_n)ln\dfrac{n}{(p+s_o)lnp}$임을 알 수 있고,\\
+\\
+우변$= \dfrac{1}{2\beta}(p+s_n)ln\left(\dfrac{n}{(p+s_o)lnp}\right)^\beta$\\
+\\
+$=\dfrac{1}{2\beta}(p+s_n)lnn^\beta-\dfrac{1}{2}(p+s_n)ln(p+s_0)lnp$\\
+$\leq \dfrac{1}{2\beta}(p+s_n)lnn^\beta=\dfrac{1}{2\beta}(p+s_n)lnp$ 이다.($\because p\asymp n^\beta  $)\\
+\\
+이를 다시 처음 부등식에서 정리하면,\\
+\\
+$\leq 2(p+s_n)lnp+6s_nlnp+\dfrac{3}{4}(p+s_n)lnp+\dfrac{1}{2\beta}(p+s_n)lnp+2s_nlnp $이다.\\
+\\
+이 부등식에 적절한 상수배를 해주면,\\
+\\
+$\leq 6s_nlnp+\dfrac{11}{4}(p+s_n)lnp+\dfrac{1}{2\beta}(p+s_n)lnp+2s_nlnp$\\
+$(6+\dfrac{1}{2\beta})(\dfrac{s_n}{c_1}+s_n)lnp< \dfrac{1}{2}(12+\dfrac{1}{\beta})(c_1+c_1)n\epsilon_n^2$\ ($\because c_1>1$)\\
+\\
+$=(12+\dfrac{1}{2\beta})c_1n\epsilon_n^2$ 이다.\\
+따라서, $lnD(\epsilon_n,P_n,d)\leq(12+\dfrac{1}{\beta})c_1n\epsilon_n^2$이 성립해서,\\
+\\
+이를 통해 Lemma1의 첫 번째 조건이 성립함을 알 수 있다.
+
+
+\end{proof}
+
